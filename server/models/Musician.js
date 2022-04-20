@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
 
-const bandSchema = new Schema({
+const musicianSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -20,11 +18,17 @@ const bandSchema = new Schema({
     required: true,
     minlength: 6,
   },
-  picture: {
+  firstName: {
     type: String,
+    required: true,
     trim: true,
   },
-  bandName: {
+  lastName: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  picture: {
     type: String,
     trim: true,
   },
@@ -32,22 +36,21 @@ const bandSchema = new Schema({
     type: String,
     trim: true,
   },
-  genres: [String],
-  currentMembers: [String],
   location: {
     type: Schema.Types.ObjectId,
     ref: 'Location',
   },
-  posts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Post',
-    },
-  ],
+
+  instruments: [String],
+  preferredRole: [String],
+  genres: [String],
+  available: {
+    type: Boolean,
+  },
 });
 
 // Set up pre-save middleware to create password
-bandSchema.pre('save', async function (next) {
+musicianSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -57,10 +60,10 @@ bandSchema.pre('save', async function (next) {
 });
 
 // Compare the incoming password with the hashed password
-bandSchema.methods.isCorrectPassword = async function (password) {
+musicianSchema.methods.isCorrectPassword = async function (password) {
   await bcrypt.compare(password, this.password);
 };
 
-const Band = mongoose.model('Band', bandSchema);
+const Musician = model('Musician', musicianSchema);
 
-module.exports = Band;
+module.exports = Musician;
