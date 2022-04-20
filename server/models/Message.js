@@ -6,7 +6,7 @@ const messageSchema = new Schema({
   sender: {
     
   },
-  reciever: {
+  receiver: {
     
   },
   message: {
