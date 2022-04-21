@@ -2,9 +2,6 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const dateFormat = require('../utils/dateFormat');
 
-
-
-
 const messageSchema = new Schema({
   sender: {
     type: Schema.Types.ObjectId,
