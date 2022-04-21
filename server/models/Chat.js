@@ -2,13 +2,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const chatSchema = new Schema({
-  musician: {
+  users: {
     type: Schema.Types.ObjectId,
-    ref: 'Musician',
-  },
-  Band: {
-    type: Schema.Types.ObjectId,
-    ref: 'Band',
+    ref: 'Account',
   },
   messages: [
     {
