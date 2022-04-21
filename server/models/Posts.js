@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const accountSchema = require('./Account');
+const dateFormat = require('../utils/dateFormat');
 
 const postsSchema = new Schema({
   title: {
@@ -15,14 +15,16 @@ const postsSchema = new Schema({
   picture: {
     type: String,
   },
-  updatedOn: { 
+  createdAt: {
     type: Date,
-    default: Date.now
-     },
-  user: {
-    user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Account' },
-    required: true
-  }
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+  },
+  accountId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Account',
+    required: true,
+  },
 });
 
 const Posts = model('Posts', postsSchema);
