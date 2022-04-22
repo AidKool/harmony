@@ -1,0 +1,90 @@
+[
+  {
+    "_id": "6262c99c82d609a6c29906e8",
+    "username": "emma.jones",
+    "email": "e.jones@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Musician",
+    "musicianId": "6262d33742c1c49c1fe96586",
+    "location": "6262d041d6300e64987d8e73"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686ab",
+    "username": "little_john",
+    "email": "l.john@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Musician",
+    "musicianId": "6262d33742c1c49c1fe96587",
+    "location": "6262d041d6300e64987d8e74"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686ac",
+    "username": "paul_smith",
+    "email": "p.smith@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Musician",
+    "musicianId": "6262d33742c1c49c1fe96588",
+    "location": "6262d041d6300e64987d8e75"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686ad",
+    "username": "sarah.p",
+    "email": "sarah.p@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Musician",
+    "musicianId": "6262d33742c1c49c1fe96589",
+    "location": "6262d041d6300e64987d8e76"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686ae",
+    "username": "smokers",
+    "email": "wearechill@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Band",
+    "bandId": "6262d839ccabf53f3dde7c32",
+    "location": "6262d041d6300e64987d8e77"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686af",
+    "username": "big_boys",
+    "email": "bboys@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Band",
+    "bandId": "6262d839ccabf53f3dde7c33",
+    "location": "6262d041d6300e64987d8e78"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686b0",
+    "username": "chillies",
+    "email": "chillies@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Band",
+    "bandId": "6262d839ccabf53f3dde7c34",
+    "location": "6262d041d6300e64987d8e79"
+  },
+  {
+    "_id": "6262cf25b47c1581e93686b1",
+    "username": "stompers",
+    "email": "stompers@email.com",
+    "password": "123456abc",
+    "picture": "https://via.placeholder.com/150x150",
+    "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
+    "type": "Band",
+    "bandId": "6262d839ccabf53f3dde7c35",
+    "location": "6262d041d6300e64987d8e7a"
+  }
+]

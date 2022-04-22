@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "6262d33742c1c49c1fe96586",
+    "firstName": "Emma",
+    "lastName": "Jones",
+    "instruments": ["guitar", "drums"],
+    "preferredRole": ["guitarist"],
+    "available": true
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96587",
+    "firstName": "John",
+    "lastName": "Comec",
+    "instruments": ["vocals"],
+    "preferredRole": ["vocalist"],
+    "available": true
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96588",
+    "firstName": "Paul",
+    "lastName": "Smith",
+    "instruments": ["drums"],
+    "preferredRole": ["drummer"],
+    "available": false
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96589",
+    "firstName": "Sarah",
+    "lastName": "Peacock",
+    "instruments": ["drums"],
+    "preferredRole": ["drummer"],
+    "available": true
+  }
+]

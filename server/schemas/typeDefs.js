@@ -48,7 +48,7 @@ const typeDefs = gql`
   type Message {
     sender: Account
     receiver: Account
-    message: Message
+    message: String
     createdAt: String
   }
 
@@ -62,12 +62,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addAccount(
-      username: String!
-      email: String!
-      password: String!
-      type: String! 
-    ): Account
+    addAccount(username: String!, email: String!, password: String!, type: String!): Account
 
     # updateAccount(
     #   username: String
