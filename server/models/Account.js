@@ -44,6 +44,7 @@ const accountSchema = new Schema({
     type: String,
     enum: ['Band', 'Musician'],
     default: 'Musician',
+    required: true,
   },
   musicianId: {
     type: Schema.Types.ObjectId,
