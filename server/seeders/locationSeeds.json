@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "6262d041d6300e64987d8e73",
+    "longitude": -2.2374,
+    "latitude": 53.48095,
+    "name": "Manchester"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e74",
+    "longitude": -1.13169,
+    "latitude": 52.6386,
+    "name": "Leicester"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e75",
+    "longitude": -1.54785,
+    "latitude": 53.79648,
+    "name": "Leeds"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e76",
+    "longitude": -3.18,
+    "latitude": 51.48,
+    "name": "Cardiff"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e77",
+    "longitude": -1.4659,
+    "latitude": 53.38297,
+    "name": "Sheffield"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e78",
+    "longitude": 1.15545,
+    "latitude": 52.05917,
+    "name": "Ipswich"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e79",
+    "longitude": -1.08271,
+    "latitude": 53.95763,
+    "name": "York"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7a",
+    "longitude": -2.09814,
+    "latitude": 57.14369,
+    "name": "Aberdeen"
+  }
+]

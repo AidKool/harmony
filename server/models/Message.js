@@ -12,14 +12,14 @@ const messageSchema = new Schema({
     ref: 'Account',
   },
   message: {
-    type: Schema.Types.ObjectId,
-    ref: 'Message',
+    type: String,
+    trim: true,
   },
   createdAt: {
     type: Date,
     default: Date.now,
-    get: timestamp => dateFormat(timestamp)
-  }
+    get: (timestamp) => dateFormat(timestamp),
+  },
 });
 
 const Message = mongoose.model('Message', messageSchema);
