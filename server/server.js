@@ -1,9 +1,11 @@
+require('dotenv');
 const express = require('express');
 const path = require('path');
 const { typeDefs, resolvers } = require('./schemas');
 const { ApolloServer } = require('apollo-server-express');
 
 const db = require('./config/connection');
+const { authMiddleware } = require('./utils/auth');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -11,6 +13,7 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: false }));
@@ -24,7 +27,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-const startApolloServer = async (typeDefs, resolvers) => {
+const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
 
@@ -37,4 +40,4 @@ const startApolloServer = async (typeDefs, resolvers) => {
 };
 
 // Call the async function to start the server
-startApolloServer(typeDefs, resolvers);
+startApolloServer();
