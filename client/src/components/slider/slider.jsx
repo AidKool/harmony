@@ -1,6 +1,7 @@
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import './slider.css'
+import {  } from '@fortawesome/free-brands-svg-icons';
 
 import React from 'react';
 

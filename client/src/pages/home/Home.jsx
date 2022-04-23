@@ -1,6 +1,8 @@
 import React from 'react';
 import homeStyles from './home.css';
 import Slider from '../../components/slider/slider';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 
 function home() {
   return (
@@ -17,7 +19,9 @@ function home() {
       </section>
       <section className="slider-section">
         <div className="home-title-holder">
-          <p className="slider-title">Explore amazing events</p>
+          <p className="slider-title">
+            Explore amazing events    <FontAwesomeIcon className='slider-arrow' icon={faAnglesRight} />
+          </p>
         </div>
         <div className="slider-container">
           <Slider />
