@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Home from './pages/home/Home.jsx'
 
 function App() {
   return (
     <div>
-      <h1>Title</h1>
+      <Home />
     </div>
   );
 }

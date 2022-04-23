@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  background: rgba(230, 61, 61, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 500;
+  max-height: 100vh;
+
+}
+
+.poster-card {
+  width: 100%;
+  height: 550px;
+  background: grey;
+  border-radius: 10px;
+  cursor: grab;
+  margin: 0 40px 0 40px;
+  object-fit: cover;
+}
+
+.poster-card-img {
+  width: 100%;
+  height: 550px;
+   object-fit: cover;
+   border-radius: 10px;
+}
+
+.test:active {
+  cursor: grabbing;
+}
+
+.keen-slider { 
+  cursor: grab;
+  display: flex;
+}
+
+.keen-slider:active { 
+  cursor: grabbing;
+}
+
+
+@media screen and (max-width: 1440px) {
+  .poster-card {
+    width: 100%;
+    margin: 0 15px 0 15px;
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  .poster-card {
+    width: 100%;
+    margin: 0 1px 0 1px;
+  }
+}
+
+
+
