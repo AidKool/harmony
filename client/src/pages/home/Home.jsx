@@ -15,7 +15,6 @@ function home() {
           <button className="hero-button">Lets rock!</button>
         </div>
       </section>
-
       <section className="slider-section">
         <div className="home-title-holder">
           <p className="slider-title">Explore amazing events</p>
@@ -24,7 +23,12 @@ function home() {
           <Slider />
         </div>
       </section>
-      <section className="duo-section"></section>
+      <section className="duo-section">
+        <div className='duo-card-container'>
+          <article className='duo-card'></article>
+          <article className='duo-card'></article>
+        </div>
+      </section>
     </div>
   );
 }
