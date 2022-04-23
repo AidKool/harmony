@@ -63,19 +63,15 @@ const typeDefs = gql`
 
   type Mutation {
     addAccount(username: String!, email: String!, password: String!, type: String!): Account
-    addPost(title: String!, content: String!, accountId: ID!): Post
-    addChat(users: [ID]!, messages: [String]): Chat
-    addMessage(sender: String!, receiver: String!, message: String!, chatId: ID!): Message
-    updateAccount(accountId: ID!, picture: String, bio: String, location: ID, genres: [String]): Account
-    updateMusician(
-      firstName: String
-      lastName: String
-      instruments: [String]
-      available: Boolean
-      musicianId: ID
-    ): Musician
-    updatePost(title: String, content: String, picture: String, postId: ID): Post
-    deletePost(postId: ID!): Post
+    login(email: String!, password: String!): Auth
+    addPost(title: String!, content: String!): Post
+    addChat(user: [ID]!, messages: [String]): Chat
+    addMessage(sender: String!, receiver: String!, message: String!): Message
+    updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
+    updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean): Musician
+    updateBand(bandName: String): Band
+    updatePost(title: String, content: String, picture: String): Post
+    deletePost: Post
   }
 `;
 

@@ -1,22 +1,23 @@
-const { UserInputError } = require('apollo-server-express');
+const { AuthenticationError } = require('apollo-server-express');
 const { Account, Musician, Band, Chat, Location, Message, Post } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     getAccount: async (parent, { _id }) => {
-      return Account.findOne({ _id }).populate('location', 'posts', 'musicianId', 'bandId');
+      return Account.findById(_id).populate('location', 'posts', 'musicianId', 'bandId');
     },
     getAllAccounts: async () => {
       return Account.find().populate('location', 'posts', 'musicianId', 'bandId');
     },
     getPost: async (parent, { _id }) => {
-      return Post.findOne({ _id });
+      return Post.findById(_id);
     },
     getAllPosts: async () => {
       return Post.find();
     },
     getChat: async (parent, { _id }) => {
-      return Chat.findOne({ _id }).populate('messages');
+      return Chat.findById(_id).populate('messages');
     },
     getAllChats: async () => {
       return Chat.find();
@@ -35,95 +36,106 @@ const resolvers = {
           account.bandId = band._id;
           await account.save();
         }
-        return account;
+        const token = signToken(user);
+        return { token, account };
       } catch (error) {
         console.error(error.message);
       }
     },
-    addPost: async (parent, { title, content, accountId }, context) => {
-      try {
-        const post = await Post.create({ title, content, accountId });
-        await Account.findOneAndUpdate({ _id: accountId }, { $addToSet: { posts: post._id } });
+    login: async (parent, { email, password }) => {
+      const account = await Account.findOne({ email });
+      if (!account) {
+        throw new AuthenticationError('Invalid credentials');
+      }
+      const correctPw = await account.isCorrectPassword(password);
+      if (!correctPw) {
+        throw new AuthenticationError('Credentials invalid');
+      }
+      const token = signToken(account);
+      return { token, account };
+    },
+    addPost: async (parent, { title, content }, context) => {
+      if (context.account) {
+        const post = await Post.create({ title, content });
+        await Account.findByIdAndUpdate(context.account._id, { $addToSet: { posts: post._id } });
         return post;
-      } catch (error) {
-        console.error(error.message);
       }
+      throw new AuthenticationError('You must be logged in');
     },
-    addChat: async (parent, { users }, context) => {
-      try {
-        const chat = await Chat.create({ users });
+    addChat: async (parent, { user }, context) => {
+      if (context.account) {
+        const ids = [context.account._id, user._id];
+        const chat = await Chat.create(ids);
         return chat;
-      } catch (error) {
-        console.error(error.message);
       }
+      throw new AuthenticationError('You must be logged in');
     },
-    addMessage: async (parent, { sender, receiver, message, chatId }, context) => {
-      try {
+    addMessage: async (parent, { sender, receiver, message }, context) => {
+      if (context.account) {
         const newMessage = await Message.create({ sender, receiver, message });
-        await Chat.findOneAndUpdate({ _id: chatId }, { $addToSet: { messages: newMessage._id } });
+        await Chat.findByIdAndUpdate(context.chat._id, { $addToSet: { messages: newMessage._id } });
         return newMessage;
-      } catch (error) {
-        console.error(error.message);
       }
+      throw new AuthenticationError('You must be logged in');
     },
-    updateAccount: async (parent, { picture, bio, location, genres, accountId }, context) => {
-      try {
-        const updatedAccount = await Account.findOneAndUpdate(
-          { _id: accountId },
-          {
-            picture,
-            bio,
-            location,
-            genres,
-          }
-        );
+    updateAccount: async (parent, { picture, bio, location, genres }, context) => {
+      if (context.account) {
+        const updatedAccount = await Account.findByIdAndUpdate(context.account._id, {
+          picture,
+          bio,
+          location,
+          genres,
+        });
         return updatedAccount;
-      } catch (error) {
-        console.error(error.message);
       }
+      throw new AuthenticationError('You must be logged in');
     },
-    updateMusician: async (parent, { firstName, lastName, instruments, available, musicianId }, context) => {
-      try {
-        const updatedMusician = await Musician.findOneAndUpdate(
-          { _id: musicianId },
-          {
-            firstName,
-            lastName,
-            instruments,
-            available,
-          }
-        );
+    updateMusician: async (parent, { firstName, lastName, instruments, available }, context) => {
+      if (context.account) {
+        const updatedMusician = await Musician.findByIdAndUpdate(context.account.musicianId, {
+          firstName,
+          lastName,
+          instruments,
+          available,
+        });
         return updatedMusician;
-      } catch (error) {
-        console.error(error.message);
       }
+      throw new AuthenticationError('You must be logged in');
     },
-    updatePost: async (parent, { title, content, picture, postId }, context) => {
-      try {
-        const updatedPost = await Post.findOneAndUpdate(
-          { _id: postId },
-          {
-            title,
-            content,
-            picture,
-          }
-        );
+    updateBand: async (parent, { bandName }, context) => {
+      if (context.account) {
+        const updatedBand = await Band.findByIdAndUpdate(context.account.bandId, {
+          bandName,
+        });
+        return updatedBand;
+      }
+      throw new AuthenticationError('You must be logged in');
+    },
+    updatePost: async (parent, { title, content, picture }, context) => {
+      if (!context.account) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      if (context.post.accountId === context.account._id) {
+        const updatedPost = await Post.findByIdAndUpdate(context.post._id, {
+          title,
+          content,
+          picture,
+        });
         return updatedPost;
-      } catch (error) {
-        console.error(error.message);
       }
+      throw new AuthenticationError('You can only update your own posts');
     },
-    deletePost: async (parent, { postId }, context) => {
-      try {
-        const deletePost = await Post.deleteOne({ _id: postId });
-        return deletePost;
-      } catch (error) {
-        console.error(error.message);
+    deletePost: async (parent, args, context) => {
+      if (!context.account) {
+        throw new AuthenticationError('You must be logged in');
       }
+      if (context.post.accountId === context.account._id) {
+        const deletePost = await Post.findByIdAndDelete(context.account._id);
+        return deletePost;
+      }
+      throw new AuthenticationError('You can only delete your own posts');
     },
   },
 };
-
-
 
 module.exports = resolvers;
