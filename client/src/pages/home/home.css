@@ -37,14 +37,14 @@
 
 .home-cta-title {
   color: white;
-  font-family: "Khula", sans-serif;
+  font-family: 'Khula', sans-serif;
   font-size: 3rem;
   font-weight: 600;
 }
 
 .home-cta-button {
   background-color: transparent;
-  font-family: "Khula", sans-serif;
+  font-family: 'Khula', sans-serif;
   width: 140px;
   height: 40px;
   display: flex;
@@ -72,14 +72,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("./assets/rockandroll.jpg");
+  background-image: url('./assets/rockandroll.jpg');
   background-size: cover;
   text-align: center;
 }
 
 .hero-button {
   background-color: white;
-  font-family: "Khula", sans-serif;
+  font-family: 'Khula', sans-serif;
   width: 140px;
   height: 40px;
   display: flex;
@@ -92,6 +92,7 @@
   color: rgb(75, 75, 75);
   transition: ease-in-out 150ms;
   padding-top: 5px;
+  border: 2px solid white;
 }
 
 .hero-button:hover {
@@ -123,16 +124,18 @@
   justify-content: center;
   height: auto;
   background-color: white;
-  height: 800px;
+  height: 700px;
 }
 
 .slider-title {
-   color: rgb(59, 59, 59);
+  color: rgb(59, 59, 59);
   font-family: 'Ubuntu', sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  padding-bottom: 10px;
   height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-title-holder {
@@ -140,8 +143,21 @@
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  width: 90%;
+  width: 100%;
   gap: 10px;
+  padding-left: 5%;
+}
+
+.duo-section-card-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  text-align: left;
+  padding-bottom: 5%;
 }
 
 .duo-section {
@@ -150,8 +166,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(236, 113, 113);
-  padding: 5% 0 5% 0 ;
+  background-color: rgb(255, 255, 255);
+}
+
+.duo-section-title-holder {
+  width: 100%;
+  display: flex;
+  height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 5%;
 }
 
 .duo-card-container {
@@ -159,16 +183,89 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8%;
+  gap: 5%;
 }
 
-.duo-card { 
+.duo-card {
   aspect-ratio: 1/1;
   width: 50%;
-  background-color: #2bb673;
+  background-color: #e6e6e6;
   border-radius: 10px;
 }
 
+.duo-title{
+color: rgb(59, 59, 59);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 450px) {
+  .slider-container {
+    width: 90%;
+    gap: 10px;
+  }
+
+ 
+
+  .hero-title {
+    font-size: 1.5rem;
+    width: 300px;
+    line-height: 2rem;
+  }
+
+  .home-cta-container {
+    height: 700px;
+  }
+
+  .home-cta-title {
+    font-size: 1.5rem;
+    width: 250px;
+    line-height: 2rem;
+  }
+
+  .slider-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    height: 50px;
+  }
+
+  .duo-card-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .duo-card {
+    width: 100%;
+    aspect-ratio: 1/1.3;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .hero-title, .home-cta-title {
+    font-size: 1.5rem;
+  }
+
+   .hero-section {
+    gap: 50px;
+    padding-bottom: 50px;
+  }
+
+    .slider-title, .duo-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    height: 50px;
+  }
+
+  .home-title-holder, .duo-section-title-holder {
+    padding-left: 6%;
+  }
+}
 
 @media screen and (max-width: 450px) {
   .slider-container {
@@ -193,14 +290,13 @@
 
   .home-cta-title {
     font-size: 1.5rem;
-    width: 250px;
     line-height: 2rem;
   }
 
-  .slider-title {
-font-size: 1.5rem;
-    width: 250px;
+  .slider-title, .duo-title {
+    font-size: 1.5rem;
     line-height: 2rem;
+    height: 50px;
   }
 
   .duo-card-container {
@@ -208,9 +304,17 @@ font-size: 1.5rem;
     gap: 20px;
   }
 
-  .duo-card  {
+  .duo-card {
     width: 100%;
-     aspect-ratio: 1/1.3;
+    aspect-ratio: 1/1.3;
+  }
+  
+  .home-title-holder, .duo-section-title-holder {
+    padding-left: 6%;
   }
 }
+
+
+
+
 

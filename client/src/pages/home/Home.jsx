@@ -1,5 +1,5 @@
 import React from 'react';
-import homeStyles from './home.css'
+import homeStyles from './home.css';
 import Slider from '../../components/slider/slider';
 
 function home() {
@@ -24,9 +24,14 @@ function home() {
         </div>
       </section>
       <section className="duo-section">
-        <div className='duo-card-container'>
-          <article className='duo-card'></article>
-          <article className='duo-card'></article>
+        <div className="duo-section-card-title-container">
+          <div className="duo-section-title-holder">
+            <p className="duo-title">Explore amazing events</p>
+          </div>
+          <div className="duo-card-container">
+            <article className="duo-card"></article>
+            <article className="duo-card"></article>
+          </div>
         </div>
       </section>
     </div>
