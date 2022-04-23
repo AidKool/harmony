@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Profile from './pages/profile/Profile.js';
+import Home from './pages/home/Home'
 
 function App() {
   return (
     <div>
-      <Profile />
+      <Home />
     </div>
   );
 }
