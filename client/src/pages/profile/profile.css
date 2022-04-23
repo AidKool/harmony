@@ -1,0 +1,80 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+
+.userImg {
+    max-width: 200px;
+    border-radius: 400px;
+    aspect-ratio: 1/1;
+    outline: solid 10px rgb(0, 187, 0);
+}
+
+body {
+    margin: 0px;
+
+}
+
+.topContainer {
+    min-width: 100vw;
+    display: flex;
+    background-color: rgb(18, 16, 40);
+    flex-direction: column;   
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+ border-bottom:  solid 16px rgb(0, 187, 0);
+
+}
+
+.profileContainer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.userRandomAsset {
+    color: black;
+    padding: 10px;
+    min-width: 10%;
+    border-radius: 300px;
+    border: none;
+}
+
+.userRandomAsset:hover {
+color: white;
+background-color: rgb(18, 16, 40);
+outline: white solid 2px;
+transition: 0.5s;
+font-weight: bold;
+}
+
+.userName{
+    margin: 0px;
+    padding: 0px;
+    font-size: 400%;
+    font-weight: bolder;
+}
+
+.userLocation {
+    margin-top: 16px;
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+.userRole {
+    font-size: 20px;
+}
+
+.infoContainer{
+    text-align: start;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+.infoContainer > * {
+    color: black;
+}
