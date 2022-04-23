@@ -39,7 +39,7 @@ export default function Slider() {
           <a href="https://www.google.com/" target="_blank">
             <img
               className="poster-card-img"
-              src="https://images.wolfgangsvault.com/m/xlarge/BG072-PO/the-paul-butterfield-blues-band-poster-jul-11-1967-jul-16-1967.webp"
+              src="https://i.pinimg.com/474x/44/3b/4b/443b4bdb7d02cab5b81ef51436c1a189--band-posters-tour-posters.jpg"
               alt=""
             />
           </a>
@@ -86,7 +86,7 @@ export default function Slider() {
           <a href="https://www.google.com/" target="_blank">
             <img
               className="poster-card-img"
-              src="https://i.pinimg.com/474x/44/3b/4b/443b4bdb7d02cab5b81ef51436c1a189--band-posters-tour-posters.jpg"
+              src="https://images.wolfgangsvault.com/m/xlarge/BG072-PO/the-paul-butterfield-blues-band-poster-jul-11-1967-jul-16-1967.webp"
               alt=""
             />
           </a>
