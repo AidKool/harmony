@@ -8,7 +8,7 @@ function index() {
         name="message"
         id="message"
         placeholder="Type your message"
-        className="w-full h-10 rounded-3xl px-7 focus:outline-none"
+        className="w-full h-10 rounded-3xl px-7 bg-gray-200 focus:outline-none"
       />
     </form>
   );

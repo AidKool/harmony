@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import './chatlist.css';
 
 const list = [
   {
@@ -29,14 +31,28 @@ const list = [
 ];
 
 function ChatList() {
+  const [active, setActive] = useState(1);
+
+  function handleChat(event) {
+    const id = event.currentTarget.dataset.id;
+    console.log(id);
+    setActive(id);
+  }
+
   return (
-    <div className="h-full px-5 py-10">
-      <h2 className="font-bold text-2xl pb-5">All Chats</h2>
+    <div className="h-full px-2 py-10">
+      <h2 className="w-0 overflow-hidden md:w-fit font-bold text-2xl pb-5">All Chats</h2>
       <ul className="space-y-8">
         {list.map((person) => (
-          <li key={person.id} className="flex items-center space-x-2">
-            <img src={person.picture} className="rounded-full" alt={person.name} />
-            <p className="">{person.name}</p>
+          <li
+            key={person.id}
+            className={`flex items-center md:space-x-2 px-1 md:px-3 py-2 cursor-pointer chatlist-element ${
+              active === person.id ? 'bg-blue-200' : ''
+            }`}
+            data-id={person.id}
+            onClick={handleChat}>
+            <img src={person.picture} className="rounded-full min-w-fit" alt={person.name} />
+            <p className="w-0 overflow-hidden md:w-fit">{person.name}</p>
           </li>
         ))}
       </ul>

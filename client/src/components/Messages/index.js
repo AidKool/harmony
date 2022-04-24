@@ -107,29 +107,25 @@ function Messages() {
   return (
     <div className="px-5 py-10">
       <header>
-        <figure className="space-y-4">
-          <img src="https://via.placeholder.com/100x100" className="mx-auto" alt="profile" />
-          <figcaption className="text-center text-xl">Person 1</figcaption>
-        </figure>
-        <ul className="flex flex-col gap-y-3">
-          {messages.map((message) => {
-            return (
-              <li
-                key={message.id}
-                className={`flex items-start gap-x-2 ${message.sender === user ? 'flex-row-reverse' : ''}`}>
-                <img src="https://via.placeholder.com/40x40" className="rounded-full object-contain" alt="profile" />
-                <span
-                  className={`${
-                    message.sender === user ? 'float-right bg-yellow-600' : 'float-left bg-gray-400'
-                  } clear-both max-w-md px-5 rounded-lg`}>
-                  {message.message}
-                  <p className="text-xs">12:00</p>
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+        <h2>Person 1</h2>
       </header>
+      <div className="flex flex-col gap-y-3">
+        {messages.map((message) => {
+          return (
+            <div
+              key={message.id}
+              className={`flex items-start gap-x-2 ${message.sender === user ? 'flex-row-reverse' : ''}`}>
+              <img src="https://via.placeholder.com/40x40" className="rounded-full object-contain" alt="profile" />
+              <span
+                className={`${
+                  message.sender === user ? 'float-right bg-blue-600 text-white' : 'float-left bg-gray-300'
+                } clear-both max-w-md px-5 py-2 rounded-3xl`}>
+                {message.message}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
