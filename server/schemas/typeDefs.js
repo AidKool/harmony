@@ -15,6 +15,11 @@ const typeDefs = gql`
     bandId: Band
   }
 
+  type Auth {
+    token: ID!
+    account: Account
+  }
+
   type Band {
     bandName: String
   }
