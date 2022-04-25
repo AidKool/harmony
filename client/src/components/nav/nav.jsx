@@ -46,7 +46,7 @@ function Nav() {
 
       <section className={toggle ? 'mobileNavMenu-open' : 'mobileNavMenu-closed'}>
         <div className="nav-menu-content-container">
-          <h2 className="nav-menu-title">Navigation</h2>
+          <h2 className="nav-menu-title">Menu</h2>
           <ul className="nav-menu-content-links">
             <li className="nav-menu-li">My Feed</li>
             <li className="nav-menu-li">My Account</li>

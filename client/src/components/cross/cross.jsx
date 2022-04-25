@@ -2,9 +2,9 @@ import * as React from 'react';
 
 const Cross = (props) => (
   <svg
-  className='cross'
+    className="cross"
     x="0px"
-    y="0px" 
+    y="0px"
     viewBox="0 0 95.6 95.6"
     style={{
       enableBackground: 'new 0 0 95.6 95.6',
@@ -16,9 +16,9 @@ const Cross = (props) => (
     </style>
     <defs />
     <g>
-      <line className="st0" x1={90.1} y1={7.3} x2={7.3} y2={90.1} />
-      <line className="st0" x1={5.5} y1={5.5} x2={71.4} y2={71.4} />
-      <line className="st0" x1={82.6} y1={82.7} x2={90} y2={90.1} />
+      <line className="st0 cross-one" x1={90.1} y1={7.3} x2={7.3} y2={90.1} />
+      <line className="st0 cross-two" x1={5.5} y1={5.5} x2={71.4} y2={71.4} />
+      <line className="st0 cross-three" x1={82.6} y1={82.7} x2={90} y2={90.1} />
     </g>
   </svg>
 );
