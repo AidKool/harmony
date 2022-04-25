@@ -1,14 +1,16 @@
 import React from 'react';
 
+import './messageInput.css';
+
 function index() {
   return (
-    <form className="p-4">
+    <form className="py-4 flex justify-center">
       <input
         type="text"
         name="message"
         id="message"
         placeholder="Type your message"
-        className="w-full h-10 rounded-3xl px-7 bg-gray-200 focus:outline-none"
+        className="text-input w-full rounded-3xl px-7 bg-gray-200 focus:outline-none"
       />
     </form>
   );

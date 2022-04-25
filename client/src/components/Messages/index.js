@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './messages.css';
+
 const messages = [
   {
     id: 1,
@@ -99,17 +101,52 @@ const messages = [
     date: new Date(),
     message: 'we are millionaires!',
   },
+  {
+    id: 11,
+    sender: 'B',
+    receiver: 'A',
+    date: new Date('2022-03-15T03:27:44'),
+    message: 'we should make a course to teach the new and upgraded JQuery and sell it online',
+  },
+  {
+    id: 12,
+    sender: 'A',
+    receiver: 'B',
+    date: new Date('2022-03-15T03:28:24'),
+    message: 'great idea!',
+  },
+  {
+    id: 13,
+    sender: 'A',
+    receiver: 'B',
+    date: new Date('2022-04-23T13:28:24'),
+    message: 'look at the number of sales!',
+  },
+  {
+    id: 14,
+    sender: 'B',
+    receiver: 'A',
+    date: new Date('2022-04-23T13:29:24'),
+    message: 'I told you everybody would love PHQuery!',
+  },
+  {
+    id: 15,
+    sender: 'A',
+    receiver: 'B',
+    date: new Date(),
+    message: 'we are millionaires!',
+  },
 ];
 
 const user = 'A';
 
 function Messages() {
   return (
-    <div className="px-5 py-10">
-      <header>
+    <div className="px-5 flex flex-col chat-height">
+      <header className="py-3">
         <h2>Person 1</h2>
       </header>
-      <div className="flex flex-col gap-y-3">
+      <div className="flex flex-col gap-y-3 overflow-y-auto">
         {messages.map((message) => {
           return (
             <div
