@@ -1,0 +1,149 @@
+.nav-bar {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-container {
+  width: 100%;
+  padding: 0 10% 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(0, 0, 0);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.logo-container {
+  width: 150px;
+  fill: white;
+}
+
+.nav-form {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+.nav-search-field {
+  width: 100%;
+  padding: 7px 35px 5px 15px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  font-family: 'Khula', sans-serif;
+}
+
+.nav-search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.cross {
+  padding: 2px;
+  transition: ease-in-out 0.25s;
+}
+
+.cross:hover {
+  transform: rotate(90deg);
+}
+
+.nav-search-icon {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hamburger-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.burger-icon {
+  width: 100%;
+  height: 100%;
+  fill: rgb(255, 255, 255);
+  color: white;
+  stroke: white;
+}
+
+.hamburger-container {
+  padding: 5px;
+}
+
+.hamburger-container:hover {
+  cursor: pointer;
+}
+
+.hamburger-container:hover .line-one {
+  transform: translateX(40px);
+}
+
+.hamburger-container:hover .line-two {
+  transform: translateX(-40px);
+}
+
+.line-one,
+.line-two {
+  transition: ease-in-out 0.15s;
+}
+
+.mobileNavMenu-closed {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 0px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: ease-in 250ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileNavMenu-open {
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  height: 500px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  z-index: 998;
+  opacity: 1;
+  visibility: visible;
+  transition: ease-in 250ms;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test {
+    margin-top: 100px;
+    width: 90%;
+    background-color: rgb(0, 0, 0);
+    height: 300px;
+    border-radius: 10px;
+    transition: ease-in 350ms;
+}

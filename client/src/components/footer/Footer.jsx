@@ -1,7 +1,8 @@
 import React from 'react';
 import './footer.css';
 import Logo from '../../components/logo/logo';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 function Footer() {
   return (
     <section className="home-footer-container">
@@ -64,6 +65,17 @@ function Footer() {
             </a>
           </ul>
         </div>
+      </div>
+      <div className="social-container">
+        <a target="_blank" href="">
+          <FontAwesomeIcon className="footer-list-link icon-sizing" icon={faGithub} />
+        </a>
+        <a target="_blank" href="">
+          <FontAwesomeIcon className="footer-list-link icon-sizing" icon={faLinkedinIn} />
+        </a>
+        <a target="_blank" href="">
+          <FontAwesomeIcon className="footer-list-link icon-sizing" icon={faInstagram} />
+        </a>
       </div>
     </section>
   );
