@@ -24,6 +24,12 @@
   margin-left: 10px;
 }
 
+.nav-logo-container {
+  color: black;
+   width: 140px;
+  margin-left: 10px;
+}
+
 .column-container {
   display: flex;
   align-items: center;

@@ -7,7 +7,7 @@ function Footer() {
   return (
     <section className="home-footer-container">
       <div className="footer-logo-container">
-        <div className="logo-container">
+        <div className="nav-logo-container">
           <Logo />
         </div>
       </div>

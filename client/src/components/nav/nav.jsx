@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Burger from '../burger/burger';
 import Cross from '../cross/cross';
+import HLogo from '../h-logo/h-logo';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -21,7 +24,12 @@ function Nav() {
     <nav className="nav-bar">
       <div className="nav-container">
         <div className="logo-container">
-          <Logo />
+          <Link className='logo-link' to="/">
+            <Logo />
+          </Link>
+        </div>
+        <div className="h-logo-container">
+          <HLogo />
         </div>
 
         <form action="/" method="GET" class="nav-form">
@@ -37,10 +45,18 @@ function Nav() {
       </div>
 
       <section className={toggle ? 'mobileNavMenu-open' : 'mobileNavMenu-closed'}>
-        <div className='test'>
-
+        <div className="nav-menu-content-container">
+          <h2 className="nav-menu-title">Navigation</h2>
+          <ul className="nav-menu-content-links">
+            <li className="nav-menu-li">My Feed</li>
+            <li className="nav-menu-li">My Account</li>
+            <li className="nav-menu-li">Contact</li>
+          </ul>
+          <button className="bn54">
+            <span className="bn54span">Login</span>
+          </button>
         </div>
-
+        <div className="nav-border"></div>
       </section>
     </nav>
   );
