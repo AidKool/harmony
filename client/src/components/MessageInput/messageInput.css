@@ -1,0 +1,4 @@
+.text-input {
+  height: 40px;
+  width: calc(100% - 40px);
+}
