@@ -1,3 +1,41 @@
+:root {
+  --pine-green: #2bb673;
+}
+
+.header {
+  width: 100%;
+  padding: 0 10% 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  gap: 100px;
+  transition: ease-out 150ms;
+}
+
+.header2 {
+  width: 100%;
+  padding: 0 10% 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  gap: 100px;
+   transition: ease-out 150ms;
+}
+
+
+
+
+
 .nav-bar {
   position: fixed;
   z-index: 999;
@@ -21,7 +59,7 @@
 }
 
 .logo-container {
-  width: 150px;
+  height: 50px;
   fill: white;
 }
 
@@ -51,11 +89,7 @@
   transition: ease-in-out 0.15s;
 }
 
-.cross:hover .cross-one {
-  /* transform: rotate(90deg); */
-  /* transform: translateY(-10px) translateX(10px); */
-}
-
+/* 
 .cross:hover .cross-two {
   transform: translateY(10px) translateX(10px);
 }
@@ -68,7 +102,7 @@
 .cross-two,
 .cross-three {
   transition: ease-in-out 0.15s;
-}
+} */
 
 .nav-search-icon {
   font-size: 1rem;
@@ -83,14 +117,12 @@
   justify-content: space-between;
   width: 40px;
   padding: 7px;
+  stroke: white;
 }
 
 .burger-icon {
   width: 100%;
   height: 100%;
-  fill: rgb(255, 255, 255);
-  color: white;
-  stroke: white;
 }
 
 .hamburger-container:hover {
@@ -130,6 +162,8 @@
   flex-direction: column;
 }
 
+
+
 .mobileNavMenu-open {
   position: fixed;
   top: 0%;
@@ -151,20 +185,50 @@
   flex-direction: column;
 }
 
-.nav-menu-content-container {
-  width: 80%;
+.backer {
+  padding-top: 150px;
+  width: 100%;
   background-color: rgb(0, 0, 0);
   height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
+  transition: ease-out 150ms;
+  padding-left: 10%;
+  
 }
 
+.backer2 {
+  padding-top: 150px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  transition: ease-out 150ms;
+  padding-left: 10%;
+ 
+}
+
+.backer2 > .nav-menu-title {
+  color: #000000;
+
+}
+
+.backer2 > ul > li {
+   color: #000000;
+}
+
+
+
 .nav-border {
+  margin-top: 50px;
   width: 80%;
-  background-color: #000000;
   height: 30px;
   border-top: rgb(145, 145, 145) 1px solid;
 }
@@ -219,9 +283,9 @@
   text-decoration: none;
 }
 
-.logo-link {
-  fill: white;
-}
+
+
+
 
 @keyframes bn54rotate {
   0% {
@@ -278,23 +342,105 @@
   text-decoration: underline;
 }
 
+.right-side-nav-container {
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.add-post-nav-btn {
+  height: 38px;
+  width: 140px;
+  gap: 10px;
+  background-color: var(--pine-green);
+  border: solid 2px var(--pine-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  transition: 250ms ease-out;
+  font-size: 1rem;
+  font-family: 'Khula', sans-serif;
+}
+
+.add-post-nav-btn:hover {
+  background-color: #46d18e;
+  border: 2px solid #46d18e;
+}
+
+.add-post-span {
+  font-size: 1rem;
+  font-family: 'Khula', sans-serif;
+  padding-top: 3px;
+}
+
+.header2 > .h-logo-container {
+  fill: #000000;
+}
+
+.header2 >.logo-container {
+  fill: black;
+} 
+
+.header2 > .right-side-nav-container > .hamburger-container {
+  stroke: black;
+}
+
+.header > input {
+  background-color: rgb(255, 255, 255);
+  transition: ease-out 250ms;
+}
+
+.header2 > form > input {
+  background-color: rgb(223, 223, 223);
+  transition: ease-out 250ms;
+}
+
+
 /* media queries -------------------------------- */
 @media screen and (max-width: 1400px) {
   .nav-container {
     padding: 0 10% 0 10%;
+    gap: 30px;
+  }
+
+    .header, .header2 {
+    padding: 0 10% 0 10%;
+    gap: 30px;
   }
 }
+
+
+
 
 @media screen and (max-width: 820px) {
   .hamburger-container {
     padding: 6px;
   }
+   .nav-container {
+    gap: 20px;
+  }
 }
 
 @media screen and (max-width: 650px) {
-  .nav-container {
-    gap: 20px;
-  }
+ .add-post-nav-btn {
+   width: 35px;
+   height: 30px;
+ }
+
+ .add-post-span {
+   visibility: none;
+   opacity: none;
+   display: none;
+ }
+
+ .right-side-nav-container {
+   gap: 10px;
+ }
 }
 
 @media screen and (max-width: 500px) {
@@ -312,6 +458,7 @@
     visibility: visible;
     opacity: 1;
     display: block;
+    width: 40px;
   }
 
   .nav-search-field {
