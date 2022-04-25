@@ -2,7 +2,7 @@ import React from 'react';
 
 function Profile() {
   return (
-    <div className="px-5 py-10 flex flex-col gap-y-3">
+    <div className="px-5 py-3 flex flex-col gap-y-3">
       <header className="space-y-10">
         <figure className="space-y-4">
           <img src="https://via.placeholder.com/100x100" className="mx-auto" alt="profile" />
