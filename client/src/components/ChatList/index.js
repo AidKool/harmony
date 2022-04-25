@@ -28,6 +28,46 @@ const list = [
     picture: 'https://via.placeholder.com/60x60',
     name: 'person 5',
   },
+  {
+    id: 6,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 6',
+  },
+  {
+    id: 7,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 7',
+  },
+  {
+    id: 8,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 8',
+  },
+  {
+    id: 9,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 9',
+  },
+  {
+    id: 10,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 10',
+  },
+  {
+    id: 11,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 11',
+  },
+  {
+    id: 12,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 12',
+  },
+  {
+    id: 13,
+    picture: 'https://via.placeholder.com/60x60',
+    name: 'person 13',
+  },
 ];
 
 function ChatList() {
@@ -40,9 +80,9 @@ function ChatList() {
   }
 
   return (
-    <div className="h-full px-2 py-10">
+    <div className="h-screen px-2 py-3">
       <h2 className="w-0 overflow-hidden md:w-fit font-bold text-2xl pb-5">All Chats</h2>
-      <ul className="space-y-8">
+      <ul className="flex flex-col gap-y-1 overflow-y-auto chatlist">
         {list.map((person) => (
           <li
             key={person.id}

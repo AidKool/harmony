@@ -1,3 +1,7 @@
+.chatlist {
+  height: calc(100vh - 52px - 24px);
+}
+
 .chatlist-element {
   min-width: 68px;
 }
