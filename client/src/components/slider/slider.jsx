@@ -7,6 +7,7 @@ import React from 'react';
 
 export default function Slider() {
   const [sliderRef] = useKeenSlider({
+    loop: true,
     mode: 'snap',
     breakpoints: {
       '(min-width: 300px)': {
