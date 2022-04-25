@@ -1,30 +1,24 @@
 import React from 'react';
-import homeStyles from './home.css'
-import Slider from '../../components/slider/slider';
+import './home.css';
+
+import SliderSection from '../../components/slider-section/slider-section';
+import Footer from '../../components/footer/Footer';
+import HomeHero from '../../components/home-hero/home-hero';
+import DuoSection from '../../components/duo-section/duo-section';
+import QuestionSection from '../../components/question-section/question-section';
+import Nav from '../../components/nav/nav';
+
+
 
 function home() {
   return (
     <div className="home-container">
-      <section className="hero-section">
-        <div className="home-cta-container">
-          <p className="home-cta-title">Discover your perfect band member</p>
-          <button className="home-cta-button">Lets go!</button>
-        </div>
-        <div className="hero-container">
-          <p className="home-cta-title hero-title">Join fellow musicians to create the next big thing</p>
-          <button className="hero-button">Lets rock!</button>
-        </div>
-      </section>
-
-      <section className="slider-section">
-        <div className="home-title-holder">
-          <p className="slider-title">Explore amazing events</p>
-        </div>
-        <div className="slider-container">
-          <Slider />
-        </div>
-      </section>
-      <section className="duo-section"></section>
+      <Nav />
+      <HomeHero />
+      <SliderSection />
+      <DuoSection />
+      <QuestionSection />
+      <Footer />
     </div>
   );
 }
