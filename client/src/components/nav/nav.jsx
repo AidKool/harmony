@@ -24,9 +24,9 @@ function Nav() {
   const [header, setHeader] = useState('header');
 
   const listenScrollEvent = (event) => {
-    if (window.scrollY < 1100) {
+    if (window.scrollY < 1150) {
       return setHeader('header');
-    } else if (window.scrollY > 1100) {
+    } else if (window.scrollY > 1150) {
       return setHeader('header2');
     }
   };
@@ -34,9 +34,9 @@ function Nav() {
    const [backer, setBacker] = useState('backer');
 
    const listenScrollEventTwo = (event) => {
-     if (window.scrollY < 1100) {
+     if (window.scrollY < 1150) {
        return setBacker('backer');
-     } else if (window.scrollY > 1100) {
+     } else if (window.scrollY > 1150) {
        return setBacker('backer2');
      }
    };
