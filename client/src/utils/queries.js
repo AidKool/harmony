@@ -5,7 +5,6 @@ export const QUERY_ACCOUNTS = gql`
     getAllAccounts {
       username
       email
-      password
       picture
       bio
     }
@@ -19,7 +18,60 @@ export const QUERY_SINGLE_ACCOUNT = gql`
       email
       type
       bio
+      location {
+        name
+      }
+      genres
+      posts {
+        title
+        content
+        picture
+        createdAt
+      }
+      musicianId {
+        firstName
+        lastName
+        instruments
+        preferredRole
+        available
+      }
+      bandId {
+        bandName
+      }
     }
   }
 `;
 
+export const GET_POSTS = gql`
+  query getAllPosts {
+    getAllPosts {
+      title
+      content
+      picture
+      createdAt
+    }
+  }
+`;
+
+export const GET_SINGLE_POST = gql`
+  query getPost($id: ID!) {
+    getPost(_id: $id) {
+      title
+      content
+      picture
+      createdAt
+    }
+  }
+`;
+
+export const GET_CHATS = gql`
+  query getAllChats {
+    getAllChats {
+      users {
+        username
+        _id
+        picture
+      }
+    }
+  }
+`;
