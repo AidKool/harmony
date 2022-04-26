@@ -5,8 +5,6 @@ function Logo() {
   return (
     <svg className='logoSVG'
       xmlns="http://www.w3.org/2000/svg"
-      width="55.5"
-      height="12.3"
       x="0"
       y="0"
       enableBackground="new 0 0 55.5 12.3"

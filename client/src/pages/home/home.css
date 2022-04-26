@@ -24,7 +24,7 @@
   margin-top: 90px;
   width: 90%;
   height: 500px;
-  background-color: var(--pine-green);
+  background-color: #ef4f6c;
   border-radius: 10px;
   padding: 25px;
   display: flex;
@@ -62,7 +62,7 @@
 .home-cta-button:hover {
   cursor: pointer;
   background-color: white;
-  color: var(--pine-green);
+  color: #ef4f6c;
 }
 
 .hero-container {
@@ -534,7 +534,6 @@
 
   .home-cta-container {
     height: 350px;
-    margin-top: 100px;
   }
 
   .home-cta-title {

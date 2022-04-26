@@ -12,7 +12,7 @@ const Cross = (props) => (
     xmlSpace="preserve"
     {...props}>
     <style type="text/css">
-      {'\n\t.st0{fill:none;stroke:#ffffff;stroke-width:10.9627;stroke-linecap:round;stroke-miterlimit:10;}\n'}
+      {'\n\t.st0{fill:none;stroke-width:10.9627;stroke-linecap:round;stroke-miterlimit:10;}\n'}
     </style>
     <defs />
     <g>
