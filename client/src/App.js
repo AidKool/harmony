@@ -22,19 +22,3 @@ function App() {
 }
 
 export default App;
-
-// <ApolloProvider client={client}>
-//   <Router>
-//     <div className="flex-column justify-flex-start min-100-vh">
-//       <Header />
-//       <div className="container">
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           {/* Create a route to display a single thought's comments based on its `thoughtId` provided in the URL */}
-//           <Route path="/thoughts/:thoughtId" element={<SingleThought />} />
-//         </Routes>
-//       </div>
-//       <Footer />
-//     </div>
-//   </Router>
-// </ApolloProvider>;
