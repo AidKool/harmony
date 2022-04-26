@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.js';
 import Login from './pages/Login/Login';
@@ -19,7 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profiles/:profileId" element={<Profile />} />
         </Routes>
       </Router>
     </ApolloProvider>
