@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Home from './pages/home/Home.jsx'
+import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.js';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -9,14 +8,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Routes> 
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profiles/:profileId" element={<Profile />} />
         </Routes>
       </Router>
     </ApolloProvider>
@@ -24,4 +22,3 @@ function App() {
 }
 
 export default App;
-

@@ -4,11 +4,11 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    getAccount: async (parent, { _id }) => {
-      return Account.findById(_id).populate('location', 'posts', 'musicianId', 'bandId');
+    getAccount: async (parent, {_id}) => {
+      return Account.findById(_id).populate(['location', 'posts', 'musicianId', 'bandId']);
     },
     getAllAccounts: async () => {
-      return Account.find().populate('location', 'posts', 'musicianId', 'bandId');
+    return Account.find().populate(['location', 'posts','musicianId', 'bandId']);
     },
     getPost: async (parent, { _id }) => {
       return Post.findById(_id);
