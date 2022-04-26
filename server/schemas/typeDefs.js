@@ -2,6 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Account {
+    _id: String
     username: String
     email: String
     password: String
@@ -16,15 +17,17 @@ const typeDefs = gql`
   }
 
   type Auth {
-    token: ID!
+    token: ID
     account: Account
   }
 
   type Band {
+    _id: ID
     bandName: String
   }
 
   type Musician {
+    _id: ID
     firstName: String
     lastName: String
     instruments: [String]
@@ -38,6 +41,7 @@ const typeDefs = gql`
   }
 
   type Post {
+    _id: ID
     title: String
     content: String
     picture: String
@@ -46,11 +50,13 @@ const typeDefs = gql`
   }
 
   type Chat {
+    _id: ID
     users: [Account]
     messages: [Message]
   }
 
   type Message {
+    _id: ID
     sender: Account
     receiver: Account
     message: String
@@ -67,16 +73,16 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addAccount(username: String!, email: String!, password: String!, type: String!): Account
+    addAccount(username: String!, email: String!, password: String!, type: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(title: String!, content: String!): Post
-    addChat(user: [ID]!, messages: [String]): Chat
+    addChat(user: [ID]!): Chat
     addMessage(sender: String!, receiver: String!, message: String!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
     updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean): Musician
     updateBand(bandName: String): Band
     updatePost(title: String, content: String, picture: String): Post
-    deletePost: Post
+    deletePost(postId: ID!): Post
   }
 `;
 

@@ -68,7 +68,7 @@ accountSchema.pre('save', async function (next) {
 
 // Compare the incoming password with the hashed password
 accountSchema.methods.isCorrectPassword = async function (password) {
-  await bcrypt.compare(password, this.password);
+  return await bcrypt.compare(password, this.password);
 };
 
 const Account = mongoose.model('Account', accountSchema);
