@@ -2,7 +2,7 @@ import React from 'react';
 import './footer.css';
 import Logo from '../../components/logo/logo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faLinkedinIn, } from '@fortawesome/free-brands-svg-icons';
 function Footer() {
   return (
     <section className="home-footer-container">

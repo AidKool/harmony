@@ -3,38 +3,34 @@
 }
 
 .header {
-  width: 100%;
-  padding: 0 10% 0 6%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(0, 0, 0);
-  height: 80px;
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  gap: 100px;
-  transition: ease-out 150ms;
+    width: 100%;
+    padding: 0px 10% 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    gap: 100px;
+    transition: ease-out 150ms;
 }
 
 .header2 {
   width: 100%;
-  padding: 0 10% 0 6%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(255, 255, 255);
-  height: 80px;
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  gap: 100px;
-  transition: ease-out 150ms;
+    padding: 0px 10% 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    gap: 100px;
+    transition: ease-out 150ms;
 }
-
-
-
-
 
 .nav-bar {
   position: fixed;
@@ -42,6 +38,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: auto;
 }
 
 .nav-container {
@@ -351,7 +349,7 @@
 }
 
 .add-post-nav-btn {
-  height: 33px;
+  height: 38px;
   width: 140px;
   gap: 10px;
   background-color: var(--pine-green);
