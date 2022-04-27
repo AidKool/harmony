@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function homeHero () {
+function homeHero() {
   return (
     <section className="hero-section">
       <div className="home-cta-container">
@@ -20,4 +20,4 @@ function homeHero () {
   );
 }
 
-export default homeHero
+export default homeHero;
