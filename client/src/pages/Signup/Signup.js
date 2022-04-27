@@ -1,22 +1,35 @@
 import { useState, useEffect } from 'react';
 import './signup.css';
 import backgroundImage from '../Login/assets/gig-background-pic.jpg';
+import { useMutation } from '@apollo/client';
+import { ADD_ACCOUNT } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
 function Signup() {
-  const initialValues = { username: '', email: '', password: '', confirmPassword: '', type: '' };
+  const initialValues = { username: '', email: '', password: '', type: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [addAccount, { error, data }] = useMutation(ADD_ACCOUNT);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
+    // try {
+    //   const { data } = await addAccount({
+    //     variables: { ...formValues },
+    //   });
+    //   console.log(data);
+    //   Auth.login(data.addAccount.token);
+    // } catch (e) {
+    //   console.error(e);
+    // }
   };
 
   const validate = (values) => {
@@ -32,10 +45,8 @@ function Signup() {
     }
     if (!values.password) {
       errors.password = 'Password is required';
-    } else if (values.password.length < 4) {
-      errors.password = 'Password must be more than 4 characters';
-    } else if (values.password.length > 10) {
-      errors.password = 'Password cannot exceed more than 10 characters';
+    } else if (values.password.length < 6) {
+      errors.password = 'Password must be more than 6 characters';
     } else if (values.password !== values.confirmPassword) {
       errors.password = 'Passwords do not match';
     }
@@ -43,11 +54,24 @@ function Signup() {
   };
 
   useEffect(() => {
-    console.log(formErrors);
+    console.log('form errors', formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log('correct', formValues);
+      console.log('all good', formValues);
+      signUserUp();
     }
   }, [formErrors]);
+
+  const signUserUp = async () => {
+    try {
+      const { data } = await addAccount({
+        variables: { ...formValues },
+      });
+      console.log(data);
+      Auth.login(data.addAccount.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <>
@@ -91,6 +115,7 @@ function Signup() {
               Signup
             </button>
           </form>
+          {error && <div className="error-msg">{error.message}</div>}
         </section>
       </div>
     </>
