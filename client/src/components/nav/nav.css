@@ -379,7 +379,7 @@
   fill: #000000;
 }
 
-.header2 >.logo-container {
+.header2 > a >.logo-container {
   fill: black;
 } 
 

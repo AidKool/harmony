@@ -52,20 +52,20 @@ function Nav() {
   return (
     <nav className="nav-bar">
       <div className={header}>
-        <div className="logo-container">
-          <Logo />
-        </div>
+        <Link to="/">
+          <div className="logo-container">
+            <Logo />
+          </div>
+        </Link>
         <div className="h-logo-container">
           <HLogo />
         </div>
-
         <form action="/" method="GET" className="nav-form">
           <input type="search" placeholder="Search" className="nav-search-field" />
           <button type="submit" className="nav-search-button">
             <FontAwesomeIcon className="nav-search-icon" icon={faSearch} />
           </button>
         </form>
-
         <div className="right-side-nav-container">
           <Link className="add-post-nav-btn" to="/">
             <span className="add-post-span">Add post</span>
