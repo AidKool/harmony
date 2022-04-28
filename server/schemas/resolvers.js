@@ -4,23 +4,23 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    getAccount: async (parent, {_id}) => {
+    getAccount: async (parent, { _id }) => {
       return Account.findById(_id).populate(['location', 'posts', 'musicianId', 'bandId']);
     },
     getAllAccounts: async () => {
-    return Account.find().populate(['location', 'posts','musicianId', 'bandId']);
+      return Account.find().populate(['location', 'posts', 'musicianId', 'bandId']);
     },
     getPost: async (parent, { _id }) => {
       return Post.findById(_id);
     },
     getAllPosts: async () => {
-      return Post.find();
+      return Post.find().populate('accountId');
     },
     getChat: async (parent, { _id }) => {
-      return Chat.findById(_id).populate('messages');
+      return Chat.findById(_id).populate(['users', 'messages']);
     },
     getAllChats: async () => {
-      return Chat.find();
+      return Chat.find().populate(['users', 'messages']);
     },
   },
   Mutation: {
@@ -36,7 +36,7 @@ const resolvers = {
           account.bandId = band._id;
           await account.save();
         }
-        const token = signToken(user);
+        const token = signToken(account);
         return { token, account };
       } catch (error) {
         console.error(error.message);
@@ -125,12 +125,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You can only update your own posts');
     },
-    deletePost: async (parent, args, context) => {
+    deletePost: async (parent, { postId }, context) => {
       if (!context.account) {
         throw new AuthenticationError('You must be logged in');
       }
       if (context.post.accountId === context.account._id) {
-        const deletePost = await Post.findByIdAndDelete(context.account._id);
+        const deletePost = await Post.findByIdAndDelete(postId);
+        await Account.findByIdAndUpdate(context.account._id, { $pull: { posts: postId } });
         return deletePost;
       }
       throw new AuthenticationError('You can only delete your own posts');
