@@ -375,7 +375,7 @@
   padding-top: 3px;
 }
 
-.header2 > .h-logo-container {
+.header2 > a > .h-logo-container {
   fill: #000000;
 }
 
@@ -447,6 +447,12 @@
     visibility: none;
   }
 
+  .logo-link-con {
+    display: none;
+    opacity: none;
+    visibility: none;
+  }
+
   .nav-form {
     width: 100%;
   }
@@ -456,9 +462,13 @@
     opacity: 1;
     display: block;
     width: 40px;
+    padding: 14px;
+    padding-right: 0px;
   }
 
-  .nav-search-field {
-    margin-left: 3px;
+
+  
+  .header, .header2 {
+    gap: 20px
   }
 }

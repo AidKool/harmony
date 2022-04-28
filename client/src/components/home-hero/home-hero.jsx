@@ -5,7 +5,7 @@ function homeHero() {
   return (
     <section className="hero-section">
       <div className="home-cta-container">
-        <p className="home-cta-title">Discover your perfect band member</p>
+        <p className="home-cta-title">Discover your perfect band</p>
         <NavLink className="home-cta-button" to="/feed">
           Lets go!
         </NavLink>

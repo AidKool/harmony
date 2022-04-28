@@ -52,14 +52,16 @@ function Nav() {
   return (
     <nav className="nav-bar">
       <div className={header}>
-        <Link to="/">
+        <Link className="logo-link-con" to="/">
           <div className="logo-container">
             <Logo />
           </div>
         </Link>
-        <div className="h-logo-container">
-          <HLogo />
-        </div>
+        <Link to="/">
+          <div className="h-logo-container">
+            <HLogo />
+          </div>
+        </Link>
         <form action="/" method="GET" className="nav-form">
           <input type="search" placeholder="Search" className="nav-search-field" />
           <button type="submit" className="nav-search-button">
