@@ -18,6 +18,7 @@ export const QUERY_SINGLE_ACCOUNT = gql`
       email
       type
       bio
+      picture
       location {
         name
       }
