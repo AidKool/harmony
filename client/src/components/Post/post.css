@@ -11,8 +11,7 @@
 }
 
 .post-content-container {
-    height: 65px;
-    
+  height: 65px;
 }
 
 .post-container-section-left {
@@ -25,6 +24,11 @@
   gap: 10px;
   padding: 20px;
 }
+
+.post-title {
+  font-size: 1.3rem;
+}
+
 .post-img {
   aspect-ratio: 1.4/1;
   height: auto;
@@ -86,14 +90,13 @@
 }
 
 .post-profile-link > * {
-font-size: 1rem;
+  font-size: 1rem;
 }
 
 .post-user-icon {
- padding-bottom: 3px;
- font-size: 0.8rem;
+  padding-bottom: 3px;
+  font-size: 0.8rem;
 }
-
 
 .post-profile-link:hover {
   background-color: transparent;
@@ -101,7 +104,77 @@ font-size: 1rem;
   color: #ef4f6c;
 }
 
-@media screen and (max-width: 1400px) {
+.band-badge {
+  height: 30px;
+  width: 90px;
+  padding-top: 3px;
+  background-color: #ef7c4f;
+  border: solid 2px #ef7c4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.music-badge {
+  height: 30px;
+  width: 90px;
+  padding-top: 3px;
+  background-color: var(--pine-green);
+  border: solid 2px var(--pine-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.post-badge-container {
+  display: flex;
+  gap: 20px;
+}
+
+.Donor-badge {
+  height: 30px;
+  width: 90px;
+  padding-top: 3px;
+  background-color: goldenrod;
+  border: solid 2px goldenrod;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction:alternate;
+  transition-timing-function: ease-in;
+}
+
+@keyframes flash {
+  0% {
+    background-color: goldenrod;
+    border: solid 2px goldenrod;
+  }
+
+  100% {
+    background-color: rgb(247, 199, 78);
+    border: solid 2px rgb(247, 199, 78);
+  }
+}
+
+@media screen and (max-width: 1500px) {
   .post-container {
     height: auto;
     min-height: 150px;
@@ -122,12 +195,10 @@ font-size: 1rem;
     font-size: 0.8rem;
   }
 
-    .post-content-container {
+  .post-content-container {
     height: auto;
+  }
 }
-}
-
-
 
 @media screen and (max-width: 680px) {
   .post-container {
@@ -136,8 +207,7 @@ font-size: 1rem;
 
   .post-content-container {
     height: auto;
-    
-}
+  }
 
   .post-img {
     aspect-ratio: 1.4/1;
@@ -151,11 +221,30 @@ font-size: 1rem;
     gap: 10px;
     height: 65px;
     border-top: 1px solid rgb(204, 204, 204);
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
   }
 
-  .post-profile-link {
-    font-size: 0.8rem;
-    height: 35px;
+  .post-date {
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .card-author-container {
+    height: auto;
+  }
+
+  .card-author-container > .card-author-name {
+    font-size: 2rem;
+    padding-top: 20px;
+  }
+
+  .card-author-img {
+    height: 30px;
+    margin: 0px;
+    margin-top: 14px;
   }
 
   .post-date,
@@ -166,10 +255,10 @@ font-size: 1rem;
 
 @media screen and (max-width: 400px) {
   .post-link-text {
-      display: none;
-      visibility: hidden;
+    display: none;
+    visibility: hidden;
   }
   .post-profile-link {
-      width: 40px;
+    width: 40px;
   }
 }

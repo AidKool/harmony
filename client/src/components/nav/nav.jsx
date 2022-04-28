@@ -57,7 +57,7 @@ function Nav() {
             <Logo />
           </div>
         </Link>
-        <Link to="/">
+        <Link className="logo-link-con-h" to="/">
           <div className="h-logo-container">
             <HLogo />
           </div>

@@ -8,9 +8,7 @@ function FeedSection() {
   const { data } = useQuery(GET_POSTS);
   const posts = data?.getAllPosts;
 
-  const handleSubmit = () => {
-    console.log(posts);
-  };
+  // console.log(posts);
 
   return (
     <section className="feed-section-container">
@@ -29,7 +27,6 @@ function FeedSection() {
             />
           );
         })}
-        <button className="post-profile-link" onClick={handleSubmit}></button>
       </div>
     </section>
   );

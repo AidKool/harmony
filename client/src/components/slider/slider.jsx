@@ -24,6 +24,7 @@ export default function Slider() {
 
   return (
     <div ref={sliderRef} className="keen-slider">
+
       <div className="keen-slider__slide number-slide1">
         <div className="poster-card">
           <a href="https://www.google.com/" target="_blank">
@@ -35,6 +36,7 @@ export default function Slider() {
           </a>
         </div>
       </div>
+      
       <div className="keen-slider__slide number-slide2">
         <div className="poster-card">
           <a href="https://www.google.com/" target="_blank">
