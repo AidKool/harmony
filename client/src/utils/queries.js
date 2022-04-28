@@ -11,6 +11,21 @@ export const QUERY_ACCOUNTS = gql`
   }
 `;
 
+export const QUERY_ACOUNTS_BY_DISTANCE = gql`
+  query getAccountsByDistance($location: String!, $miles: Int!) {
+    getAccountsByDistance {
+      username
+      email
+      picture
+      bio
+      type
+      location {
+        name
+      }
+    }
+  }
+`;
+
 export const QUERY_SINGLE_ACCOUNT = gql`
   query getSingleAccount($id: ID!) {
     getAccount(_id: $id) {
