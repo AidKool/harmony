@@ -14,7 +14,7 @@ const resolvers = {
       return Post.findById(_id);
     },
     getAllPosts: async () => {
-      return Post.find();
+      return Post.find().populate('accountId');
     },
     getChat: async (parent, { _id }) => {
       return Chat.findById(_id).populate(['users', 'messages']);

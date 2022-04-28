@@ -49,6 +49,11 @@ export const GET_POSTS = gql`
       content
       picture
       createdAt
+      accountId {
+        _id
+        username
+        picture
+      }
     }
   }
 `;
