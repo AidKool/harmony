@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.profileContainer {
+    padding: 20px;
+    margin-top: 60px
+}
+
+.userImg {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 400px;
+    aspect-ratio: 1/1;
+    outline: solid 10px #2bb673;
+}   
+
+body {
+    margin: 0px;
+
+}
+
+.topContainer {
+    min-width: 100vw;
+    display: flex;
+    background-color: black;
+    flex-direction: column;   
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border-bottom:  solid 16px #2bb673;
+
+}
+
+.profileContainer {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.msgBtn {
+    color: black;
+    padding: 10px;
+    min-width: 20%;
+    border-radius: 30px;
+    background-color: white;
+    outline: white solid 2px;
+
+}
+
+.msgBtn:hover {
+    color: white;
+    background-color: black;
+    outline: white solid 2px;
+    transition: 1.1s;
+    transform: scale(1.02);
+    font-weight: bold;
+}
+
+.userName{
+    margin: 0px;
+    margin-top: 20px;
+    margin-bottom: -25px;
+    padding: 0px;
+    font-size: 140%;
+    font-weight:500;
+}
+.userDisplayName{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 300%;
+}
+
+
+.locationContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationContainer > * {
+    display: flex;
+}
+
+.locationMarker{
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.userLocation {
+    margin-top: 16px;
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+.userRole {
+    font-size: 20px;
+}
+
+.infoContainer{
+    color: rgb(59, 59, 59);
+    font-family: 'Ubuntu', sans-serif;
+    text-align: start;
+    padding: 2% 30% 2% 30%;
+}
+
+
+
+.infoContainer > h2 {
+    font-size: large;
+    font-weight: 800;
+}
+
+
+.genreList li {
+    margin-right: 8px;
+    display: inline;
+}
