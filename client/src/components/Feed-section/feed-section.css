@@ -1,0 +1,21 @@
+.feed-section-container {
+  display: flex;
+  height: auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.feed-section-component-container {
+  height: auto;
+  width: 90%;
+  background-color: rgb(255, 255, 255);
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+
