@@ -32,6 +32,7 @@ const typeDefs = gql`
     lastName: String
     instruments: [String]
     available: Boolean
+    preferredRole: [String]
   }
 
   type Location {

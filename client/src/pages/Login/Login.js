@@ -3,6 +3,7 @@ import './login.css';
 import backgroundImage from './assets/gig-background-pic.jpg';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
+import Logo from '../../components/logo/logo';
 
 import Auth from '../../utils/auth';
 
@@ -28,6 +29,8 @@ function Login() {
       console.error(e);
     }
 
+    console.log(error);
+
     // clear form values
     setUserFormData({
       email: '',
@@ -38,7 +41,13 @@ function Login() {
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
+      <a href="/signup" className="signup-link">
+        <button className="signup-btn">SIGNUP</button>
+      </a>
       <div className="container">
+        <div className="logo-container">
+          <Logo />
+        </div>
         <section className="login-form">
           <form>
             <input
@@ -59,7 +68,7 @@ function Login() {
               Login
             </button>
           </form>
-          {error && <div className="error-message">{error.message}</div>}
+          {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
         </section>
       </div>
     </>
