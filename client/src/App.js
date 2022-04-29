@@ -2,6 +2,7 @@ import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.js';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup.js';
+import SearchResults from './pages/SearchResults';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profiles/:profileId" element={<Profile />} />
+          <Route path="/search" element={<SearchResults />} />
         </Routes>
       </Router>
     </ApolloProvider>
