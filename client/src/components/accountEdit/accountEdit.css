@@ -1,3 +1,14 @@
 .editContainer{
-    margin-top: 80px;
+    margin-top: 150px;
+    margin-bottom: 70px;
+    outline: red 2px solid;
+    padding: 20px;
+}
+
+input {
+    padding: 40px
+}
+
+.subBtn{
+    margin-top: 4px;
 }

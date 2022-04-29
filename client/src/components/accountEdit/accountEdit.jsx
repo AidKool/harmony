@@ -1,29 +1,22 @@
 import './accountEdit.css';
-import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
-import { QUERY_SINGLE_ACCOUNT} from '../../utils/queries';
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
-
-function AccountEdit() {
-
-const { register, handleSubmit } = useForm();
-  const [data, setData] = useState("");
-
+export default function App() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+  console.log(errors);
+  
   return (
-    <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
-      <input {...register("firstName")} placeholder="First name" />
-      <select {...register("category")}>
-        <option value="">Select...</option>
-        <option value="A">Option A</option>
-        <option value="B">Option B</option>
-      </select>
-      <textarea {...register("aboutYou")} placeholder="About you" />
-      <p>{data}</p>
-      <input type="submit" />
+    <> 
+    <div class="editContainer"> 
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input type="text" placeholder="username" {...register("username", {})} />
+      <input type="text" placeholder="email" {...register("email", {})} />
+      <input type="text" placeholder="bio" {...register("bio", {})} />
+      <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full subBtn" type="submit" />
     </form>
+    </div>
+    </>
   );
 }
-
-export default AccountEdit;

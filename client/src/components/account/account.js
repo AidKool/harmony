@@ -2,13 +2,14 @@ import './account.css';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { QUERY_SINGLE_ACCOUNT} from '../../utils/queries';
-import { MdLocationOn } from 'react-icons/md';
+import { MdLocationOn, MdModeEditOutline } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
 
-// import { QUERY_SINGLE_ACCOUNT } from '../../utils/queries';
-
 function Account() {
+
+
+
   const params = useParams();
   const accountId = params.profileId;
   console.log(accountId);
@@ -17,16 +18,15 @@ function Account() {
   });
 
   const user = data?.getAccount
-  console.log('data', data);
-  console.log('error', error);
-  console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-  console.log('username', user?.username);
+  // console.log('data', data);
+  // console.log('error', error);
+  // console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+  // console.log('username', user?.username);
 
-  
-  
   if(loading) {
       <p> loading.....</p>
     }
+    
 
 if (error) {
   <p> error....</p>;
@@ -34,9 +34,21 @@ if (error) {
 
 if(data){
 
+    const userToken = localStorage.getItem('id_token');
+    console.log('JWT TOKEN', userToken);
+
+    const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
+    console.log('JWT TOKEN UNPACKED -----------------------------------------');
+    console.log('jwtToken return', jwtToken);
+    console.log(jwtToken.data.email);
+    console.log(jwtToken.data.username);
+    console.log(jwtToken.data._id);
+
+  
+    
      const userGenres = user.genres;
      const genreList = userGenres.map((genre) => <li>{genre}</li>);
-
+     const editUrl = accountId + "/edit"
      
 
          return (
@@ -44,6 +56,13 @@ if(data){
              <div class="profileContainer">
                <div class="topContainer">
                  <img src={user.picture} alt="profile" class="userImg" />
+                 <p class="userName text-white">{}</p>
+                 {jwtToken.data._id === accountId && <a href={editUrl} class="editBtn">
+                   <div class="editBtn">
+                     <MdModeEditOutline />
+                     <p>Edit profile</p>
+                   </div>
+                 </a>}
                  <p class="userName text-white">{user.username}</p>
                  {user.type === 'Band' && (
                    <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
@@ -75,7 +94,7 @@ if(data){
                <h2>Genre</h2>
 
                <ul class="genreList">
-                 <p> {genreList}</p>
+                 <p key={genreList}> {genreList}</p>
                </ul>
                <h2>About us</h2>
                <p>{user.bio}</p>
