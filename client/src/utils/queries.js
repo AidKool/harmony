@@ -13,7 +13,7 @@ export const QUERY_ACCOUNTS = gql`
 
 export const QUERY_ACOUNTS_BY_DISTANCE = gql`
   query getAccountsByDistance($location: String!, $miles: Int!) {
-    getAccountsByDistance {
+    getAccountsByDistance(location: $location, miles: $miles) {
       username
       email
       picture

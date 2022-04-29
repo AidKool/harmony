@@ -1,15 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import Logo from '../logo/logo';
-import './nav.css';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLazyQuery } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
+import Logo from '../logo/logo';
 import Burger from '../burger/burger';
 import Cross from '../cross/cross';
 import HLogo from '../h-logo/h-logo';
-import { Link } from 'react-router-dom';
+import { QUERY_ACOUNTS_BY_DISTANCE } from '../../utils/queries';
+
+import './nav.css';
 
 function Nav() {
   const [toggle, setToggle] = useState(false);
+  const locationRef = useRef(null);
+  const [search, { loading, error, data }] = useLazyQuery(QUERY_ACOUNTS_BY_DISTANCE);
 
   const menuHandler = () => {
     setToggle(!toggle);
@@ -49,6 +55,17 @@ function Nav() {
     return () => window.removeEventListener('scroll', listenScrollEventTwo);
   }, []);
 
+  function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const location = locationRef.current.value.trim().toLowerCase();
+    const miles = 100;
+    search({ variables: { location, miles } });
+    if (data) {
+      console.log(data);
+    }
+  }
+
   return (
     <nav className="nav-bar">
       <div className={header}>
@@ -59,8 +76,8 @@ function Nav() {
           <HLogo />
         </div>
 
-        <form action="/" method="GET" className="nav-form">
-          <input type="search" placeholder="Search" className="nav-search-field" />
+        <form className="nav-form" onSubmit={handleFormSubmit}>
+          <input type="search" ref={locationRef} placeholder="Search in a location" className="nav-search-field" />
           <button type="submit" className="nav-search-button">
             <FontAwesomeIcon className="nav-search-icon" icon={faSearch} />
           </button>
