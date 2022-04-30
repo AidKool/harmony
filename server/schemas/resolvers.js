@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { Account, Musician, Band, Chat, Location, Message, Post } = require('../models');
 const { signToken } = require('../utils/auth');
 const calculateDistance = require('../utils/calculateDistance');
+const getCityCoordinates = require('../utils/getCityCoordinates');
 
 const resolvers = {
   Query: {
@@ -12,7 +13,13 @@ const resolvers = {
       return Account.find().populate(['location', 'posts', 'musicianId', 'bandId']);
     },
     getAccountsByDistance: async (parent, { location, miles }) => {
-      const origin = await Location.findOne({ name: location });
+      let origin = await Location.findOne({ name: location });
+
+      if (origin === null) {
+        origin = await getCityCoordinates(location);
+        origin.name = location;
+      }
+
       const originCoords = {
         longitude: origin.longitude,
         latitude: origin.latitude,
