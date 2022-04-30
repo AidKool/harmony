@@ -4,10 +4,12 @@ import backgroundImage from '../Login/assets/gig-background-pic.jpg';
 import { useMutation } from '@apollo/client';
 import { ADD_ACCOUNT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Logo from '../../components/logo/logo';
 
 function Signup() {
-  const initialValues = { username: '', email: '', password: '', type: '' };
+  const initialValues = { username: '', email: '', password: '', type: 'Band' };
   const [formValues, setFormValues] = useState(initialValues);
+  const [confirmPassword, setConfirmPassword] = useState({ confirmPass: '' });
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [addAccount, { error, data }] = useMutation(ADD_ACCOUNT);
@@ -15,24 +17,17 @@ function Signup() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
+    setConfirmPassword({ ...confirmPassword, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
+    setFormErrors(validate(formValues, confirmPassword));
     setIsSubmit(true);
-    // try {
-    //   const { data } = await addAccount({
-    //     variables: { ...formValues },
-    //   });
-    //   console.log(data);
-    //   Auth.login(data.addAccount.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
   };
 
-  const validate = (values) => {
+  const validate = (values, confirmPassword) => {
+    console.log(values, confirmPassword);
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!values.username) {
@@ -47,14 +42,14 @@ function Signup() {
       errors.password = 'Password is required';
     } else if (values.password.length < 6) {
       errors.password = 'Password must be more than 6 characters';
-    } else if (values.password !== values.confirmPassword) {
+    } else if (values.password !== confirmPassword.confirmPass) {
       errors.password = 'Passwords do not match';
     }
     return errors;
   };
 
   useEffect(() => {
-    console.log('form errors', formErrors);
+    console.log('form errors', formErrors, formValues, confirmPassword);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       console.log('all good', formValues);
       signUserUp();
@@ -76,8 +71,14 @@ function Signup() {
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
+      <a href="/login">
+        <button className="login-btn">LOGIN</button>
+      </a>
       <div className="container">
-        <section className="login-form">
+        <div className="logo-container">
+          <Logo />
+        </div>
+        <section className="signup-form">
           <form>
             <input
               type="text"
@@ -100,12 +101,13 @@ function Signup() {
             <input
               type="password"
               placeholder="Confirm Password"
-              name="confirmPassword"
-              value={formValues.confirmPassword}
+              name="confirmPass"
+              value={confirmPassword.value}
               onChange={handleChange}
             />
             <p className="err">{formErrors.password}</p>
             <select name="type" className="type" value={formValues.type} onChange={handleChange}>
+              <option disabled>Are you a band or musician?</option>
               <option value="Band">Band</option>
               <option value="Musician">Musician</option>
             </select>
@@ -115,7 +117,7 @@ function Signup() {
               Signup
             </button>
           </form>
-          {error && <div className="error-msg">{error.message}</div>}
+          {error && <p className="error-msg">{error.message}</p>}
         </section>
       </div>
     </>
