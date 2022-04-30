@@ -1,0 +1,52 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+.editContainer{
+    margin-top: 150px;
+    margin-bottom: 70px;
+    padding: 20px;
+}
+
+input {
+    padding: 40px
+}
+
+.editForm{
+    background-color: rgb(238, 232, 232);
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.subBtn{
+    margin-top: 20px;
+}
+
+.subBtn:hover{
+    transform: scale(1.04);
+    cursor: pointer;
+    transition: 1s;
+}
+
+.noAccess{
+    font-weight: 900;
+    font-size: 4rem;
+}
+
+.noAccessContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.icon {
+
+}
+
+select {
+    min-width: 100%;
+    padding: 12px 10px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 10px;
+}

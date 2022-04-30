@@ -125,3 +125,17 @@ body {
     margin-right: 8px;
     display: inline;
 }
+
+.editBtn{
+    display: flex;
+    color: white;
+    position: relative;
+    top: 9px
+}
+
+.editBtn:hover{
+color: #2bb673;
+transform: scale(1.02);
+transition: 0.6s;
+cursor: pointer;
+}
