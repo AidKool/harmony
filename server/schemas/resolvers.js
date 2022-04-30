@@ -55,23 +55,23 @@ const resolvers = {
       return { token, account };
     },
     addPost: async (parent, { title, content }, context) => {
-      if (context.account) {
+      if (context.user) {
         const post = await Post.create({ title, content });
-        await Account.findByIdAndUpdate(context.account._id, { $addToSet: { posts: post._id } });
+        await Account.findByIdAndUpdate(context.user._id, { $addToSet: { posts: post._id } });
         return post;
       }
       throw new AuthenticationError('You must be logged in');
     },
     addChat: async (parent, { user }, context) => {
-      if (context.account) {
-        const ids = [context.account._id, user._id];
+      if (context.user) {
+        const ids = [context.user._id, user._id];
         const chat = await Chat.create(ids);
         return chat;
       }
       throw new AuthenticationError('You must be logged in');
     },
     addMessage: async (parent, { sender, receiver, message }, context) => {
-      if (context.account) {
+      if (context.user) {
         const newMessage = await Message.create({ sender, receiver, message });
         await Chat.findByIdAndUpdate(context.chat._id, { $addToSet: { messages: newMessage._id } });
         return newMessage;
@@ -79,8 +79,8 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in');
     },
     updateAccount: async (parent, { picture, bio, location, genres }, context) => {
-      if (context.account) {
-        const updatedAccount = await Account.findByIdAndUpdate(context.account._id, {
+      if (context.user) {
+        const updatedAccount = await Account.findByIdAndUpdate(context.user._id, {
           picture,
           bio,
           location,
@@ -91,8 +91,8 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in');
     },
     updateMusician: async (parent, { firstName, lastName, instruments, available }, context) => {
-      if (context.account) {
-        const updatedMusician = await Musician.findByIdAndUpdate(context.account.musicianId, {
+      if (context.user) {
+        const updatedMusician = await Musician.findByIdAndUpdate(context.user.musicianId, {
           firstName,
           lastName,
           instruments,
@@ -103,8 +103,8 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in');
     },
     updateBand: async (parent, { bandName }, context) => {
-      if (context.account) {
-        const updatedBand = await Band.findByIdAndUpdate(context.account.bandId, {
+      if (context.user) {
+        const updatedBand = await Band.findByIdAndUpdate(context.user.bandId, {
           bandName,
         });
         return updatedBand;
@@ -112,10 +112,10 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in');
     },
     updatePost: async (parent, { title, content, picture }, context) => {
-      if (!context.account) {
+      if (!context.user) {
         throw new AuthenticationError('You must be logged in');
       }
-      if (context.post.accountId === context.account._id) {
+      if (context.post.accountId === context.user._id) {
         const updatedPost = await Post.findByIdAndUpdate(context.post._id, {
           title,
           content,
@@ -126,12 +126,12 @@ const resolvers = {
       throw new AuthenticationError('You can only update your own posts');
     },
     deletePost: async (parent, { postId }, context) => {
-      if (!context.account) {
+      if (!context.user) {
         throw new AuthenticationError('You must be logged in');
       }
-      if (context.post.accountId === context.account._id) {
+      if (context.post.accountId === context.user._id) {
         const deletePost = await Post.findByIdAndDelete(postId);
-        await Account.findByIdAndUpdate(context.account._id, { $pull: { posts: postId } });
+        await Account.findByIdAndUpdate(context.user._id, { $pull: { posts: postId } });
         return deletePost;
       }
       throw new AuthenticationError('You can only delete your own posts');

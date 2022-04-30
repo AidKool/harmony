@@ -7,45 +7,40 @@ import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
 
 function Account() {
-
-
-
+//Assigns url params to get id from profiles/:profileId
   const params = useParams();
   const accountId = params.profileId;
   console.log(accountId);
+//Get a single account and create and object set as "user" 
   const { data, error, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
     variables: { id: accountId },
   });
-
   const user = data?.getAccount
-  // console.log('data', data);
-  // console.log('error', error);
-  // console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-  // console.log('username', user?.username);
 
-  if(loading) {
-      <p> loading.....</p>
-    }
+  //if conditions depending on the query's return results
+if(loading) {
+    <p> loading.....</p>
+  }
     
-
 if (error) {
   <p> error....</p>;
 }
 
 if(data){
 
+  //decoding and unpacking the JWT token in local storage and assigning values for conditional rendering
     const userToken = localStorage.getItem('id_token');
-    console.log('JWT TOKEN', userToken);
-
+    console.log(userToken)
     const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
-    console.log('JWT TOKEN UNPACKED -----------------------------------------');
-    console.log('jwtToken return', jwtToken);
-    console.log(jwtToken.data.email);
-    console.log(jwtToken.data.username);
-    console.log(jwtToken.data._id);
+    const jwtId = jwtToken.data._id;
+    // console.log('JWT TOKEN', userToken);
+    // console.log('jwtToken return', jwtToken);
+    // console.log(jwtToken.data.email);
+    // console.log(jwtToken.data.username);
+    // console.log(jwtToken.data._id);
 
-  
-    
+
+    //mapping of genres in user object
      const userGenres = user.genres;
      const genreList = userGenres.map((genre) => <li>{genre}</li>);
      const editUrl = accountId + "/edit"
@@ -57,12 +52,14 @@ if(data){
                <div class="topContainer">
                  <img src={user.picture} alt="profile" class="userImg" />
                  <p class="userName text-white">{}</p>
-                 {jwtToken.data._id === accountId && <a href={editUrl} class="editBtn">
-                   <div class="editBtn">
-                     <MdModeEditOutline />
-                     <p>Edit profile</p>
-                   </div>
-                 </a>}
+                 {jwtId === accountId && (
+                   <a href={editUrl} class="editBtn">
+                     <div class="editBtn">
+                       <MdModeEditOutline />
+                       <p>Edit profile</p>
+                     </div>
+                   </a>
+                 )}
                  <p class="userName text-white">{user.username}</p>
                  {user.type === 'Band' && (
                    <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
