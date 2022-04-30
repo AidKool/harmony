@@ -106,6 +106,8 @@ export const DELETE_POST = gql`
 
 export const SET_DONATED_TRUE = gql`
   mutation setDonatedTrue {
-    setDonatedTrue 
+    setDonatedTrue {
+      donated
+    }
 }
 `;

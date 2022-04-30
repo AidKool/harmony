@@ -3,7 +3,7 @@ function singleSlide(props) {
   return (
     <div className="keen-slider__slide number-slide">
       <div className="poster-card">
-        <button className='sliderButton' >
+        <button onClick={props.onButtonClick} className='sliderButton' >
           <img
             className="poster-card-img"
             src={props.image}

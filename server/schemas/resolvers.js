@@ -142,12 +142,16 @@ const resolvers = {
     },
     setDonatedTrue: async (parent, args, context) => {
       if (!context.user) {
-          throw new AuthenticationError('You must be logged in');
+        throw new AuthenticationError('You must be logged in');
       }
-      const setDonatedTrue = await Account.findByIdAndUpdate(context.user, {
-        donated: true
-      });
-      return setDonatedTrue
+      const setDonatedTrue = await Account.findByIdAndUpdate(
+        context.user._id,
+        {
+          donated: true,
+        },
+        { new: true }
+      );
+      return setDonatedTrue;
     },
   },
 };

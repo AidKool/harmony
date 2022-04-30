@@ -89,9 +89,9 @@ function Nav() {
             <li className="nav-menu-li">Contact</li>
           </ul>
           <button className="bn54">
-            <a href='/login'>
-            <span className="bn54span">Login</span>
-            </a>
+            <Link to="/login">
+              <span className="bn54span">Login</span>
+            </Link>
           </button>
           <div className="nav-border"></div>
         </div>

@@ -9,7 +9,8 @@
     "type": "Musician",
     "genres": ["Jazz","Pop","Folk"],
     "musicianId": "6262d33742c1c49c1fe96586",
-    "location": "6262d041d6300e64987d8e73"
+    "location": "6262d041d6300e64987d8e73",
+    "donated": "true"
   },
   {
     "_id": "6262cf25b47c1581e93686ab",
@@ -21,7 +22,8 @@
     "type": "Musician",
     "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96587",
-    "location": "6262d041d6300e64987d8e74"
+    "location": "6262d041d6300e64987d8e74",
+    "donated": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686ac",

@@ -85,7 +85,7 @@ const typeDefs = gql`
     updateBand(bandName: String): Band
     updatePost(title: String, content: String, picture: String): Post
     deletePost(postId: ID!): Post
-    setDonatedTrue: Account
+    setDonatedTrue(donated: Boolean): Account
   }
 `;
 

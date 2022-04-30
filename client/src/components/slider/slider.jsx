@@ -25,23 +25,28 @@ export default function Slider() {
   });
 
   const [sliderList, setSliderList] = useState(sliderData);
-  
+  const [activeModal, setActiveModal] = useState(null);
+
   return (
     <div ref={sliderRef} className="keen-slider">
-      {sliderList.map((slide, index) => {
-        return <SingleSlide image={slide.imageLink} key={slide.imageLink} />;
+      {sliderList.map((slide) => {
+        return (
+          <SingleSlide onButtonClick={() => setActiveModal(slide)} image={slide.imageLink} key={slide.imageLink} />
+        );
       })}
-
-      {/* <SliderModal 
-        image={sliderData[0].imageLink} 
-        key={sliderData[0].imageLink}
-        eventName={sliderData[0].eventName} 
-        info ={sliderData[0].info}
-        checkoutLink={sliderData[0].checkoutLink} 
-        location={sliderData[0].location} 
-        date={sliderData[0].dateTime} 
-        price={sliderData[0].price} 
-        /> */}
+      {activeModal && (
+        <SliderModal
+          image={activeModal.imageLink}
+          key={activeModal.imageLink}
+          eventName={activeModal.eventName}
+          info={activeModal.info}
+          checkoutLink={activeModal.checkoutLink}
+          location={activeModal.location}
+          date={activeModal.dateTime}
+          price={activeModal.price}
+          onButtonClose={() => setActiveModal(null)}
+        />
+      )}
     </div>
   );
 }

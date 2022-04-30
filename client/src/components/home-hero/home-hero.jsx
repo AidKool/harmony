@@ -21,7 +21,7 @@ function homeHero() {
   const checkoutOptions = {
     lineItems: [item],
     mode: 'payment',
-    successUrl: `${window.location.origin}/success${encodeURIComponent("2Vrb2KZU>6j}pB@h32S^VPV$[HgJt?ppLr5jT=xpC85s*wb{2T<v@~")}`,
+    successUrl: `${window.location.origin}/success/xA2b4A6xY3lTgBKUyxV5jnttpZU1ka`,
     cancelUrl: `${window.location.origin}/`,
   };
 

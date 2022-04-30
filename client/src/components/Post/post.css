@@ -76,7 +76,7 @@
 .post-profile-link {
   height: 30px;
   width: 90px;
-  padding-top: 3px;
+  padding-top: 5px;
   background-color: #ef4f6c;
   border: solid 2px #ef4f6c;
   display: flex;
@@ -94,7 +94,7 @@
 }
 
 .post-user-icon {
-  padding-bottom: 3px;
+  padding-bottom: 5px;
   font-size: 0.8rem;
 }
 
@@ -144,7 +144,7 @@
 .Donor-badge {
   height: 30px;
   width: 90px;
-  padding-top: 3px;
+  padding-top: 5px;
   background-color: goldenrod;
   border: solid 2px goldenrod;
   display: flex;
