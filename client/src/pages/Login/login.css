@@ -7,6 +7,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
   min-width: 100vw;
@@ -19,19 +20,38 @@
   position: absolute;
 }
 
+.signup-btn {
+  position: absolute;
+  display: block;
+  margin: 2em 0 0 2em;
+  border: none;
+  width: 10%;
+  border-radius: 8px;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.logo-container {
+  fill: white;
+  position: relative;
+  display: block;
+}
+
 .login-form {
   position: relative;
   display: block;
   background: rgba(162, 163, 162, 0.8);
   border-radius: 2em;
-  max-width: 30%;
+  min-width: 20%;
   padding: 1.2em;
 }
 
 input[type='text'],
 input[type='password'] {
-  width: 20em;
-  height: 3em;
+  width: 100%;
   display: block;
   border: none;
   border-radius: 8px;

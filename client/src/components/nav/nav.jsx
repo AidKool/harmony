@@ -52,20 +52,22 @@ function Nav() {
   return (
     <nav className="nav-bar">
       <div className={header}>
-        <div className="logo-container">
-          <Logo />
-        </div>
-        <div className="h-logo-container">
-          <HLogo />
-        </div>
-
+        <Link className="logo-link-con" to="/">
+          <div className="logo-container">
+            <Logo />
+          </div>
+        </Link>
+        <Link to="/">
+          <div className="h-logo-container">
+            <HLogo />
+          </div>
+        </Link>
         <form action="/" method="GET" className="nav-form">
           <input type="search" placeholder="Search" className="nav-search-field" />
           <button type="submit" className="nav-search-button">
             <FontAwesomeIcon className="nav-search-icon" icon={faSearch} />
           </button>
         </form>
-
         <div className="right-side-nav-container">
           <Link className="add-post-nav-btn" to="/">
             <span className="add-post-span">Add post</span>
@@ -87,7 +89,9 @@ function Nav() {
             <li className="nav-menu-li">Contact</li>
           </ul>
           <button className="bn54">
+            <a href='/login'>
             <span className="bn54span">Login</span>
+            </a>
           </button>
           <div className="nav-border"></div>
         </div>

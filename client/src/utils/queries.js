@@ -18,6 +18,7 @@ export const QUERY_SINGLE_ACCOUNT = gql`
       email
       type
       bio
+      picture
       location {
         name
       }
@@ -49,6 +50,11 @@ export const GET_POSTS = gql`
       content
       picture
       createdAt
+      accountId {
+        _id
+        username
+        picture
+      }
     }
   }
 `;
