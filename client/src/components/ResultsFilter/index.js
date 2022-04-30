@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
+import { useSearchContext } from '../../store/searchContext';
+
 function ResultsFilter() {
+  const { results, setResults } = useSearchContext();
+
+  console.log(results);
+
   const [formState, setFormState] = useState({
     type: 'all',
     miles: 100,
@@ -91,6 +97,11 @@ function ResultsFilter() {
           </>
         )}
       </form>
+      <ul>
+        {results.map((user) => {
+          return <li key={user.username}>{user.username}</li>;
+        })}
+      </ul>
     </div>
   );
 }

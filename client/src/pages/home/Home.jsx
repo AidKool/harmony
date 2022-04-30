@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css';
 
 import SliderSection from '../../components/slider-section/slider-section';
@@ -8,9 +8,7 @@ import DuoSection from '../../components/duo-section/duo-section';
 import QuestionSection from '../../components/question-section/question-section';
 import Nav from '../../components/nav/nav';
 
-
-
-function home() {
+function Home() {
   return (
     <div className="home-container">
       <Nav />
@@ -23,4 +21,4 @@ function home() {
   );
 }
 
-export default home;
+export default Home;

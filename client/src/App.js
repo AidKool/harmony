@@ -5,6 +5,7 @@ import Signup from './pages/Signup/Signup.js';
 import SearchResults from './pages/SearchResults';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SearchProviderWrapper from './components/SearchProviderWrapper/index.js';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -16,11 +17,13 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<SearchProviderWrapper />}>
+            <Route index element={<Home />} />
+            <Route path="/search" element={<SearchResults />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profiles/:profileId" element={<Profile />} />
-          <Route path="/search" element={<SearchResults />} />
         </Routes>
       </Router>
     </ApolloProvider>

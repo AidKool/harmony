@@ -2,13 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Logo from '../logo/logo';
 import Burger from '../burger/burger';
 import Cross from '../cross/cross';
 import HLogo from '../h-logo/h-logo';
 import { QUERY_ACOUNTS_BY_DISTANCE } from '../../utils/queries';
+import { useSearchContext } from '../../store/searchContext';
 
 import './nav.css';
 
@@ -16,6 +17,8 @@ function Nav() {
   const [toggle, setToggle] = useState(false);
   const locationRef = useRef(null);
   const [search, { loading, error, data }] = useLazyQuery(QUERY_ACOUNTS_BY_DISTANCE);
+  const { results, setResults } = useSearchContext();
+  const navigate = useNavigate();
 
   const menuHandler = () => {
     setToggle(!toggle);
@@ -61,10 +64,22 @@ function Nav() {
     const location = locationRef.current.value.trim().toLowerCase();
     const miles = 100;
     search({ variables: { location, miles } });
-    if (data) {
-      console.log(data);
-    }
   }
+
+  useEffect(() => {
+    if (data) {
+      console.log('data:', data);
+      setResults(data.getAccountsByDistance);
+      console.log('results: ', results);
+    }
+  }, [data, results, setResults]);
+
+  useEffect(() => {
+    if (results.length > 0) {
+      console.log(results);
+      navigate('/search');
+    }
+  }, [navigate, results]);
 
   return (
     <nav className="nav-bar">
