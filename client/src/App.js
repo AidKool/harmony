@@ -1,16 +1,35 @@
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.js';
+import ProfileEdit from './pages/profileEdit/profileEdit.jsx';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup.js';
 import Feed from './pages/Feed/feed.jsx';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 
 function App() {
   return (
@@ -22,6 +41,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profiles/:profileId" element={<Profile />} />
+          <Route path="/profiles/:profileId/edit" element={<ProfileEdit />} />
           <Route path="/feed" element={<Feed />} />
         </Routes>
       </Router>
