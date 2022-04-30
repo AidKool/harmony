@@ -6,7 +6,7 @@ import { ADD_ACCOUNT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 function Signup() {
-  const initialValues = { username: '', email: '', password: '', type: '' };
+  const initialValues = { username: '', email: '', password: '', type: 'Band' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -21,15 +21,6 @@ function Signup() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true);
-    // try {
-    //   const { data } = await addAccount({
-    //     variables: { ...formValues },
-    //   });
-    //   console.log(data);
-    //   Auth.login(data.addAccount.token);
-    // } catch (e) {
-    //   console.error(e);
-    // }
   };
 
   const validate = (values) => {
