@@ -5,7 +5,12 @@ const SearchContext = createContext();
 export const useSearchContext = () => useContext(SearchContext);
 
 export const SearchProvider = ({ children }) => {
+  const [searchLocation, setSearchLocation] = useState('');
   const [results, setResults] = useState([]);
 
-  return <SearchContext.Provider value={{ results, setResults }}>{children}</SearchContext.Provider>;
+  return (
+    <SearchContext.Provider value={{ results, setResults, searchLocation, setSearchLocation }}>
+      {children}
+    </SearchContext.Provider>
+  );
 };

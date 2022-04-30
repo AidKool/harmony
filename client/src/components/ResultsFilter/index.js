@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 import { useSearchContext } from '../../store/searchContext';
+import SearchResult from '../SearchResult';
+import capitalise from '../../utils/capitalise';
 
 function ResultsFilter() {
-  const { results, setResults } = useSearchContext();
+  const { results, setResults, searchLocation, setSearchLocation } = useSearchContext();
 
   console.log(results);
 
@@ -28,9 +30,11 @@ function ResultsFilter() {
   };
 
   return (
-    <div>
-      <p>Users found in Manchester: 10 found</p>
-      <form>
+    <div className="container flex flex-col gap-y-5">
+      <p>
+        Users found near {capitalise(searchLocation)}: {results.length} found
+      </p>
+      <form className="flex flex-wrap gap-5 justify-center">
         <select
           name="type"
           defaultValue={'all'}
@@ -52,12 +56,12 @@ function ResultsFilter() {
             miles
           </option>
           <option value="1">1</option>
-          <option value="2">2</option>
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="20">20</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="500">50</option>
         </select>
         <select
           name="genre"
@@ -85,21 +89,26 @@ function ResultsFilter() {
             </select>
             <select
               name="available"
-              defaultValue={'genre'}
+              defaultValue={'available'}
               className="bg-white border border-gray-500 py-2 px-3"
               onChange={handleFormChange}>
               <option value="available" disabled>
                 available
               </option>
+              <option value="available">available</option>
               <option value="true">true</option>
               <option value="false">false</option>
             </select>
           </>
         )}
       </form>
-      <ul>
+      <ul className="flex flex-wrap justify-center gap-5">
         {results.map((user) => {
-          return <li key={user.username}>{user.username}</li>;
+          return (
+            <li key={user.username} className="">
+              <SearchResult {...user} />
+            </li>
+          );
         })}
       </ul>
     </div>

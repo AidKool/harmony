@@ -17,7 +17,7 @@ function Nav() {
   const [toggle, setToggle] = useState(false);
   const locationRef = useRef(null);
   const [search, { loading, error, data }] = useLazyQuery(QUERY_ACOUNTS_BY_DISTANCE);
-  const { results, setResults } = useSearchContext();
+  const { results, setResults, searchLocation, setSearchLocation } = useSearchContext();
   const navigate = useNavigate();
 
   const menuHandler = () => {
@@ -61,9 +61,10 @@ function Nav() {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    const location = locationRef.current.value.trim().toLowerCase();
-    const miles = 100;
-    search({ variables: { location, miles } });
+    setSearchLocation(locationRef.current.value.trim().toLowerCase());
+    const miles = 50;
+    search({ variables: { location: searchLocation, miles } });
+    locationRef.current.value = '';
   }
 
   useEffect(() => {
