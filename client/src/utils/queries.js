@@ -7,6 +7,7 @@ export const QUERY_ACCOUNTS = gql`
       email
       picture
       bio
+      donated
     }
   }
 `;
@@ -19,6 +20,7 @@ export const QUERY_SINGLE_ACCOUNT = gql`
       type
       bio
       picture
+      donated
       location {
         name
       }
@@ -46,14 +48,22 @@ export const QUERY_SINGLE_ACCOUNT = gql`
 export const GET_POSTS = gql`
   query getAllPosts {
     getAllPosts {
+      _id
       title
       content
       picture
       createdAt
       accountId {
+        musicianId {
+          _id
+        }
+        bandId {
+          _id
+        }
         _id
         username
         picture
+        donated
       }
     }
   }

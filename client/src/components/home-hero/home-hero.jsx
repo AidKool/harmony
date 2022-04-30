@@ -1,14 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+
+let stripePromise;
+const getStripe = () => {
+  if (!stripePromise) {
+    stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
+  }
+  return stripePromise;
+};
 
 function homeHero() {
+  const item = {
+    price: 'price_1KtvV3IqutbJIdP9EYgtzYxw',
+    quantity: 1,
+  };
+
+  
+
+  const checkoutOptions = {
+    lineItems: [item],
+    mode: 'payment',
+    successUrl: `${window.location.origin}/success${encodeURIComponent("2Vrb2KZU>6j}pB@h32S^VPV$[HgJt?ppLr5jT=xpC85s*wb{2T<v@~")}`,
+    cancelUrl: `${window.location.origin}/`,
+  };
+
+  const redirectToCheckout = async () => {
+    const stripe = await getStripe();
+    await stripe.redirectToCheckout(checkoutOptions);
+
+  };
+
   return (
     <section className="hero-section">
       <div className="home-cta-container">
-        <p className="home-cta-title">Discover your perfect band</p>
-        <Link className="home-cta-button" to="/feed">
-          Lets go!
-        </Link>
+        <p className="home-cta-title">Become a rockstar and support us today</p>
+        <button onClick={redirectToCheckout} className="home-cta-button" to="/feed">
+          Donate
+        </button>
       </div>
       <div className="hero-container">
         <p className="home-cta-title hero-title">Join fellow musicians to create the next big thing</p>

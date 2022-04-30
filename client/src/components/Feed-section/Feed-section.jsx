@@ -8,7 +8,7 @@ function FeedSection() {
   const { data } = useQuery(GET_POSTS);
   const posts = data?.getAllPosts;
 
-  // console.log(posts);
+  console.log(posts);
 
   return (
     <section className="feed-section-container">

@@ -1,0 +1,53 @@
+.success-feedback-container {
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-card {
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+    max-width: 400px;
+    height: 600px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 20px;
+}
+
+.success-button {
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: var(--pine-green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: 250ms ease-in-out;
+}
+
+.success-button:hover {
+background-color: #3dd88d;
+}
+
+
+.success-content {
+    width: 200px;
+    text-align: center;
+    font-family: 'Khula', sans-serif;
+}
+
+.success-title {
+     font-family: 'Ubuntu', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: rgb(59, 59, 59);
+}
