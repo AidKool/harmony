@@ -1,0 +1,89 @@
+.subscription-modal {
+  background-color: rgba(0, 0, 0, 0.836);
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscription-modal-container {
+  max-width: 400px;
+  width: 90%;
+  height: 700px;
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  gap: 45px;
+  position: relative;
+}
+
+.sub-modal-title {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(59, 59, 59);
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.crown-container {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.sub-modal-donate-button {
+  height: 40px;
+  width: 180px;
+  border-radius: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2rem;
+  
+}
+
+.gold-bc, .silver-bc, .copper-bc {
+  color: rgb(59, 59, 59);
+  border: 2px solid rgb(59, 59, 59);
+  transition: 150ms ease-out;
+}
+
+.gold-bc:hover {
+  color:#f4aa3c;
+  border: 2px solid #f4aa3c;
+}
+.silver-bc:hover {
+  color: #939598;
+  border: 2px solid #939598;
+}
+.copper-bc:hover {
+  color:#f47e54;
+  border: 2px solid #f47e54;
+}
+
+.sub-modal-x-button {
+  position:absolute;
+  top: 20px;
+  right: 20px;
+  color: black;
+  transition: 250ms ease-out;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.sub-modal-x-button:hover {
+   color: rgb(250, 75, 75);
+   
+}
+
+.ccpb {
+  margin-bottom: 20px;
+}
+

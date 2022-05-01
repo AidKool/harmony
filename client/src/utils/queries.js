@@ -8,6 +8,8 @@ export const QUERY_ACCOUNTS = gql`
       picture
       bio
       donated
+      silver
+      bronze
     }
   }
 `;
@@ -21,6 +23,8 @@ export const QUERY_SINGLE_ACCOUNT = gql`
       bio
       picture
       donated
+      silver
+      bronze
       location {
         name
       }
@@ -64,6 +68,8 @@ export const GET_POSTS = gql`
         username
         picture
         donated
+        silver
+        bronze
       }
     }
   }

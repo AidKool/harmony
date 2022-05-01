@@ -10,7 +10,9 @@
     "genres": ["Jazz","Pop","Folk"],
     "musicianId": "6262d33742c1c49c1fe96586",
     "location": "6262d041d6300e64987d8e73",
-    "donated": "true"
+    "donated": "true",
+    "silver": "true",
+    "bronze": "true"
   },
   {
     "_id": "6262cf25b47c1581e93686ab",
@@ -23,7 +25,9 @@
     "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96587",
     "location": "6262d041d6300e64987d8e74",
-    "donated": "false"
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686ac",
@@ -35,7 +39,10 @@
     "type": "Musician",
     "genres": ["Indie", "Rock","Blues"],
     "musicianId": "6262d33742c1c49c1fe96588",
-    "location": "6262d041d6300e64987d8e75"
+    "location": "6262d041d6300e64987d8e75",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686ad",
@@ -47,7 +54,10 @@
     "type": "Musician",
     "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96589",
-    "location": "6262d041d6300e64987d8e76"
+    "location": "6262d041d6300e64987d8e76",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686ae",
@@ -57,9 +67,12 @@
     "picture": "https://lovemusiclovelife.com/wp-content/uploads/the-roly-mo.jpg",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
-    "genres": ["Jazz","indie"],
+    "genres": ["Jazz", "indie"],
     "bandId": "6262d839ccabf53f3dde7c32",
-    "location": "6262d041d6300e64987d8e77"
+    "location": "6262d041d6300e64987d8e77",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686af",
@@ -71,7 +84,10 @@
     "type": "Band",
     "genres": ["Jazz", "Rock", "Metal"],
     "bandId": "6262d839ccabf53f3dde7c33",
-    "location": "6262d041d6300e64987d8e78"
+    "location": "6262d041d6300e64987d8e78",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686b0",
@@ -83,7 +99,10 @@
     "type": "Band",
     "genres": ["Classical", "Metal", "Folk", "Country"],
     "bandId": "6262d839ccabf53f3dde7c34",
-    "location": "6262d041d6300e64987d8e79"
+    "location": "6262d041d6300e64987d8e79",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   },
   {
     "_id": "6262cf25b47c1581e93686b1",
@@ -95,6 +114,9 @@
     "type": "Band",
     "genres": ["Folk", "Country"],
     "bandId": "6262d839ccabf53f3dde7c35",
-    "location": "6262d041d6300e64987d8e7a"
+    "location": "6262d041d6300e64987d8e7a",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false"
   }
 ]

@@ -3,12 +3,19 @@ import './post.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCrown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import GoldLogo from '../../components/home-hero/assets/Gold-crown'
+import SilverLogo from '../../components/home-hero/assets/Silver-Crown';
+import BronzeLogo from '../../components/home-hero/assets/Copper-crown';
 
-function Post(props) {
+
+function  Post(props) {
   const userId = props.userId;
   const userLink = `/profiles/${userId}`;
 
   const donated = props.donated;
+  const silver = props.silver
+  const bronze = props.bronze;
+
 
   
 
@@ -25,22 +32,39 @@ function Post(props) {
             <h3 className="card-author-name">{props.user}</h3>
           </div>
           <div className="post-badge-container">
-            {/* <div className="band-badge">Band</div>
-            <div className="music-badge">Musician</div> */}
-
-
-
-            {donated === true ? (<div className="Donor-badge">
-              <span className="post-link-text">Donor</span>
-              <FontAwesomeIcon className="post-user-icon" icon={faCrown} />
-            </div>) : ('')}
             <Link className="post-profile-link" to={userLink}>
               <span className="post-link-text">Profile</span>
               <FontAwesomeIcon className="post-user-icon" icon={faUser} />
             </Link>
+            {/* <div className="band-badge">Band</div>
+            <div className="music-badge">Musician</div> */}
+
+            {donated === true ? (
+              <div className="crown-container-post">
+                <GoldLogo />
+              </div>
+            ) : (
+              ''
+            )}
+
+            {silver === true ? (
+              <div className="crown-container-post">
+                <SilverLogo />
+              </div>
+            ) : (
+              ''
+            )}
+
+            {bronze === true ? (
+              <div className="crown-container-post">
+                <BronzeLogo />
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
-            <h3 className="post-date">{props.createdAt}</h3>
+        <h3 className="post-date">{props.createdAt}</h3>
       </section>
       <img className="post-img" src={props.picture} alt="" />
     </article>

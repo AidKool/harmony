@@ -28,8 +28,10 @@ function FeedSection() {
              userImg={post.accountId.picture}
              userId={post.accountId._id}
              donated={post.accountId.donated}
-            //  musicianId={post.accountId.musicianId._id}
-            //  bandId={post.accountId.bandId._id}
+             silver={post.accountId.silver}
+             bronze={post.accountId.bronze}
+             //  musicianId={post.accountId.musicianId._id}
+             //  bandId={post.accountId.bandId._id}
            />
          );
         })}

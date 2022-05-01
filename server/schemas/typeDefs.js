@@ -15,6 +15,8 @@ const typeDefs = gql`
     musicianId: Musician
     bandId: Band
     donated: Boolean
+    silver: Boolean
+    bronze: Boolean
   }
 
   type Auth {
@@ -86,6 +88,8 @@ const typeDefs = gql`
     updatePost(title: String, content: String, picture: String): Post
     deletePost(postId: ID!): Post
     setDonatedTrue(donated: Boolean): Account
+    setDonatedSilver(silver: Boolean): Account
+    setDonatedBronze(bronze: Boolean): Account
   }
 `;
 

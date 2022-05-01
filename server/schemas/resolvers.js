@@ -153,6 +153,32 @@ const resolvers = {
       );
       return setDonatedTrue;
     },
+    setDonatedSilver: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      const setDonatedSilver = await Account.findByIdAndUpdate(
+        context.user._id,
+        {
+          silver: true,
+        },
+        { new: true }
+      );
+      return setDonatedSilver;
+    },
+    setDonatedBronze: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      const setDonatedBronze = await Account.findByIdAndUpdate(
+        context.user._id,
+        {
+          bronze: true,
+        },
+        { new: true }
+      );
+      return setDonatedBronze;
+    },
   },
 };
 
