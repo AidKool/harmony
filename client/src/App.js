@@ -3,6 +3,7 @@ import Profile from './pages/profile/Profile.js';
 import ProfileEdit from './pages/profileEdit/profileEdit.jsx';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup.js';
+import Image from './pages/Image/Image';
 import Feed from './pages/Feed/feed.jsx';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -35,7 +36,6 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/images-uploads" element={<Image />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profiles/:profileId" element={<Profile />} />
