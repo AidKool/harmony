@@ -14,7 +14,7 @@
   top: 0;
   z-index: 999;
   gap: 100px;
-  transition: ease-out 150ms;
+   transition: ease-out 250ms;
 }
 
 .header2 {
@@ -29,7 +29,7 @@
   top: 0;
   z-index: 999;
   gap: 100px;
-  transition: ease-out 150ms;
+   transition: ease-out 250ms;
 }
 
 .logo-link-con-h {
@@ -146,6 +146,12 @@
   transition: ease-in-out 0.15s;
 }
 
+.block {
+  background-color: red;
+  width: 50%;
+  height: 50%;
+}
+
 .mobileNavMenu-closed {
   position: fixed;
   top: 0%;
@@ -156,16 +162,20 @@
   justify-content: center;
   border-radius: 10px;
   z-index: 998;
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
-  transition: ease-out 250ms;
+  display: none;
+  transition: ease-in-out 350ms;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transform: translateY(-250px);
+  background-color: #000000;
 }
 
 .mobileNavMenu-open {
+  display: block;
   position: fixed;
   top: 0%;
   width: 100%;
@@ -178,7 +188,7 @@
   z-index: 998;
   opacity: 1;
   visibility: visible;
-  transition: ease-out 250ms;
+  transition: ease-in-out 350ms;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   align-items: center;
@@ -186,32 +196,35 @@
   flex-direction: column;
 }
 
+
 .backer {
   padding-top: 150px;
   width: 100%;
   background-color: rgb(0, 0, 0);
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  transition: ease-out 150ms;
+  transition: ease-out 250ms;
   padding-left: 10%;
+  padding-bottom: 60px;
 }
 
 .backer2 {
   padding-top: 150px;
   width: 100%;
   background-color: rgb(255, 255, 255);
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  transition: ease-out 150ms;
+  transition: ease-out 250ms;
   padding-left: 10%;
+  padding-bottom: 60px;
 }
 
 .backer2 > .nav-menu-title {

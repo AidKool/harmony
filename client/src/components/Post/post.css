@@ -76,7 +76,7 @@
 .post-profile-link {
   height: 30px;
   width: 90px;
-  padding-top: 5px;
+  padding-top: 4px;
   background-color: #ef4f6c;
   border: solid 2px #ef4f6c;
   display: flex;
@@ -144,7 +144,7 @@
 .Donor-badge {
   height: 30px;
   width: 90px;
-  padding-top: 5px;
+  padding-top: 4px;
   background-color: goldenrod;
   border: solid 2px goldenrod;
   display: flex;
@@ -205,6 +205,10 @@
     flex-direction: column-reverse;
   }
 
+  .post-container-section-left {
+    gap: 15px;
+  }
+
   .post-content-container {
     height: auto;
   }
@@ -218,7 +222,7 @@
   }
 
   .card-bottom-section {
-    gap: 10px;
+    gap: 15px;
     height: 65px;
     border-top: 1px solid rgb(204, 204, 204);
     flex-direction: column;
@@ -237,7 +241,7 @@
   }
 
   .card-author-container > .card-author-name {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding-bottom: 5px;
   }
 

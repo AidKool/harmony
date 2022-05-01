@@ -89,7 +89,7 @@ function Nav() {
             <li className="nav-menu-li">Contact</li>
           </ul>
           <button className="bn54">
-            <Link to="/login">
+            <Link className='bn54' to="/login">
               <span className="bn54span">Login</span>
             </Link>
           </button>
