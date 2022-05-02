@@ -9,7 +9,8 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "kill": "npx kill-port 3000 && npx kill-port 3001",
     "restart": "npx kill-port 3000 && npx kill-port 3001 && concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "seed": "cd server && cd seeders && node seed.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "graphql": "^16.3.0"
+    "graphql": "^16.3.0",
+    "react-hook-form": "^7.30.0"
   }
 }

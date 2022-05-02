@@ -74,7 +74,7 @@ function Nav() {
   }, [data, results, setResults]);
 
   useEffect(() => {
-    if (results.length > 0) {
+    if (results && results.length > 0) {
       navigate('/search');
     }
   }, [navigate, results]);
@@ -82,20 +82,22 @@ function Nav() {
   return (
     <nav className="nav-bar">
       <div className={header}>
-        <div className="logo-container">
-          <Logo />
-        </div>
-        <div className="h-logo-container">
-          <HLogo />
-        </div>
-
+        <Link className="logo-link-con" to="/">
+          <div className="logo-container">
+            <Logo />
+          </div>
+        </Link>
+        <Link to="/">
+          <div className="h-logo-container">
+            <HLogo />
+          </div>
+        </Link>
         <form className="nav-form" onSubmit={handleFormSubmit}>
           <input type="search" ref={locationRef} placeholder="Search in a location" className="nav-search-field" />
           <button type="submit" className="nav-search-button">
             <FontAwesomeIcon className="nav-search-icon" icon={faSearch} />
           </button>
         </form>
-
         <div className="right-side-nav-container">
           <Link className="add-post-nav-btn" to="/">
             <span className="add-post-span">Add post</span>
@@ -117,7 +119,9 @@ function Nav() {
             <li className="nav-menu-li">Contact</li>
           </ul>
           <button className="bn54">
-            <span className="bn54span">Login</span>
+            <a href="/login">
+              <span className="bn54span">Login</span>
+            </a>
           </button>
           <div className="nav-border"></div>
         </div>
