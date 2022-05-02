@@ -24,12 +24,13 @@ const resolvers = {
         longitude: origin.longitude,
         latitude: origin.latitude,
       };
-      return (await Account.find().populate([['location', 'posts', 'musicianId', 'bandId']])).filter((account) => {
+      return (await Account.find().populate(['location', 'posts', 'musicianId', 'bandId'])).filter((account) => {
         const destCoords = {
           longitude: account.location.longitude,
           latitude: account.location.latitude,
         };
         const usersDistance = calculateDistance(originCoords, destCoords);
+        account.miles = Math.round(usersDistance);
         return usersDistance <= miles;
       });
     },

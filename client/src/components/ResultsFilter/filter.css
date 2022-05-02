@@ -1,0 +1,7 @@
+.filter-form label {
+  display: block;
+}
+.filter-form label,
+.filter-form option {
+  text-transform: capitalize;
+}

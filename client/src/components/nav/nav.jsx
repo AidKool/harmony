@@ -69,15 +69,12 @@ function Nav() {
 
   useEffect(() => {
     if (data) {
-      console.log('data:', data);
       setResults(data.getAccountsByDistance);
-      console.log('results: ', results);
     }
   }, [data, results, setResults]);
 
   useEffect(() => {
     if (results.length > 0) {
-      console.log(results);
       navigate('/search');
     }
   }, [navigate, results]);

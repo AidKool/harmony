@@ -11,6 +11,7 @@ const typeDefs = gql`
     location: Location
     genres: [String]
     posts: [Post]
+    miles: Int
     type: String
     musicianId: Musician
     bandId: Band

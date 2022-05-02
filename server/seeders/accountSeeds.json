@@ -8,7 +8,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96586",
-    "location": "6262d041d6300e64987d8e73"
+    "location": "6262d041d6300e64987d8e73",
+    "genres": ["rock", "pop"]
   },
   {
     "_id": "6262cf25b47c1581e93686ab",
@@ -19,7 +20,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96587",
-    "location": "6262d041d6300e64987d8e74"
+    "location": "6262d041d6300e64987d8e74",
+    "genres": ["jazz"]
   },
   {
     "_id": "6262cf25b47c1581e93686ac",
@@ -30,7 +32,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96588",
-    "location": "6262d041d6300e64987d8e75"
+    "location": "6262d041d6300e64987d8e75",
+    "genres": ["classical"]
   },
   {
     "_id": "6262cf25b47c1581e93686ad",
@@ -41,7 +44,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96589",
-    "location": "6262d041d6300e64987d8e76"
+    "location": "6262d041d6300e64987d8e76",
+    "genres": ["heavy metal"]
   },
   {
     "_id": "6262cf25b47c1581e93686ae",
@@ -52,7 +56,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c32",
-    "location": "6262d041d6300e64987d8e77"
+    "location": "6262d041d6300e64987d8e77",
+    "genres": ["rock"]
   },
   {
     "_id": "6262cf25b47c1581e93686af",
@@ -63,7 +68,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c33",
-    "location": "6262d041d6300e64987d8e78"
+    "location": "6262d041d6300e64987d8e78",
+    "genres": ["classical"]
   },
   {
     "_id": "6262cf25b47c1581e93686b0",
@@ -74,7 +80,8 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c34",
-    "location": "6262d041d6300e64987d8e79"
+    "location": "6262d041d6300e64987d8e79",
+    "genres": ["rock"]
   },
   {
     "_id": "6262cf25b47c1581e93686b1",
@@ -85,6 +92,7 @@
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c35",
-    "location": "6262d041d6300e64987d8e7a"
+    "location": "6262d041d6300e64987d8e7a",
+    "genres": ["rock"]
   }
 ]

@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useSearchContext } from '../../store/searchContext';
 import SearchResult from '../SearchResult';
 import capitalise from '../../utils/capitalise';
 
+import './filter.css';
+
 function ResultsFilter() {
   const { results, setResults, searchLocation, setSearchLocation } = useSearchContext();
-
-  console.log(results);
+  const [filteredResults, setFilteredResults] = useState([...results]);
+  const navigate = useNavigate();
 
   const [formState, setFormState] = useState({
     type: 'all',
-    miles: 100,
-    genre: null,
-    instruments: null,
-    available: null,
+    miles: 'all',
+    genres: 'all',
+    instruments: 'all',
+    available: 'all',
   });
 
   const handleFormChange = (event) => {
     const { name, value } = event.target;
-
-    console.log('name:', name);
-    console.log('value:', value);
 
     setFormState({
       ...formState,
@@ -29,83 +29,123 @@ function ResultsFilter() {
     });
   };
 
+  useEffect(() => {
+    if (!searchLocation) {
+      navigate('/');
+    }
+  }, [navigate, searchLocation]);
+
+  useEffect(() => {
+    let tempResults = [...results];
+    for (const key in formState) {
+      if (formState[key] !== 'all') {
+        if (key === 'type') {
+          tempResults = tempResults.filter((result) => result[key] === formState[key]);
+        }
+        if (key === 'genres') {
+          tempResults = tempResults.filter((result) => result[key].includes(formState[key]));
+        }
+        if (key === 'miles') {
+          tempResults = tempResults.filter((result) => parseInt(result[key]) <= parseInt(formState[key]));
+        }
+        if (formState.type === 'Musician') {
+          if (key === 'instruments') {
+            tempResults = tempResults.filter((result) => result.musicianId[key].includes(formState[key]));
+          }
+          if (key === 'available') {
+            tempResults = tempResults.filter((result) => {
+              if (formState[key] === 'true') {
+                return result.musicianId.available;
+              }
+              return !result.musicianId.available;
+            });
+          }
+        }
+      }
+    }
+    setFilteredResults(tempResults);
+  }, [formState, results, setFilteredResults]);
+
   return (
     <div className="container flex flex-col gap-y-5">
-      <p>
-        Users found near {capitalise(searchLocation)}: {results.length} found
-      </p>
-      <form className="flex flex-wrap gap-5 justify-center">
-        <select
-          name="type"
-          defaultValue={'all'}
-          className="bg-white border border-gray-500 py-2 px-3"
-          onChange={handleFormChange}>
-          <option value="type" disabled>
-            type of user
-          </option>
-          <option value="all">all</option>
-          <option value="band">band</option>
-          <option value="musician">musician</option>
-        </select>
-        <select
-          name="miles"
-          defaultValue={'miles'}
-          className="bg-white border border-gray-500 py-2 px-3"
-          onChange={handleFormChange}>
-          <option value="miles" disabled>
-            miles
-          </option>
-          <option value="1">1</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="500">50</option>
-        </select>
-        <select
-          name="genre"
-          defaultValue={'genre'}
-          className="bg-white border border-gray-500 py-2 px-3"
-          onChange={handleFormChange}>
-          <option value="genre" disabled>
-            genre
-          </option>
-          <option value="rock">rock</option>
-          <option value="pop">pop</option>
-        </select>
-        {formState.type === 'musician' && (
+      <p>Users found near {capitalise(searchLocation)}</p>
+      <form className="flex flex-wrap gap-5 justify-center filter-form">
+        <div>
+          <label htmlFor="type">type of user</label>
+          <select
+            name="type"
+            defaultValue={'all'}
+            className="bg-white border border-gray-500 py-2 px-3"
+            onChange={handleFormChange}>
+            <option value="all">all</option>
+            <option value="Band">band</option>
+            <option value="Musician">musician</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="miles">Distance</label>
+          <select
+            name="miles"
+            defaultValue={'all'}
+            className="bg-white border border-gray-500 py-2 px-3"
+            onChange={handleFormChange}>
+            <option value="all">all</option>
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="genres">genres</label>
+          <select
+            name="genres"
+            defaultValue={'all'}
+            className="bg-white border border-gray-500 py-2 px-3"
+            onChange={handleFormChange}>
+            <option value="all">all</option>
+            <option value="rock">rock</option>
+            <option value="Pop">pop</option>
+            <option value="jazz">jazz</option>
+            <option value="classical">classical</option>
+          </select>
+        </div>
+        {formState.type === 'Musician' && (
           <>
-            <select
-              name="instruments"
-              defaultValue={'instruments'}
-              className="bg-white border border-gray-500 py-2 px-3"
-              onChange={handleFormChange}>
-              <option value="instruments" disabled>
-                instruments
-              </option>
-              <option value="guitar">guitar</option>
-              <option value="drums">drums</option>
-            </select>
-            <select
-              name="available"
-              defaultValue={'available'}
-              className="bg-white border border-gray-500 py-2 px-3"
-              onChange={handleFormChange}>
-              <option value="available" disabled>
-                available
-              </option>
-              <option value="available">available</option>
-              <option value="true">true</option>
-              <option value="false">false</option>
-            </select>
+            <div>
+              <label htmlFor="instruments">instruments</label>
+              <select
+                name="instruments"
+                defaultValue={'all'}
+                className="bg-white border border-gray-500 py-2 px-3"
+                onChange={handleFormChange}>
+                <option value="all">all</option>
+                <option value="guitar">guitar</option>
+                <option value="drums">drums</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="available">available</label>
+              <select
+                name="available"
+                defaultValue={'all'}
+                className="bg-white border border-gray-500 py-2 px-3"
+                onChange={handleFormChange}>
+                <option value="all">all</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+              </select>
+            </div>
           </>
         )}
       </form>
       <ul className="flex flex-wrap justify-center gap-5">
-        {results.map((user) => {
+        {filteredResults.map((user) => {
           return (
-            <li key={user.username} className="">
+            <li key={user.username}>
               <SearchResult {...user} />
             </li>
           );
