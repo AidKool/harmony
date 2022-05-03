@@ -1,0 +1,57 @@
+.post-add-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  min-height: 75vh;
+  height: auto;
+  width: 100%;
+}
+
+.add-post-form-container {
+  width: 70%;
+  height: auto;
+  background-color: lightgray;
+  border-radius: 2em;
+  padding: 2em;
+}
+
+.add-post-title,
+.add-post-content {
+  width: 100%;
+  display: block;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1em;
+  padding: 0.5em;
+  color: black;
+  resize: vertical;
+}
+
+.add-post-content {
+  height: 7em;
+}
+
+.file-upload-label {
+  display: block;
+  padding: 0 0 0.5em 0;
+}
+
+.upload-image {
+  padding: 0;
+}
+
+.new-post-title {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 2em;
+}
+
+@media (max-width: 450px) {
+  .add-post-form-container {
+    width: 90%;
+    padding: 1em;
+  }
+}

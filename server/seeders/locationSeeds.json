@@ -1,50 +1,50 @@
 [
   {
     "_id": "6262d041d6300e64987d8e73",
-    "longitude": -2.2374,
-    "latitude": 53.48095,
-    "name": "Manchester"
+    "latitude": 53.471419,
+    "longitude": -2.244834,
+    "name": "manchester"
   },
   {
     "_id": "6262d041d6300e64987d8e74",
-    "longitude": -1.13169,
-    "latitude": 52.6386,
-    "name": "Leicester"
+    "latitude": 52.631453,
+    "longitude": -1.134219,
+    "name": "leicester"
   },
   {
     "_id": "6262d041d6300e64987d8e75",
-    "longitude": -1.54785,
-    "latitude": 53.79648,
-    "name": "Leeds"
+    "latitude": 53.797563,
+    "longitude": -1.544227,
+    "name": "leeds"
   },
   {
     "_id": "6262d041d6300e64987d8e76",
-    "longitude": -3.18,
-    "latitude": 51.48,
-    "name": "Cardiff"
+    "latitude": 51.501018,
+    "longitude": -3.192626,
+    "name": "cardiff"
   },
   {
     "_id": "6262d041d6300e64987d8e77",
-    "longitude": -1.4659,
-    "latitude": 53.38297,
-    "name": "Sheffield"
+    "latitude": 53.385013,
+    "longitude": -1.470097,
+    "name": "sheffield"
   },
   {
     "_id": "6262d041d6300e64987d8e78",
-    "longitude": 1.15545,
-    "latitude": 52.05917,
-    "name": "Ipswich"
+    "latitude": 52.056652,
+    "longitude": 1.164486,
+    "name": "ipswich"
   },
   {
     "_id": "6262d041d6300e64987d8e79",
-    "longitude": -1.08271,
-    "latitude": 53.95763,
-    "name": "York"
+    "latitude": 53.952213,
+    "longitude": -1.096445,
+    "name": "york"
   },
   {
     "_id": "6262d041d6300e64987d8e7a",
-    "longitude": -2.09814,
-    "latitude": 57.14369,
-    "name": "Aberdeen"
+    "latitude": 57.16247,
+    "longitude": -2.173549,
+    "name": "aberdeen"
   }
 ]

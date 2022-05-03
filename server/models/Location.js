@@ -4,11 +4,11 @@ const { Schema } = mongoose;
 
 const locationSchema = new Schema({
   longitude: {
-    type: mongoose.Types.Decimal128,
+    type: Number,
     required: true,
   },
   latitude: {
-    type: mongoose.Types.Decimal128,
+    type: Number,
     required: true,
   },
   name: {

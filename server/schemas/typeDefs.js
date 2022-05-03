@@ -11,6 +11,7 @@ const typeDefs = gql`
     location: Location
     genres: [String]
     posts: [Post]
+    miles: Int
     type: String
     musicianId: Musician
     bandId: Band
@@ -70,6 +71,7 @@ const typeDefs = gql`
   type Query {
     getAccount(_id: ID!): Account
     getAllAccounts: [Account]
+    getAccountsByDistance(location: String!, miles: Int!): [Account]
     getPost(_id: ID!): Post
     getAllPosts: [Post]
     getChat(_id: ID!): Chat
@@ -79,13 +81,13 @@ const typeDefs = gql`
   type Mutation {
     addAccount(username: String!, email: String!, password: String!, type: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(title: String!, content: String!): Post
+    addPost(title: String!, content: String!, picture: String, accountId: ID!): Post
     addChat(user: [ID]!): Chat
     addMessage(sender: String!, receiver: String!, message: String!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
-    updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean): Musician
+    updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean, musicianId: String): Musician
     updateBand(bandName: String): Band
-    updatePost(title: String, content: String, picture: String): Post
+    updatePost(title: String, content: String, picture: String, postId: ID!): Post
     deletePost(postId: ID!): Post
     setDonatedTrue(donated: Boolean): Account
     setDonatedSilver(silver: Boolean): Account
