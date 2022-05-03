@@ -1,18 +1,18 @@
 import './account.css';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { QUERY_SINGLE_ACCOUNT} from '../../utils/queries';
+import { QUERY_SINGLE_ACCOUNT } from '../../utils/queries';
 import { MdLocationOn, MdModeEditOutline } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
 import Auth from '../../utils/auth';
 
 function Account() {
-//Assigns url params to get id from profiles/:profileId
+  //Assigns url params to get id from profiles/:profileId
   const params = useParams();
   const accountId = params.profileId;
   console.log(accountId);
-//Get a single account and create and object set as "user" 
+  //Get a single account and create and object set as "user"
   const { data, error, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
     variables: { id: accountId },
   });
@@ -21,13 +21,9 @@ function Account() {
  
 
   //if conditions depending on the query's return results
-if(loading) {
-    <p> loading.....</p>
+  if (loading) {
+    <p> loading.....</p>;
   }
-    
-if (error) {
-  <p> error....</p>;
-}
 
 if(data){
      const musicianId = user.musicianId._id;

@@ -9,7 +9,8 @@
     "type": "Musician",
     "genres": ["Jazz","Pop","Folk"],
     "musicianId": "6262d33742c1c49c1fe96586",
-    "location": "6262d041d6300e64987d8e73"
+    "location": "6262d041d6300e64987d8e73",
+    "genres": ["rock", "pop"]
   },
   {
     "_id": "6262cf25b47c1581e93686ab",
@@ -21,7 +22,8 @@
     "type": "Musician",
     "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96587",
-    "location": "6262d041d6300e64987d8e74"
+    "location": "6262d041d6300e64987d8e74",
+    "genres": ["jazz"]
   },
   {
     "_id": "6262cf25b47c1581e93686ac",
@@ -33,7 +35,8 @@
     "type": "Musician",
     "genres": ["Indie", "Rock","Blues"],
     "musicianId": "6262d33742c1c49c1fe96588",
-    "location": "6262d041d6300e64987d8e75"
+    "location": "6262d041d6300e64987d8e75",
+    "genres": ["classical"]
   },
   {
     "_id": "6262cf25b47c1581e93686ad",
@@ -45,7 +48,8 @@
     "type": "Musician",
     "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96589",
-    "location": "6262d041d6300e64987d8e76"
+    "location": "6262d041d6300e64987d8e76",
+    "genres": ["heavy metal"]
   },
   {
     "_id": "6262cf25b47c1581e93686ae",
@@ -57,7 +61,8 @@
     "type": "Band",
     "genres": ["Jazz","indie"],
     "bandId": "6262d839ccabf53f3dde7c32",
-    "location": "6262d041d6300e64987d8e77"
+    "location": "6262d041d6300e64987d8e77",
+    "genres": ["rock"]
   },
   {
     "_id": "6262cf25b47c1581e93686af",
@@ -69,7 +74,8 @@
     "type": "Band",
     "genres": ["Jazz", "Rock", "Metal"],
     "bandId": "6262d839ccabf53f3dde7c33",
-    "location": "6262d041d6300e64987d8e78"
+    "location": "6262d041d6300e64987d8e78",
+    "genres": ["classical"]
   },
   {
     "_id": "6262cf25b47c1581e93686b0",
@@ -81,7 +87,8 @@
     "type": "Band",
     "genres": ["Classical", "Metal", "Folk", "Country"],
     "bandId": "6262d839ccabf53f3dde7c34",
-    "location": "6262d041d6300e64987d8e79"
+    "location": "6262d041d6300e64987d8e79",
+    "genres": ["rock"]
   },
   {
     "_id": "6262cf25b47c1581e93686b1",
@@ -93,6 +100,7 @@
     "type": "Band",
     "genres": ["Folk", "Country"],
     "bandId": "6262d839ccabf53f3dde7c35",
-    "location": "6262d041d6300e64987d8e7a"
+    "location": "6262d041d6300e64987d8e7a",
+    "genres": ["rock"]
   }
 ]
