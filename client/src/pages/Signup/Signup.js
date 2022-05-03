@@ -71,11 +71,11 @@ function Signup() {
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
-      <a href="/login">
-        <button className="login-btn">LOGIN</button>
+      <a href="/login" className="signup-link signup-btn">
+        LOGIN
       </a>
       <div className="container">
-        <div className="logo-container">
+        <div className="logo-container-login ">
           <Logo />
         </div>
         <section className="signup-form">

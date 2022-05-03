@@ -1,10 +1,10 @@
 :root {
   --pine-green: #2bb673;
 }
-* {
+/* * {
   font-family: Arial, Helvetica, sans-serif;
   /* color: white; */
-}
+
 
 .profile-container {
   display: flex;

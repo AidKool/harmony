@@ -102,3 +102,28 @@ export const DELETE_POST = gql`
     }
   }
 `;
+
+export const SET_DONATED_TRUE = gql`
+  mutation setDonatedTrue {
+    setDonatedTrue {
+      donated
+    }
+}
+`;
+
+export const SET_DONATED_SILVER = gql`
+  mutation setDonatedSilver {
+    setDonatedSilver {
+      silver
+    }
+  }
+`;
+
+export const SET_DONATED_BRONZE = gql`
+  mutation setDonatedBronze {
+    setDonatedBronze {
+      bronze
+    }
+  }
+`;
+

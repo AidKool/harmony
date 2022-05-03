@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:wght@700&display=swap');
+
+.animation-section-container {
+  height: 300px;
+  width: 100%;
+  background-color: rgb(236, 236, 236);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-circle {
+  height: 300px;
+  width: 300px;
+  border-radius: 25px;
+  z-index: 700;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-img {
+ height: 100%;
+ width: 100%;
+}
+
+.animation-scroll-container-text {
+  font-family: 'Quantico', sans-serif;
+  font-weight: 700;
+  color: rgba(209, 209, 209, 0.39);
+  font-size: 7rem;
+  overflow: hidden;
+}
+
+.scroll-arrow-container-right {
+  position: absolute;
+  transform: translateX(300px) rotate(20deg);
+  height: 100px;
+}
+
+.scroll-arrow-container-left {
+  position: absolute;
+  transform: translateX(-300px) rotate(-150deg);
+  height: 100px;
+}
+
+.scroll-arrow {
+  fill: rgba(209, 209, 209, 0.39); 
+}

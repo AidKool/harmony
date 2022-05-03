@@ -167,27 +167,6 @@
     opacity: 0%;
   }
 }
-
-.astronautimgline {
-  width: 50%;
-  transition: ease-in-out;
-  animation-name: astrohover;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  transition-timing-function: ease-in-out;
-}
-
-@keyframes astrohover {
-  0% {
-    transform: translateY(10px);
-  }
-
-  100% {
-    transform: translateY(-30px);
-  }
-}
-
 .home-title-holder {
   display: flex;
   align-items: center;
@@ -274,7 +253,7 @@
     font-size: 1.2rem;
     color: rgb(43, 43, 43);
     transition: ease-in-out 250ms;
-    padding-top: 5px;
+    padding-top: 8px;
     text-decoration: none;
 }
 

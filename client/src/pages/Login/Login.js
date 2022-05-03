@@ -41,11 +41,11 @@ function Login() {
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
-      <a href="/signup" className="signup-link">
-        <button className="signup-btn">SIGNUP</button>
+      <a href="/signup" className="signup-link signup-btn">
+        SIGN-UP
       </a>
       <div className="container">
-        <div className="logo-container">
+        <div className="logo-container-login ">
           <Logo />
         </div>
         <section className="login-form">
