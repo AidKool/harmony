@@ -1,6 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Account, Musician, Band, Chat, Location, Message, Post } = require('../models');
 const { signToken } = require('../utils/auth');
+const calculateDistance = require('../utils/calculateDistance');
+const getCityCoordinates = require('../utils/getCityCoordinates');
 
 const resolvers = {
   Query: {
@@ -9,6 +11,28 @@ const resolvers = {
     },
     getAllAccounts: async () => {
       return Account.find().populate(['location', 'posts', 'musicianId', 'bandId']);
+    },
+    getAccountsByDistance: async (parent, { location, miles }) => {
+      let origin = await Location.findOne({ name: location });
+
+      if (origin === null) {
+        origin = await getCityCoordinates(location);
+        origin.name = location;
+      }
+
+      const originCoords = {
+        longitude: origin.longitude,
+        latitude: origin.latitude,
+      };
+      return (await Account.find().populate(['location', 'posts', 'musicianId', 'bandId'])).filter((account) => {
+        const destCoords = {
+          longitude: account.location.longitude,
+          latitude: account.location.latitude,
+        };
+        const usersDistance = calculateDistance(originCoords, destCoords);
+        account.miles = Math.round(usersDistance);
+        return usersDistance <= miles;
+      });
     },
     getPost: async (parent, { _id }) => {
       return Post.findById(_id);
@@ -90,9 +114,11 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateMusician: async (parent, { firstName, lastName, instruments, available }, context) => {
+    updateMusician: async (parent, { firstName, lastName, instruments, available , musicianId}, context) => {
       if (context.user) {
-        const updatedMusician = await Musician.findByIdAndUpdate(context.user.musicianId, {
+        console.log(context.user)
+        console.log(musicianId)
+        const updatedMusician = await Musician.findByIdAndUpdate(musicianId, {
           firstName,
           lastName,
           instruments,

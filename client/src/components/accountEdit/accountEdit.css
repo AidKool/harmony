@@ -49,3 +49,19 @@ select {
   border: none;
   border-radius: 10px;
 }
+
+.loggedIn {
+  padding-bottom: 20px;
+}
+
+.backArrow {
+  display: flex;
+  align-items: center;
+}
+
+.editImg {
+  width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
