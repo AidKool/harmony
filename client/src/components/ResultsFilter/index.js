@@ -101,7 +101,7 @@ function ResultsFilter({ data, searchLocation }) {
                 onChange={handleFormChange}>
                 <option value="all">all</option>
                 <option value="rock">rock</option>
-                <option value="Pop">pop</option>
+                <option value="pop">pop</option>
                 <option value="jazz">jazz</option>
                 <option value="classical">classical</option>
               </select>
