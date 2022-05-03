@@ -4,7 +4,7 @@ import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './question-section.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import { faXmarkCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 gsap.registerPlugin(ScrollTrigger);
 
 function QuestionSection() {
@@ -51,11 +51,8 @@ function QuestionSection() {
             If you need any help with anything.
             <br /> Please feel free to get in touch
           </p>
-          {/* <a className="help-button" target="_blank" href="https://github.com/AidKool/harmony">
-            Say hello
-          </a> */}
           <button onClick={setActiveQuestionModal} className="help-button">
-            Say hello
+            Contact
           </button>
         </div>
         <img
@@ -79,7 +76,8 @@ function QuestionSection() {
             </p>
 
             <a className="help-link" target="_blank" href="https://github.com/AidKool/harmony">
-              Say hello
+              <span className='question-hello-span'>Say hello</span>
+              <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <div className="question-modal-link-container">
               <div className="link-container-position">
