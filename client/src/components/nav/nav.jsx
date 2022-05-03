@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLazyQuery } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,16 +7,12 @@ import Logo from '../logo/logo';
 import Burger from '../burger/burger';
 import Cross from '../cross/cross';
 import HLogo from '../h-logo/h-logo';
-import { QUERY_ACOUNTS_BY_DISTANCE } from '../../utils/queries';
-import { useSearchContext } from '../../store/searchContext';
 
 import './nav.css';
 
 function Nav() {
   const [toggle, setToggle] = useState(false);
   const locationRef = useRef(null);
-  const [search, { loading, error, data }] = useLazyQuery(QUERY_ACOUNTS_BY_DISTANCE);
-  const { results, setResults, searchLocation, setSearchLocation } = useSearchContext();
   const navigate = useNavigate();
 
   const menuHandler = () => {
@@ -61,23 +56,10 @@ function Nav() {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    setSearchLocation(locationRef.current.value.trim().toLowerCase());
-    const miles = 50;
-    search({ variables: { location: searchLocation, miles } });
+    const location = locationRef.current.value.trim().toLowerCase();
     locationRef.current.value = '';
+    navigate('/search', { state: { location }, replace: false });
   }
-
-  useEffect(() => {
-    if (data) {
-      setResults(data.getAccountsByDistance);
-    }
-  }, [data, results, setResults]);
-
-  useEffect(() => {
-    if (results && results.length > 0) {
-      navigate('/search');
-    }
-  }, [navigate, results]);
 
   return (
     <nav className="nav-bar">
