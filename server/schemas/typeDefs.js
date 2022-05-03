@@ -11,6 +11,7 @@ const typeDefs = gql`
     location: Location
     genres: [String]
     posts: [Post]
+    miles: Int
     type: String
     musicianId: Musician
     bandId: Band
@@ -67,6 +68,7 @@ const typeDefs = gql`
   type Query {
     getAccount(_id: ID!): Account
     getAllAccounts: [Account]
+    getAccountsByDistance(location: String!, miles: Int!): [Account]
     getPost(_id: ID!): Post
     getAllPosts: [Post]
     getChat(_id: ID!): Chat

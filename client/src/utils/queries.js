@@ -11,6 +11,35 @@ export const QUERY_ACCOUNTS = gql`
   }
 `;
 
+export const QUERY_ACOUNTS_BY_DISTANCE = gql`
+  query getAccountsByDistance($location: String!, $miles: Int!) {
+    getAccountsByDistance(location: $location, miles: $miles) {
+      _id
+      username
+      email
+      picture
+      bio
+      type
+      genres
+      location {
+        name
+      }
+      miles
+      musicianId {
+        _id
+        firstName
+        lastName
+        instruments
+        available
+      }
+      bandId {
+        _id
+        bandName
+      }
+    }
+  }
+`;
+
 export const QUERY_SINGLE_ACCOUNT = gql`
   query getSingleAccount($id: ID!) {
     getAccount(_id: $id) {
