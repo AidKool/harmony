@@ -54,9 +54,9 @@ const resolvers = {
       const token = signToken(account);
       return { token, account };
     },
-    addPost: async (parent, { title, content }, context) => {
+    addPost: async (parent, { title, content, picture, accountId }, context) => {
       if (context.user) {
-        const post = await Post.create({ title, content });
+        const post = await Post.create({ title, content, picture, accountId });
         await Account.findByIdAndUpdate(context.user._id, { $addToSet: { posts: post._id } });
         return post;
       }
@@ -111,19 +111,16 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updatePost: async (parent, { title, content, picture }, context) => {
-      if (!context.user) {
-        throw new AuthenticationError('You must be logged in');
-      }
-      if (context.post.accountId === context.user._id) {
-        const updatedPost = await Post.findByIdAndUpdate(context.post._id, {
+    updatePost: async (parent, { title, content, picture, postId }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findByIdAndUpdate(postId, {
           title,
           content,
           picture,
         });
         return updatedPost;
       }
-      throw new AuthenticationError('You can only update your own posts');
+      throw new AuthenticationError('You must be logged in');
     },
     deletePost: async (parent, { postId }, context) => {
       if (!context.user) {

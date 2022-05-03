@@ -25,8 +25,8 @@ export const LOGIN = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($title: String!, $content: String!) {
-    addPost(title: $title, content: $content) {
+  mutation addPost($title: String!, $content: String!, $picture: String, $accountId: ID!) {
+    addPost(title: $title, content: $content, picture: $picture, accountId: $accountId) {
       title
       content
       picture
@@ -88,8 +88,8 @@ export const UPDATE_BAND = gql`
 `;
 
 export const UPDATE_POST = gql`
-  mutation updatePost($title: String, $content: String, $picture: String) {
-    updatePost(title: $title, content: $content, picture: $picture) {
+  mutation updatePost($title: String, $content: String, $picture: String, $postId: ID!) {
+    updatePost(title: $title, content: $content, picture: $picture, postId: $postId) {
       _id
     }
   }
