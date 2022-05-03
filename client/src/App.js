@@ -1,6 +1,5 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.js';
 import ProfileEdit from './pages/profileEdit/profileEdit.jsx';
@@ -9,13 +8,10 @@ import Signup from './pages/Signup/Signup.js';
 import Feed from './pages/Feed/feed.jsx';
 import AddPost from './pages/addPost/addPost';
 import UpdatePost from './pages/updatePost/updatePost';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
 import SearchResults from './pages/SearchResults';
 import { setContext } from '@apollo/client/link/context';
 import SearchProviderWrapper from './components/SearchProviderWrapper/';
-import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

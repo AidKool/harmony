@@ -39,9 +39,6 @@ input {
   flex-direction: column;
 }
 
-.icon {
-}
-
 select {
   min-width: 100%;
   padding: 12px 10px;
