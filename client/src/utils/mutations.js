@@ -72,8 +72,8 @@ export const UPDATE_ACCOUNT = gql`
 `;
 
 export const UPDATE_MUSICIAN = gql`
-  mutation updateMusician($firstName: String, $lastName: String, $instruments: [String], $available: Boolean) {
-    updateMusician(firstName: $firstName, lastName: $lastName, instruments: $instruments, available: $available) {
+  mutation updateMusician($firstName: String, $lastName: String, $instruments: [String], $available: Boolean, $musicianId: String) {
+    updateMusician(firstName: $firstName, lastName: $lastName, instruments: $instruments, available: $available, musicianId: $musicianId) {
       _id
     }
   }

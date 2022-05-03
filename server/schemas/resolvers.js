@@ -114,9 +114,11 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateMusician: async (parent, { firstName, lastName, instruments, available }, context) => {
+    updateMusician: async (parent, { firstName, lastName, instruments, available , musicianId}, context) => {
       if (context.user) {
-        const updatedMusician = await Musician.findByIdAndUpdate(context.user.musicianId, {
+        console.log(context.user)
+        console.log(musicianId)
+        const updatedMusician = await Musician.findByIdAndUpdate(musicianId, {
           firstName,
           lastName,
           instruments,

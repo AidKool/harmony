@@ -128,6 +128,7 @@ body {
 
 .editBtn{
     display: flex;
+    align-items: center;
     color: white;
     position: relative;
     top: 9px
@@ -135,7 +136,7 @@ body {
 
 .editBtn:hover{
 color: #2bb673;
-transform: scale(1.02);
-transition: 0.6s;
+transform: scale(1.01);
+transition: 0.3s;
 cursor: pointer;
 }

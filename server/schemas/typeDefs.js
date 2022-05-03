@@ -82,7 +82,7 @@ const typeDefs = gql`
     addChat(user: [ID]!): Chat
     addMessage(sender: String!, receiver: String!, message: String!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
-    updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean): Musician
+    updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean, musicianId: String): Musician
     updateBand(bandName: String): Band
     updatePost(title: String, content: String, picture: String): Post
     deletePost(postId: ID!): Post

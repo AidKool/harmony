@@ -59,6 +59,7 @@ export const QUERY_SINGLE_ACCOUNT = gql`
         createdAt
       }
       musicianId {
+        _id
         firstName
         lastName
         instruments
