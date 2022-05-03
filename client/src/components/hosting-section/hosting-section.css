@@ -1,0 +1,46 @@
+
+
+.hosting-title {
+  color: rgb(255, 255, 255);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  line-height: 1;
+}
+
+.hosting-top-half {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  font-family: 'Khula', sans-serif;
+}
+
+.hosting-content {
+  max-width: 500px;
+  width: 90%;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.hosting-arrow {
+  font-size: 1.5rem;
+  color: white;
+}
+
+@media screen and (max-width: 450px) {
+  .hosting-content {
+    width: 270px;
+  }
+}
+
+
+

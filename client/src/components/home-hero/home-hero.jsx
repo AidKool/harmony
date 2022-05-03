@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import './home-hero.css';
-import GoldCrownLogo from './assets/Gold-crown'
+import GoldCrownLogo from './assets/Gold-crown';
 import SilverCrownLogo from './assets/Silver-Crown';
 import CopperCrownLogo from './assets/Copper-crown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
-
-
 
 let stripePromise;
 const getStripe = () => {
@@ -24,7 +22,7 @@ function HomeHero() {
   const [activeSubModal, setActiveSubModal] = useState(null);
 
   const goldCrown = {
-    price: 'price_1KtvV3IqutbJIdP9EYgtzYxw',
+    price: 'price_1KukMyIqutbJIdP9zAMBizD0',
     quantity: 1,
   };
   const checkoutOptionsGold = {
@@ -42,13 +40,13 @@ function HomeHero() {
   // -------------------------------------------------------------// =============================================================================
 
   const silverCrown = {
-    price: 'price_1KujDGIqutbJIdP9rDAIsJEa',
+    price: 'price_1KukOiIqutbJIdP9lFpSNWJR',
     quantity: 1,
   };
   const checkoutOptionsSilver = {
     lineItems: [silverCrown],
     mode: 'payment',
-    successUrl: `${window.location.origin}/success/silver`,
+    successUrl: `${window.location.origin}/success/dhsjakdhj34g3dgsah2376213dsasa`,
     cancelUrl: `${window.location.origin}/`,
   };
 
@@ -59,13 +57,13 @@ function HomeHero() {
   // =============================================================================
 
   const copperCrown = {
-    price: 'price_1KujjMIqutbJIdP9436t645S',
+    price: 'price_1KukQBIqutbJIdP932f6QISn',
     quantity: 1,
   };
   const checkoutOptionsCopper = {
     lineItems: [copperCrown],
     mode: 'payment',
-    successUrl: `${window.location.origin}/success/bronze`,
+    successUrl: `${window.location.origin}/success/dsaiuody87ty8763218gdsahdgsadg`,
     cancelUrl: `${window.location.origin}/`,
   };
 

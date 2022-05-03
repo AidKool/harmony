@@ -4,6 +4,7 @@ import Post from '../Post/Post';
 import { useQuery } from '@apollo/client';
 import { GET_POSTS } from '../../utils/queries';
 
+
 function FeedSection() {
   const { data } = useQuery(GET_POSTS);
   const posts = data?.getAllPosts;
