@@ -13,7 +13,7 @@ input {
 
 .editForm{
     background-color: rgb(238, 232, 232);
-    padding: 50px;
+    padding: 30px 50px 50px 50px;
     border-radius: 20px;
 }
 
@@ -49,4 +49,20 @@ select {
     margin-top: 14px;
     border: none;
     border-radius: 10px;
+}
+
+.loggedIn{
+    padding-bottom: 20px;
+}
+
+.backArrow{
+    display: flex;
+    align-items: center;
+}
+
+.editImg {
+width: 100px;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
 }

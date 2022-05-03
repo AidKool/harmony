@@ -3,12 +3,15 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { BsEmojiAngry } from 'react-icons/bs';
-import { useMutation } from '@apollo/client';
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { useMutation , useQuery } from '@apollo/client';
 import { UPDATE_ACCOUNT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { QUERY_SINGLE_ACCOUNT} from '../../utils/queries';
+import MusicianEdit from '../musicianEdit/musicianEdit';
 
 export default function App() {
-  const [updateAccount, { error, data }] = useMutation(UPDATE_ACCOUNT);
+  const [updateAccount, { error, dataAcc }] = useMutation(UPDATE_ACCOUNT);
   const [image, setImage] = useState('');
 
   const {
@@ -26,9 +29,9 @@ export default function App() {
     try {
       const fetchData = await fetch('https://api.cloudinary.com/v1_1/mattglwilliams/image/upload', settings);
       const resData = await fetchData.json();
-      console.log(resData.url);
+      console.log("resData" , resData.url);
       const newImageUrl = await resData.url;
-      const { data } = await updateAccount({
+      const { dataAcc } = await updateAccount({
         variables: { ...formData, picture: newImageUrl },
       });
     } catch (e) {
@@ -45,15 +48,35 @@ export default function App() {
   const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
   const jwtId = jwtToken.data._id;
   const jwtUsername = jwtToken.data.username;
+  
+  const profilePath = `/profiles/${jwtId}`
+//get user query
 
+const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
+    variables: { id: accountId },
+  });
+  const user= data?.getAccount
+
+
+
+  if(data){
   if (jwtId === accountId) {
     return (
       <>
         <div class="editContainer">
           {Auth.loggedIn() ? (
-            <form class="editForm" onSubmit={handleSubmit(onSubmit)}>
+            <>
+            <div class="editForm"> 
+            <form class="" onSubmit={handleSubmit(onSubmit)}>
+            <a href={profilePath}>
+              <div class="backArrow">
+              <IoMdArrowRoundBack />
+                <p> your profile</p>
+              </div>
+            </a>
               <p class="loggedIn"> Currently logged in as {jwtUsername}</p>
-
+              <img src={user.picture} alt="profile" class="editImg" />
+                 <p class="userName text-white">{}</p>
               <input type="file" onChange={(e) => setImage(e.target.files[0])} />
               <input type="text" placeholder="bio" {...register('bio', {})} />
               <select {...register('location')}>
@@ -81,6 +104,13 @@ export default function App() {
                 type="submit"
               />
             </form>
+
+            <div>
+            <MusicianEdit user={user}/>
+            <p>musician edit should show</p>
+            </div>
+            </div>
+            </>
           ) : (
             <p>You need to be logged in to edit your profile details</p>
           )}
@@ -99,4 +129,5 @@ export default function App() {
       </div>
     );
   }
+}
 }
