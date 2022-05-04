@@ -80,8 +80,8 @@ export const UPDATE_MUSICIAN = gql`
 `;
 
 export const UPDATE_BAND = gql`
-  mutation updateBand($bandName: String) {
-    updateBand(bandName: $bandName) {
+  mutation updateBand($bandName: String, $bandId: String) {
+    updateBand(bandName: $bandName, bandId: $bandId) {
       _id
     }
   }

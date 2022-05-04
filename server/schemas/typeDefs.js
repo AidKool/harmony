@@ -86,7 +86,7 @@ const typeDefs = gql`
     addMessage(sender: String!, receiver: String!, message: String!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
     updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean, musicianId: String): Musician
-    updateBand(bandName: String): Band
+    updateBand(bandName: String, bandId: String): Band
     updatePost(title: String, content: String, picture: String, postId: ID!): Post
     deletePost(postId: ID!): Post
     setDonatedTrue(donated: Boolean): Account

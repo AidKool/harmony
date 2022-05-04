@@ -24,9 +24,6 @@ function Account() {
   }
 
   if (data) {
-    const musicianId = user.musicianId._id;
-    console.log('musician', musicianId);
-
     const userGenres = user.genres;
     const genreList = userGenres.map((genre) => <li>{genre}</li>);
 
@@ -34,14 +31,6 @@ function Account() {
       const userToken = localStorage.getItem('id_token');
       const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
       const jwtId = jwtToken.data._id;
-      // console.log('JWT TOKEN', userToken);
-      // console.log('jwtToken return', jwtToken);
-      // console.log(jwtToken.data.email);
-      // console.log(jwtToken.data.username);
-      // console.log(jwtToken.data._id);
-
-      //mapping of genres in user object
-
       const editUrl = accountId + '/edit';
 
       return (

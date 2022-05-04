@@ -9,6 +9,7 @@ import { UPDATE_ACCOUNT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import { QUERY_SINGLE_ACCOUNT} from '../../utils/queries';
 import MusicianEdit from '../musicianEdit/musicianEdit';
+import BandEdit from '../bandEdit/bandEdit';
 
 export default function App() {
   const [updateAccount, { error, dataAcc }] = useMutation(UPDATE_ACCOUNT);
@@ -61,6 +62,7 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
 
   if(data){
   if (jwtId === accountId) {
+    console.log(user)
     return (
       <>
         <div class="editContainer">
@@ -106,8 +108,10 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
             </form>
 
             <div>
-            <MusicianEdit user={user}/>
-            <p>musician edit should show</p>
+              
+              {user.type === "Musician" ?<> <MusicianEdit user={user}/>
+            <p>musician edit should show</p></> : <> <BandEdit user={user} /> <p>band edit should show</p></> }
+            
             </div>
             </div>
             </>
