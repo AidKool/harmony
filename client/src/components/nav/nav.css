@@ -235,6 +235,10 @@
   color: #000000;
 }
 
+.backer2 > ul > a > li  {
+  color: #000000;
+}
+
 .nav-border {
   margin-top: 50px;
   width: 80%;
@@ -290,6 +294,11 @@
   animation: bn54storm 0.7s ease-in-out both;
   animation-delay: 0.06s;
   text-decoration: none;
+}
+
+.bnred {
+  background-color: #ef4f6c;
+  border: 1px solid #ef4f6c;
 }
 
 @keyframes bn54rotate {

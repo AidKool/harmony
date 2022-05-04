@@ -25,9 +25,8 @@
   display: block;
   margin: 2em 0 0 2em;
   border: none;
-  width: 10%;
+  width: 100px;
   border-radius: 8px;
-  padding: 0.5em;
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
