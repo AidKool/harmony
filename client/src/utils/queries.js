@@ -116,6 +116,32 @@ export const GET_SINGLE_POST = gql`
   }
 `;
 
+export const GET_MY_POSTS = gql`
+  query getMyPosts {
+    getMyPosts {
+      _id
+      title
+      content
+      picture
+      createdAt
+      accountId {
+        musicianId {
+          _id
+        }
+        bandId {
+          _id
+        }
+        _id
+        username
+        picture
+        donated
+        silver
+        bronze
+      }
+    }
+  }
+`;
+
 export const GET_CHATS = gql`
   query getAllChats {
     getAllChats {

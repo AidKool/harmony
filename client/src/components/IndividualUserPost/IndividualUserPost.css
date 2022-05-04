@@ -74,12 +74,28 @@
   font-size: 1.2rem;
 }
 
-.post-profile-link {
+.post-delete {
   height: 30px;
   width: 90px;
   padding-top: 4px;
   background-color: #ef4f6c;
   border: solid 2px #ef4f6c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.post-update {
+  height: 30px;
+  width: 90px;
+  padding-top: 4px;
+  background-color: var(--pine-green);
+  border: solid 2px var(--pine-green);
   display: flex;
   align-items: center;
   justify-content: center;

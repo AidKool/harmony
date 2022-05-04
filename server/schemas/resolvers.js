@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Account, Musician, Band, Chat, Location, Message, Post } = require('../models');
+const { where } = require('../models/Post');
 const { signToken } = require('../utils/auth');
 const calculateDistance = require('../utils/calculateDistance');
 const getCityCoordinates = require('../utils/getCityCoordinates');
@@ -43,6 +44,13 @@ const resolvers = {
         populate: { path: 'musicianId', model: 'Musician' },
       });
       return posts;
+    },
+    getMyPosts: async (parent, args, context) => {
+      const myPosts = Post.find({ accountId: context.user._id }).populate({
+        path: 'accountId',
+        populate: { path: 'musicianId', model: 'Musician' },
+      });
+      return myPosts;
     },
     getChat: async (parent, { _id }) => {
       return Chat.findById(_id).populate(['users', 'messages']);
@@ -118,10 +126,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateMusician: async (parent, { firstName, lastName, instruments, available , musicianId}, context) => {
+    updateMusician: async (parent, { firstName, lastName, instruments, available, musicianId }, context) => {
       if (context.user) {
-        console.log(context.user)
-        console.log(musicianId)
+        console.log(context.user);
+        console.log(musicianId);
         const updatedMusician = await Musician.findByIdAndUpdate(musicianId, {
           firstName,
           lastName,
@@ -153,15 +161,12 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in');
     },
     deletePost: async (parent, { postId }, context) => {
-      if (!context.user) {
-        throw new AuthenticationError('You must be logged in');
-      }
-      if (context.post.accountId === context.user._id) {
+      if (context.user) {
         const deletePost = await Post.findByIdAndDelete(postId);
         await Account.findByIdAndUpdate(context.user._id, { $pull: { posts: postId } });
         return deletePost;
       }
-      throw new AuthenticationError('You can only delete your own posts');
+      throw new AuthenticationError('You must be logged in');
     },
     setDonatedTrue: async (parent, args, context) => {
       if (!context.user) {
