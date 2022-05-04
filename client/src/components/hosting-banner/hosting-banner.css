@@ -1,0 +1,33 @@
+.hosting-banner-Container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.hosting-banner-banner {
+  width: 90%;
+  height: 100%;
+  background-color: #ef4f6c;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hosting-banner-content {
+    color: white;
+    font-family: 'Khula', sans-serif;
+    font-size: 1.5rem;
+    width: 500px;
+    text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+  .hosting-banner-content {
+    width: 270px;
+  }
+}
+

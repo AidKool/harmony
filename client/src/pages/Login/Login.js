@@ -11,11 +11,6 @@ function Login() {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  };
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(userFormData);
@@ -38,18 +33,23 @@ function Login() {
     });
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
   return (
     <>
       <img src={backgroundImage} className="background-image"></img>
-      <a href="/signup" className="signup-link">
-        <button className="signup-btn">SIGNUP</button>
+      <a href="/signup" className="signup-link signup-btn">
+        SIGN-UP
       </a>
       <div className="container">
-        <div className="logo-container">
+        <div className="logo-container-login ">
           <Logo />
         </div>
         <section className="login-form">
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <input
               type="text"
               placeholder="Email"
@@ -64,11 +64,15 @@ function Login() {
               onChange={handleInputChange}
               value={userFormData.password}
             />
-            <button type="button" className="submit-btn" onClick={handleFormSubmit}>
+            {error ? (
+              <div>
+                <p className="error-text">Invalid Credentials</p>
+              </div>
+            ) : null}
+            <button type="submit" className="submit-btn">
               Login
             </button>
           </form>
-          {error && <div className="my-3 p-3 bg-danger text-white">{error.message}</div>}
         </section>
       </div>
     </>

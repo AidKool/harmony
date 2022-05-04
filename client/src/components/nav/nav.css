@@ -3,33 +3,39 @@
 }
 
 .header {
-    width: 100%;
-    padding: 0px 10% 0 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(0, 0, 0);
-    height: 80px;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    gap: 100px;
-    transition: ease-out 150ms;
+  width: 100%;
+  padding: 0px 10% 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  gap: 100px;
+   transition: ease-out 250ms;
 }
 
 .header2 {
   width: 100%;
-    padding: 0px 10% 0 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(255, 255, 255);
-    height: 80px;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    gap: 100px;
-    transition: ease-out 150ms;
+  padding: 0px 10% 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  gap: 100px;
+   transition: ease-out 250ms;
+}
+
+.logo-link-con-h {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .nav-bar {
@@ -140,6 +146,12 @@
   transition: ease-in-out 0.15s;
 }
 
+.block {
+  background-color: red;
+  width: 50%;
+  height: 50%;
+}
+
 .mobileNavMenu-closed {
   position: fixed;
   top: 0%;
@@ -150,18 +162,20 @@
   justify-content: center;
   border-radius: 10px;
   z-index: 998;
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
-  transition: ease-out 250ms;
+  display: none;
+  transition: ease-in-out 350ms;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transform: translateY(-250px);
+  background-color: #000000;
 }
 
-
-
 .mobileNavMenu-open {
+  display: block;
   position: fixed;
   top: 0%;
   width: 100%;
@@ -174,7 +188,7 @@
   z-index: 998;
   opacity: 1;
   visibility: visible;
-  transition: ease-out 250ms;
+  transition: ease-in-out 350ms;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   align-items: center;
@@ -182,46 +196,44 @@
   flex-direction: column;
 }
 
+
 .backer {
   padding-top: 150px;
   width: 100%;
   background-color: rgb(0, 0, 0);
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  transition: ease-out 150ms;
+  transition: ease-out 250ms;
   padding-left: 10%;
-  
+  padding-bottom: 60px;
 }
 
 .backer2 {
   padding-top: 150px;
   width: 100%;
   background-color: rgb(255, 255, 255);
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  transition: ease-out 150ms;
+  transition: ease-out 250ms;
   padding-left: 10%;
- 
+  padding-bottom: 60px;
 }
 
 .backer2 > .nav-menu-title {
   color: #000000;
-
 }
 
 .backer2 > ul > li {
-   color: #000000;
+  color: #000000;
 }
-
-
 
 .nav-border {
   margin-top: 50px;
@@ -279,10 +291,6 @@
   animation-delay: 0.06s;
   text-decoration: none;
 }
-
-
-
-
 
 @keyframes bn54rotate {
   0% {
@@ -379,9 +387,9 @@
   fill: #000000;
 }
 
-.header2 > a >.logo-container {
+.header2 > a > .logo-container {
   fill: black;
-} 
+}
 
 .header2 > .right-side-nav-container > .hamburger-container {
   stroke: black;
@@ -397,7 +405,6 @@
   transition: ease-out 250ms;
 }
 
-
 /* media queries -------------------------------- */
 @media screen and (max-width: 1400px) {
   .nav-container {
@@ -405,39 +412,37 @@
     gap: 30px;
   }
 
-    .header, .header2 {
+  .header,
+  .header2 {
     padding: 0 10% 0 10%;
     gap: 30px;
   }
 }
 
-
-
-
 @media screen and (max-width: 820px) {
   .hamburger-container {
     padding: 6px;
   }
-   .nav-container {
+  .nav-container {
     gap: 20px;
   }
 }
 
 @media screen and (max-width: 650px) {
- .add-post-nav-btn {
-   width: 35px;
-   height: 30px;
- }
+  .add-post-nav-btn {
+    width: 35px;
+    height: 30px;
+  }
 
- .add-post-span {
-   visibility: none;
-   opacity: none;
-   display: none;
- }
+  .add-post-span {
+    visibility: none;
+    opacity: none;
+    display: none;
+  }
 
- .right-side-nav-container {
-   gap: 10px;
- }
+  .right-side-nav-container {
+    gap: 10px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -446,6 +451,10 @@
     opacity: none;
     visibility: none;
   }
+
+.header, .header2 {
+    padding: 0 5% 0 5%;
+}
 
   .logo-link-con {
     display: none;
@@ -466,9 +475,14 @@
     padding-right: 0px;
   }
 
+  .header,
+  .header2 {
+    gap: 20px;
+  }
 
-  
-  .header, .header2 {
-    gap: 20px
+  .logo-link-con-h {
+    display: block;
+    visibility: visible;
+    opacity: 1;
   }
 }

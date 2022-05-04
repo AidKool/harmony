@@ -54,6 +54,18 @@ const accountSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Band',
   },
+  donated: {
+    type: Boolean,
+    default: false,
+  },
+  silver: {
+    type: Boolean,
+    default: false,
+  },
+   bronze: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 // Set up pre-save middleware to create password
