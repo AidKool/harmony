@@ -93,7 +93,7 @@ const typeDefs = gql`
       available: Boolean
       musicianId: String
     ): Musician
-    updateBand(bandName: String): Band
+    updateBand(bandName: String, bandId: String): Band
     updatePost(title: String, content: String, picture: String, postId: ID!): Post
     deletePost(postId: ID!): Post
     setDonatedTrue(donated: Boolean): Account

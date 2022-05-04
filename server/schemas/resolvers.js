@@ -140,9 +140,9 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateBand: async (parent, { bandName }, context) => {
+    updateBand: async (parent, { bandName , bandId }, context) => {
       if (context.user) {
-        const updatedBand = await Band.findByIdAndUpdate(context.user.bandId, {
+        const updatedBand = await Band.findByIdAndUpdate(bandId, {
           bandName,
         });
         return updatedBand;
