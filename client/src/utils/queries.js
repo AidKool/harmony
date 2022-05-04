@@ -67,6 +67,7 @@ export const QUERY_SINGLE_ACCOUNT = gql`
         available
       }
       bandId {
+        _id
         bandName
       }
     }
