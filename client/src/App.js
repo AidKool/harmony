@@ -8,6 +8,8 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup.js';
 import Feed from './pages/Feed/feed.jsx';
 import SearchResults from './pages/SearchResults';
+import Chat from './pages/Chat';
+
 import { setContext } from '@apollo/client/link/context';
 import SearchProviderWrapper from './components/SearchProviderWrapper/';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
@@ -46,6 +48,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
+          <Route path="/chats" element={<Chat />} />
         </Routes>
       </Router>
     </ApolloProvider>

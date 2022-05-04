@@ -66,6 +66,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: Account
     getAccount(_id: ID!): Account
     getAllAccounts: [Account]
     getAccountsByDistance(location: String!, miles: Int!): [Account]
@@ -73,6 +74,7 @@ const typeDefs = gql`
     getAllPosts: [Post]
     getChat(_id: ID!): Chat
     getAllChats: [Chat]
+    getUserChats(_id: ID!): [Chat]
   }
 
   type Mutation {

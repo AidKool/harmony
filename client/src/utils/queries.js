@@ -110,3 +110,39 @@ export const GET_CHATS = gql`
     }
   }
 `;
+
+export const GET_USER_CHATS = gql`
+  query getUserChats($id: ID!) {
+    getUserChats(_id: $id) {
+      _id
+      users {
+        username
+        _id
+        picture
+      }
+      messages {
+        _id
+        sender {
+          username
+          _id
+        }
+        receiver {
+          username
+          _id
+        }
+        message
+        createdAt
+      }
+    }
+  }
+`;
+
+export const GET_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+    }
+  }
+`;

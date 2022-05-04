@@ -7,7 +7,6 @@
     "picture": "https://images.genius.com/37001ac666aaf64d5ac07c57e15a6a7a.600x600x1.jpg",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
-    "genres": ["Jazz","Pop","Folk"],
     "musicianId": "6262d33742c1c49c1fe96586",
     "location": "6262d041d6300e64987d8e73",
     "genres": ["rock", "pop"]
@@ -20,7 +19,6 @@
     "picture": "https://i.guim.co.uk/img/media/c949f922687de7361eb010fc53902265994a9b8a/0_0_3635_2181/master/3635.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=58e138c4f430024440332ab8f113b4a9",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
-    "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96587",
     "location": "6262d041d6300e64987d8e74",
     "genres": ["jazz"]
@@ -33,7 +31,6 @@
     "picture": "https://collectionimages.npg.org.uk/large/mw115342/Damon-Albarn.jpg",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
-    "genres": ["Indie", "Rock","Blues"],
     "musicianId": "6262d33742c1c49c1fe96588",
     "location": "6262d041d6300e64987d8e75",
     "genres": ["classical"]
@@ -46,7 +43,6 @@
     "picture": "https://www.hollywoodsmagazine.com/wp-content/uploads/2021/05/Victori-with-the-hguitsr.jpg",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Musician",
-    "genres": ["Jazz", "Rock", "Classical", "Metal", "Pop", "Folk", "Country"],
     "musicianId": "6262d33742c1c49c1fe96589",
     "location": "6262d041d6300e64987d8e76",
     "genres": ["heavy metal"]
@@ -59,7 +55,6 @@
     "picture": "https://lovemusiclovelife.com/wp-content/uploads/the-roly-mo.jpg",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
-    "genres": ["Jazz","indie"],
     "bandId": "6262d839ccabf53f3dde7c32",
     "location": "6262d041d6300e64987d8e77",
     "genres": ["rock"]
@@ -72,7 +67,6 @@
     "picture": "https://images.squarespace-cdn.com/content/v1/5df05a090f15a54a2dcfdbcd/1580251422719-K28PYG4E5M6XT7QMXMAH/Photo+28-07-2019%2C+12+27+34.jpg?format=1000w",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
-    "genres": ["Jazz", "Rock", "Metal"],
     "bandId": "6262d839ccabf53f3dde7c33",
     "location": "6262d041d6300e64987d8e78",
     "genres": ["classical"]
@@ -85,7 +79,6 @@
     "picture": "https://ticketselect.co.uk/img/artist/big/MHzRqyhFYyAXE7Ko",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
-    "genres": ["Classical", "Metal", "Folk", "Country"],
     "bandId": "6262d839ccabf53f3dde7c34",
     "location": "6262d041d6300e64987d8e79",
     "genres": ["rock"]
@@ -98,7 +91,6 @@
     "picture": "https://motherand3sonsblog.files.wordpress.com/2021/02/img_6167.jpg?w=1024",
     "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed arcu non odio euismod lacinia at quis risus sed. Senectus et netus et malesuada fames ac turpis. Amet facilisis magna etiam tempor. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Quam vulputate dignissim suspendisse in est ante. Justo eget magna fermentum iaculis. Diam sit amet nisl suscipit adipiscing bibendum. Volutpat diam ut venenatis tellus in metus. Dolor magna eget est lorem ipsum dolor.",
     "type": "Band",
-    "genres": ["Folk", "Country"],
     "bandId": "6262d839ccabf53f3dde7c35",
     "location": "6262d041d6300e64987d8e7a",
     "genres": ["rock"]

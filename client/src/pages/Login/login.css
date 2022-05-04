@@ -1,7 +1,7 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
-}
+} */
 
 .container {
   position: relative;
@@ -49,7 +49,7 @@
   padding: 1.2em;
 }
 
-input[type='text'],
+/* input[type='text'],
 input[type='password'] {
   width: 100%;
   display: block;
@@ -58,7 +58,7 @@ input[type='password'] {
   margin-top: 1em;
   padding: 0.5em;
   color: black;
-}
+} */
 
 .submit-btn {
   background-color: rgb(78, 221, 78);

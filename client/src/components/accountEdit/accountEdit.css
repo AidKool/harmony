@@ -1,15 +1,16 @@
-*{
+/* *{
     font-family: 'Ubuntu', sans-serif;
-}
+} */
+
 .editContainer{
     margin-top: 150px;
     margin-bottom: 70px;
     padding: 20px;
 }
 
-input {
+/* input {
     padding: 40px
-}
+} */
 
 .editForm{
     background-color: rgb(238, 232, 232);
@@ -43,10 +44,10 @@ input {
 
 }
 
-select {
+/* select {
     min-width: 100%;
     padding: 12px 10px;
     margin-top: 14px;
     border: none;
     border-radius: 10px;
-}
+} */

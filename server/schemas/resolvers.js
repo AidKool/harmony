@@ -6,6 +6,13 @@ const getCityCoordinates = require('../utils/getCityCoordinates');
 
 const resolvers = {
   Query: {
+    me: async (_, __, context) => {
+      if (context.user) {
+        const userData = await Account.findById(context.user._id);
+        return userData;
+      }
+      throw new AuthenticationError('You must log in');
+    },
     getAccount: async (parent, { _id }) => {
       return Account.findById(_id).populate(['location', 'posts', 'musicianId', 'bandId']);
     },
@@ -45,6 +52,12 @@ const resolvers = {
     },
     getAllChats: async () => {
       return Chat.find().populate(['users', 'messages']);
+    },
+    getUserChats: async (parent, { _id }, context) => {
+      console.log(context.user);
+      return Chat.find({ users: _id })
+        .populate({ path: 'messages', populate: ['sender', 'receiver'] })
+        .populate(['users']);
     },
   },
   Mutation: {
