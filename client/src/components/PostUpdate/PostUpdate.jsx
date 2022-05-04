@@ -3,8 +3,9 @@ import './PostUpdate.css';
 import { useMutation, useQuery } from '@apollo/client';
 import { UPDATE_POST } from '../../utils/mutations';
 import { GET_SINGLE_POST } from '../../utils/queries';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 const UpdatePostForm = () => {
   const [postContent, setPostContent] = useState({ title: '', content: '' });
@@ -13,6 +14,7 @@ const UpdatePostForm = () => {
   const params = useParams();
   const postId = params.postId;
   const { data, error, loading } = useQuery(GET_SINGLE_POST, { variables: { id: postId } });
+  const navigate = useNavigate();
 
   const post = data?.getPost || {};
 
@@ -38,6 +40,7 @@ const UpdatePostForm = () => {
       const { data } = await updatePost({
         variables: { ...postContent, picture: newImageUrl, postId: postId },
       });
+      navigate('/my-posts');
     } catch (e) {
       console.log(e);
     }
