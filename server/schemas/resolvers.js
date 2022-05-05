@@ -80,14 +80,19 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const account = await Account.findOne({ email });
+
       if (!account) {
         throw new AuthenticationError('Invalid credentials');
       }
+
       const correctPw = await account.isCorrectPassword(password);
+
       if (!correctPw) {
         throw new AuthenticationError('Credentials invalid');
       }
+
       const token = signToken(account);
+
       return { token, account };
     },
     addPost: async (parent, { title, content, picture, accountId }, context) => {
@@ -140,7 +145,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateBand: async (parent, { bandName , bandId }, context) => {
+    updateBand: async (parent, { bandName, bandId }, context) => {
       if (context.user) {
         const updatedBand = await Band.findByIdAndUpdate(bandId, {
           bandName,
