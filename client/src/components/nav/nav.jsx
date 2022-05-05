@@ -116,6 +116,9 @@ function Nav() {
               <a href={profilePath}>
                 <li className="nav-menu-li">My Account</li>
               </a>
+              <Link to="/my-posts">
+                <li class="nav-menu-li">My posts</li>
+              </Link>
               <a target="_blank" href="https://github.com/AidKool/harmony">
                 <li className="nav-menu-li">Contact</li>
               </a>
@@ -166,6 +169,10 @@ function Nav() {
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
+              <li className="nav-menu-li">Feed</li>
+              <Link to="/signup">
+                <li class="nav-menu-li">Sign up</li>
+              </Link>
               <Link to="/feed">
                 <li className="nav-menu-li">Feed</li>
               </Link>
