@@ -21,7 +21,7 @@ function ChatList({ chats }) {
 
   if (chats) {
     return (
-      <div className="h-screen px-2 py-3">
+      <div className="px-2 py-3">
         <h2 className="w-0 overflow-hidden md:w-fit font-bold text-2xl pb-5">All Chats</h2>
         <ul className="flex flex-col gap-y-1 overflow-y-auto chatlist">
           {chats.length > 0 &&

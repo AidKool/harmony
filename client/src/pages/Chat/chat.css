@@ -1,0 +1,9 @@
+.chat-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.max-height {
+  height: calc(100vh - 80px) !important;
+}

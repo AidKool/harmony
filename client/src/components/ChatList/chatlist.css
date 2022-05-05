@@ -1,5 +1,5 @@
 .chatlist {
-  height: calc(100vh - 52px - 24px);
+  height: calc(100vh - 52px - 24px - 80px);
 }
 
 .chatlist-element {

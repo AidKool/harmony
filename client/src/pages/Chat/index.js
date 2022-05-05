@@ -6,9 +6,11 @@ import { MessageProvider } from '../../store/messageContext';
 import ChatList from '../../components/ChatList';
 import Messages from '../../components/Messages';
 import MessageInput from '../../components/MessageInput';
-import ChatProfile from '../../components/ChatProfile';
 
 import { GET_ME, GET_USER_CHATS } from '../../utils/queries';
+
+import './chat.css';
+import Nav from '../../components/nav/nav';
 
 function Chat() {
   const { loading: userLoading, data: userRawData } = useQuery(GET_ME);
@@ -33,19 +35,19 @@ function Chat() {
 
   return (
     <ChatProvider>
-      <div className="flex max-h-screen">
-        <aside className="w-fit md:w-1/5 border-gray-200 max-h-screen">
-          <ChatList chats={chats} />
-        </aside>
-        <section className="w-fit md:w-3/5 border-gray-200 border-x max-h-screen">
-          <MessageProvider>
-            <Messages />
-            <MessageInput />
-          </MessageProvider>
-        </section>
-        <aside className="w-0 overflow-hidden md:w-1/5">
-          <ChatProfile />
-        </aside>
+      <Nav />
+      <div className="chat-container max-height">
+        <div className="flex">
+          <aside className="w-fit md:w-1/5 border-gray-200 border-l max-height">
+            <ChatList chats={chats} />
+          </aside>
+          <section className="w-fit md:w-4/5 border-gray-200 border-x max-height">
+            <MessageProvider>
+              <Messages />
+              <MessageInput />
+            </MessageProvider>
+          </section>
+        </div>
       </div>
     </ChatProvider>
   );
