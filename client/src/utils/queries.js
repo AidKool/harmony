@@ -213,6 +213,7 @@ export const GET_ME = gql`
       _id
       username
       email
+      picture
     }
   }
 `;

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useChatContext } from '../../store/chatContext';
 import { useQuery, useLazyQuery } from '@apollo/client';
 
-import { GET_CHAT } from '../../utils/queries';
+import { GET_ME, GET_CHAT } from '../../utils/queries';
 
 import './messages.css';
 
@@ -145,10 +145,17 @@ const messages = [
 const user = 'A';
 
 function Messages() {
-  const { activeChat, setActiveChat } = useChatContext();
-  const [getChat, { loading, data }] = useLazyQuery(GET_CHAT);
+  const { loading: userLoading, data: userRawData } = useQuery(GET_ME);
+  const userData = userRawData?.me || {};
+  console.log('me:', userData);
 
+  const { activeChat, setActiveChat } = useChatContext();
+
+  const [getChat, { loading, data }] = useLazyQuery(GET_CHAT);
   const chatData = data?.getChat || [];
+
+  const [contact, setContact] = useState({});
+
   console.log('chatData:', chatData);
 
   useEffect(() => {
@@ -156,6 +163,12 @@ function Messages() {
       variables: {
         id: activeChat,
       },
+    });
+    setContact(() => {
+      if (chatData && chatData.length > 0 && chatData.users[0]._id === userData._id) {
+        return chatData.users[1];
+      }
+      return chatData.users[0];
     });
   }, [activeChat, getChat]);
 
@@ -171,11 +184,19 @@ function Messages() {
             return (
               <div
                 key={message._id}
-                className={`flex items-start gap-x-2 ${message.sender === user ? 'flex-row-reverse' : ''}`}>
-                <img src="https://via.placeholder.com/40x40" className="rounded-full object-contain" alt="profile" />
+                className={`flex items-start gap-x-2 ${
+                  message.sender.username === userData.username ? 'flex-row-reverse' : ''
+                }`}>
+                <img
+                  src={message.sender.username === userData.username ? userData.picture : contact.picture}
+                  className="rounded-full object-cover message-picture"
+                  alt="profile"
+                />
                 <span
                   className={`${
-                    message.sender === user ? 'float-right bg-blue-600 text-white' : 'float-left bg-gray-300'
+                    message.sender.username === userData.username
+                      ? 'float-right bg-blue-600 text-white'
+                      : 'float-left bg-gray-300'
                   } clear-both max-w-md px-5 py-2 rounded-3xl`}>
                   {message.message}
                 </span>

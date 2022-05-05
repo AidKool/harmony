@@ -1,3 +1,8 @@
 .chat-height {
   height: calc(100vh - 72px);
 }
+
+.message-picture {
+  width: 40px;
+  height: 40px;
+}
