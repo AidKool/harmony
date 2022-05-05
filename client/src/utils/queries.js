@@ -190,19 +190,6 @@ export const GET_USER_CHATS = gql`
         _id
         picture
       }
-      # messages {
-      #   _id
-      #   sender {
-      #     username
-      #     _id
-      #   }
-      #   receiver {
-      #     username
-      #     _id
-      #   }
-      #   message
-      #   createdAt
-      # }
     }
   }
 `;

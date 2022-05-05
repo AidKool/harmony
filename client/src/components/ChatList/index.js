@@ -10,7 +10,7 @@ function ChatList({ chats }) {
 
   useEffect(() => {
     if (chats.length > 0) {
-      setActiveChat(chats[0].contact._id);
+      setActiveChat(chats[0].chatId);
     }
   }, [chats, setActiveChat]);
 

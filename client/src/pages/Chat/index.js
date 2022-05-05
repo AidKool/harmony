@@ -19,7 +19,7 @@ function Chat() {
   const [chats, setChats] = useState([]);
 
   useEffect(() => {
-    if (chatData) {
+    if (chatData.length > 0) {
       const tempChats = chatData.map((chat) => {
         if (chat.users[0].username !== userData.username) {
           return { chatId: chat._id, contact: chat.users[0] };
