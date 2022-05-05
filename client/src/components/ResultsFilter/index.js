@@ -58,7 +58,7 @@ function ResultsFilter({ data, searchLocation }) {
   }, [formState, results, setFilteredResults]);
 
   return (
-    <div className="container flex flex-col gap-y-5">
+    <div className="container text-center flex flex-col gap-y-5 results-container-margin ">
       {filteredResults.length > 0 ? (
         <>
           <p>Users found near {capitalise(searchLocation)}</p>

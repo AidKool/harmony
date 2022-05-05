@@ -105,13 +105,22 @@ function Nav() {
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
-              <li className="nav-menu-li">My Feed</li>
+              <Link to="/feed">
+                <li className="nav-menu-li">Feed</li>
+              </Link>
+
+              <Link to="/feed">
+                <li className="nav-menu-li">Messages</li>
+              </Link>
+
               <a href={profilePath}>
                 <li className="nav-menu-li">My Account</li>
               </a>
-              <li className="nav-menu-li">Contact</li>
+              <a target="_blank" href="https://github.com/AidKool/harmony">
+                <li className="nav-menu-li">Contact</li>
+              </a>
             </ul>
-            <button className="bn54" onClick={Auth.logout}>
+            <button className="bn54 bnred" onClick={Auth.logout}>
               <span className="bn54span">Log out</span>
             </button>
             <div className="nav-border"></div>
@@ -157,9 +166,12 @@ function Nav() {
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
-              <li className="nav-menu-li">Feed</li>
-
-              <li className="nav-menu-li">Contact</li>
+              <Link to="/feed">
+                <li className="nav-menu-li">Feed</li>
+              </Link>
+              <a target="_blank" href="https://github.com/AidKool/harmony">
+                <li className="nav-menu-li">Contact</li>
+              </a>
             </ul>
             <button className="bn54">
               <Link className="bn54" to="/login">

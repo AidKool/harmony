@@ -1,0 +1,12 @@
+/* .search-card-result-container {
+    min-height: 420px;
+} */
+
+.obj-fit {
+    object-fit: cover;
+}
+
+.space-between {
+    justify-content: space-between;
+     min-height: 370px;
+}

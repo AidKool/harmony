@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import './slider.css';
-import sliderData from '../../data/slider-data.json';
+import sliderData from './data/slider-data.json';
 import SingleSlide from '../single-slide/single-slide';
 import SliderModal from '../slider-modal/slider-modal';
 

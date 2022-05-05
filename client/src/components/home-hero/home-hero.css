@@ -9,6 +9,29 @@
   align-items: center;
 }
 
+.home-cta-button-login {
+  background-color: transparent;
+  font-family: 'Khula', sans-serif;
+  width: 180px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-weight: 100;
+  font-size: 1.2rem;
+  color: white;
+  transition: ease-in-out 250ms;
+  padding-top: 5px;
+}
+
+.home-cta-button-login:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #ef4f6c;
+}
+
 .subscription-modal-container {
   max-width: 400px;
   width: 90%;
@@ -46,30 +69,31 @@
   border-radius: 5px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.2rem;
-  
 }
 
-.gold-bc, .silver-bc, .copper-bc {
+.gold-bc,
+.silver-bc,
+.copper-bc {
   color: rgb(59, 59, 59);
   border: 2px solid rgb(59, 59, 59);
   transition: 150ms ease-out;
 }
 
 .gold-bc:hover {
-  color:#f4aa3c;
+  color: #f4aa3c;
   border: 2px solid #f4aa3c;
 }
 .silver-bc:hover {
-  color: #b6b6b6;;
+  color: #b6b6b6;
   border: 2px solid #b6b6b6;
 }
 .copper-bc:hover {
-  color:#f47e54;
+  color: #f47e54;
   border: 2px solid #f47e54;
 }
 
 .sub-modal-x-button {
-  position:absolute;
+  position: absolute;
   top: 20px;
   right: 20px;
   color: black;
@@ -79,11 +103,9 @@
 }
 
 .sub-modal-x-button:hover {
-   color: rgb(250, 75, 75);
-   
+  color: rgb(250, 75, 75);
 }
 
 .ccpb {
   margin-bottom: 20px;
 }
-
