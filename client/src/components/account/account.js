@@ -35,38 +35,38 @@ function Account() {
 
       return (
         <>
-          <div class="profileContainer">
-            <div class="topContainer">
-              <img src={user.picture} alt="profile" class="userImg" />
-              <p class="userName text-white">{}</p>
+          <div className="profileContainer">
+            <div className="topContainer">
+              <img src={user.picture} alt="profile" className="userImg" />
+              <p className="userName text-white">{}</p>
               {jwtId === accountId && (
                 <a href={editUrl} class="editBtn">
-                  <div class="editBtn">
+                  <div className="editBtn">
                     <MdModeEditOutline />
                     <p>Edit profile</p>
                   </div>
                 </a>
               )}
-              <p class="userName text-white">{user.username}</p>
+              <p className="userName text-white">{user.username}</p>
               {user.type === 'Band' && (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
               )}
               {user.type === 'Musician' && (
-                <p class="userDisplayName text-white text-capitalize">
+                <p className="userDisplayName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button class="msgBtn">Message</button>
-              <div class="locationContainer">
-                <span class="locationMarker text-white text-2xl">
+              <button className="msgBtn">Message</button>
+              <div className="locationContainer">
+                <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p class="userLocation text-white">{user.location.name}</p>
+                <p className="userLocation text-white">{user.location.name}</p>
               </div>
-              <p class="userRole text-white">{user.type}</p>
+              <p className="userRole text-white">{user.type}</p>
             </div>
           </div>
-          <div class="infoContainer">
+          <div className="infoContainer">
             {user.type === 'Musician' && (
               <>
                 <h2>Availability</h2>
@@ -77,7 +77,7 @@ function Account() {
             <p> lead guitar</p>
             <h2>Genre</h2>
 
-            <ul class="genreList">
+            <ul className="genreList">
               <p key={genreList}> {genreList}</p>
             </ul>
             <h2>About us</h2>
@@ -88,31 +88,31 @@ function Account() {
     } else {
       return (
         <>
-          <div class="profileContainer">
-            <div class="topContainer">
-              <img src={user.picture} alt="profile" class="userImg" />
-              <p class="userName text-white">{}</p>
+          <div className="profileContainer">
+            <div className="topContainer">
+              <img src={user.picture} alt="profile" className="userImg" />
+              <p className="userName text-white">{}</p>
 
-              <p class="userName text-white">{user.username}</p>
+              <p className="userName text-white">{user.username}</p>
               {user.type === 'Band' && (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
               )}
               {user.type === 'Musician' && (
-                <p class="userDisplayName text-white text-capitalize">
+                <p className="userDisplayName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button class="msgBtn">Message</button>
-              <div class="locationContainer">
-                <span class="locationMarker text-white text-2xl">
+              <button className="msgBtn">Message</button>
+              <div className="locationContainer">
+                <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p class="userLocation text-white">{user.location.name}</p>
+                <p className="userLocation text-white">{user.location.name}</p>
               </div>
-              <p class="userRole text-white">{user.type}</p>
+              <p className="userRole text-white">{user.type}</p>
             </div>
           </div>
-          <div class="infoContainer">
+          <div className="infoContainer">
             {user.type === 'Musician' && (
               <>
                 <h2>Availability</h2>
@@ -123,7 +123,7 @@ function Account() {
             <p> lead guitar</p>
             <h2>Genre</h2>
 
-            <ul class="genreList">
+            <ul className="genreList">
               <p key={genreList}> {genreList}</p>
             </ul>
             <h2>About us</h2>

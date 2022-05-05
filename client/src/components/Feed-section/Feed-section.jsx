@@ -31,8 +31,6 @@ function FeedSection() {
              donated={post.accountId.donated}
              silver={post.accountId.silver}
              bronze={post.accountId.bronze}
-             //  musicianId={post.accountId.musicianId._id}
-             //  bandId={post.accountId.bandId._id}
            />
          );
         })}

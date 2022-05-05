@@ -5,3 +5,10 @@
 .filter-form option {
   text-transform: capitalize;
 }
+
+
+@media screen and (max-width: 1400px) {
+  .results-container-margin {
+    margin-top: 110px;
+  }
+}
