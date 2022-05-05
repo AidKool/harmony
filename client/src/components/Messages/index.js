@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useChatContext } from '../../store/chatContext';
+import { useQuery, useLazyQuery } from '@apollo/client';
+
+import { GET_CHAT } from '../../utils/queries';
 
 import './messages.css';
 
@@ -143,8 +146,18 @@ const user = 'A';
 
 function Messages() {
   const { activeChat, setActiveChat } = useChatContext();
+  const [getChat, { loading, data }] = useLazyQuery(GET_CHAT);
 
-  console.log('active chat in messages:', activeChat);
+  const chatData = data?.getChat || [];
+  console.log('chatData:', chatData);
+
+  useEffect(() => {
+    getChat({
+      variables: {
+        id: activeChat,
+      },
+    });
+  }, [activeChat, getChat]);
 
   return (
     <div className="px-5 flex flex-col chat-height">
@@ -152,21 +165,23 @@ function Messages() {
         <h2>Person 1</h2>
       </header>
       <div className="flex flex-col gap-y-3 overflow-y-auto h-full justify-end">
-        {messages.map((message) => {
-          return (
-            <div
-              key={message.id}
-              className={`flex items-start gap-x-2 ${message.sender === user ? 'flex-row-reverse' : ''}`}>
-              <img src="https://via.placeholder.com/40x40" className="rounded-full object-contain" alt="profile" />
-              <span
-                className={`${
-                  message.sender === user ? 'float-right bg-blue-600 text-white' : 'float-left bg-gray-300'
-                } clear-both max-w-md px-5 py-2 rounded-3xl`}>
-                {message.message}
-              </span>
-            </div>
-          );
-        })}
+        {chatData.messages &&
+          chatData.messages.length > 0 &&
+          chatData.messages.map((message) => {
+            return (
+              <div
+                key={message._id}
+                className={`flex items-start gap-x-2 ${message.sender === user ? 'flex-row-reverse' : ''}`}>
+                <img src="https://via.placeholder.com/40x40" className="rounded-full object-contain" alt="profile" />
+                <span
+                  className={`${
+                    message.sender === user ? 'float-right bg-blue-600 text-white' : 'float-left bg-gray-300'
+                  } clear-both max-w-md px-5 py-2 rounded-3xl`}>
+                  {message.message}
+                </span>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

@@ -16,18 +16,17 @@ function Chat() {
   const { loading: chatLoading, data: chatRawData } = useQuery(GET_USER_CHATS);
   const chatData = chatRawData?.getUserChats || [];
 
-  const [contacts, setContacts] = useState([]);
+  const [chats, setChats] = useState([]);
 
   useEffect(() => {
     if (chatData) {
-      const tempContacts = chatData.map((chat) => {
+      const tempChats = chatData.map((chat) => {
         if (chat.users[0].username !== userData.username) {
-          return chat.users[0];
+          return { chatId: chat._id, contact: chat.users[0] };
         }
-        return chat.users[1];
-        // return chat.users.filter((user) => user.username !== userData.username);
+        return { chatId: chat._id, contact: chat.users[1] };
       });
-      return setContacts(tempContacts);
+      return setChats(tempChats);
     }
   }, [chatData, userData]);
 
@@ -35,7 +34,7 @@ function Chat() {
     <ChatProvider>
       <div className="flex max-h-screen">
         <aside className="w-fit md:w-1/5 border-gray-200 max-h-screen">
-          <ChatList contacts={contacts} />
+          <ChatList chats={chats} />
         </aside>
         <section className="w-fit md:w-3/5 border-gray-200 border-x max-h-screen">
           <Messages />

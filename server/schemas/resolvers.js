@@ -60,16 +60,16 @@ const resolvers = {
       return myPosts;
     },
     getChat: async (parent, { _id }, context) => {
-      return Chat.findById(_id).populate(['users', 'messages']);
+      return Chat.findById(_id)
+        .populate({ path: 'messages', populate: ['sender', 'receiver'] })
+        .populate(['users']);
     },
     getAllChats: async () => {
       return Chat.find().populate(['users', 'messages']);
     },
     getUserChats: async (parent, args, context) => {
       if (context.user) {
-        return Chat.find({ users: context.user._id })
-          .populate({ path: 'messages', populate: ['sender', 'receiver'] })
-          .populate(['users']);
+        return Chat.find({ users: context.user._id }).populate(['users']);
       }
       throw new AuthenticationError('You must log in');
     },

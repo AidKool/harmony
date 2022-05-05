@@ -143,6 +143,32 @@ export const GET_MY_POSTS = gql`
   }
 `;
 
+export const GET_CHAT = gql`
+  query getChat($id: ID!) {
+    getChat(_id: $id) {
+      _id
+      users {
+        _id
+        username
+        picture
+      }
+      messages {
+        _id
+        sender {
+          _id
+          username
+        }
+        receiver {
+          _id
+          username
+        }
+        message
+        createdAt
+      }
+    }
+  }
+`;
+
 export const GET_CHATS = gql`
   query getAllChats {
     getAllChats {
@@ -156,8 +182,6 @@ export const GET_CHATS = gql`
 `;
 
 export const GET_USER_CHATS = gql`
-  # query getUserChats($id: ID!) {
-  #   getUserChats(_id: $id) {
   query getUserChats {
     getUserChats {
       _id
@@ -166,19 +190,19 @@ export const GET_USER_CHATS = gql`
         _id
         picture
       }
-      messages {
-        _id
-        sender {
-          username
-          _id
-        }
-        receiver {
-          username
-          _id
-        }
-        message
-        createdAt
-      }
+      # messages {
+      #   _id
+      #   sender {
+      #     username
+      #     _id
+      #   }
+      #   receiver {
+      #     username
+      #     _id
+      #   }
+      #   message
+      #   createdAt
+      # }
     }
   }
 `;
