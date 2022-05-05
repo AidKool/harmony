@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useChatContext } from '../../store/chatContext';
 import { useQuery, useLazyQuery } from '@apollo/client';
+
+import { useMessageContext } from '../../store/messageContext';
+import { useChatContext } from '../../store/chatContext';
 
 import { GET_ME, GET_CHAT } from '../../utils/queries';
 
@@ -16,7 +18,9 @@ function Messages() {
   const [getChat, { loading, data }] = useLazyQuery(GET_CHAT);
   const chatData = data?.getChat || null;
 
-  const [contact, setContact] = useState({});
+  // const [contact, setContact] = useState({});
+
+  const { contact, setContact } = useMessageContext();
 
   console.log('chatData:', chatData);
 
@@ -37,8 +41,9 @@ function Messages() {
         console.log('users:', chatData.users);
         if (chatData.users[0]._id === userData._id) {
           setContact(chatData.users[1]);
+        } else {
+          setContact(chatData.users[0]);
         }
-        setContact(chatData.users[0]);
       }
       console.log('contact:', contact);
     }

@@ -86,7 +86,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addPost(title: String!, content: String!, picture: String, accountId: ID!): Post
     addChat(user: [ID]!): Chat
-    addMessage(sender: String!, receiver: String!, message: String!): Message
+    addMessage(sender: String!, receiver: String!, message: String!, chatId: ID!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
     updateMusician(
       firstName: String

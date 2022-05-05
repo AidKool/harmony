@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { ChatProvider } from '../../store/chatContext';
+import { MessageProvider } from '../../store/messageContext';
 import ChatList from '../../components/ChatList';
 import Messages from '../../components/Messages';
 import MessageInput from '../../components/MessageInput';
@@ -37,8 +38,10 @@ function Chat() {
           <ChatList chats={chats} />
         </aside>
         <section className="w-fit md:w-3/5 border-gray-200 border-x max-h-screen">
-          <Messages />
-          <MessageInput />
+          <MessageProvider>
+            <Messages />
+            <MessageInput />
+          </MessageProvider>
         </section>
         <aside className="w-0 overflow-hidden md:w-1/5">
           <ChatProfile />

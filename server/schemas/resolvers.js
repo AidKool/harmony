@@ -121,10 +121,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    addMessage: async (parent, { sender, receiver, message }, context) => {
+    addMessage: async (parent, { sender, receiver, message, chatId }, context) => {
       if (context.user) {
-        const newMessage = await Message.create({ sender, receiver, message });
-        await Chat.findByIdAndUpdate(context.chat._id, { $addToSet: { messages: newMessage._id } });
+        const newMessage = await Message.create({ sender, receiver, message, createdAt: new Date().toUTCString() });
+        await Chat.findByIdAndUpdate(chatId, { $addToSet: { messages: newMessage._id } });
         return newMessage;
       }
       throw new AuthenticationError('You must be logged in');
