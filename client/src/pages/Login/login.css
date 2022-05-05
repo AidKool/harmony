@@ -34,8 +34,6 @@
   z-index: 1;
   color: white;
   text-underline-offset: 3px;
-  
-
 }
 
 .signup-btn:hover {
@@ -43,7 +41,7 @@
   text-decoration-thickness: 2px;
 }
 
-.logo-container-login  {
+.logo-container-login {
   fill: white;
   position: relative;
   display: block;
@@ -73,7 +71,7 @@ input[type='password'] {
 }
 
 .submit-btn {
-  background-color:var(--pine-green);
+  background-color: var(--pine-green);
   color: rgb(255, 255, 255);
   margin-top: 2em;
   border: none;
@@ -88,6 +86,17 @@ input[type='password'] {
 }
 
 .submit-btn:hover {
-  background-color:#44d18d;
+  background-color: #44d18d;
   cursor: pointer;
+}
+
+.error-text {
+  background-color: red;
+  padding: 0.75em;
+  border-radius: 10px;
+  min-width: 20%;
+  color: white;
+  font-weight: bold;
+  width: 340px;
+  text-align: center;
 }
