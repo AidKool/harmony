@@ -79,7 +79,6 @@ const typeDefs = gql`
     getChat(_id: ID!): Chat
     getAllChats: [Chat]
     getUserChats: [Chat]
-    # getUserChats(_id: ID!): [Chat]
   }
 
   type Mutation {

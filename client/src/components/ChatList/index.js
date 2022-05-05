@@ -1,83 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+
+import { useChatContext } from '../../store/chatContext';
 
 import './chatlist.css';
 
-// const list = [
-//   {
-//     id: 1,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 1',
-//   },
-//   {
-//     id: 2,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 2',
-//   },
-//   {
-//     id: 3,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 3',
-//   },
-//   {
-//     id: 4,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 4',
-//   },
-//   {
-//     id: 5,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 5',
-//   },
-//   {
-//     id: 6,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 6',
-//   },
-//   {
-//     id: 7,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 7',
-//   },
-//   {
-//     id: 8,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 8',
-//   },
-//   {
-//     id: 9,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 9',
-//   },
-//   {
-//     id: 10,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 10',
-//   },
-//   {
-//     id: 11,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 11',
-//   },
-//   {
-//     id: 12,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 12',
-//   },
-//   {
-//     id: 13,
-//     picture: 'https://via.placeholder.com/60x60',
-//     name: 'person 13',
-//   },
-// ];
-
 function ChatList({ contacts }) {
-  console.log('contacts:', contacts);
-  const [active, setActive] = useState(1);
+  const { activeChat, setActiveChat } = useChatContext();
+
+  useEffect(() => {
+    if (contacts.length > 0) {
+      setActiveChat(contacts[0]._id);
+    }
+  }, [contacts, setActiveChat]);
 
   function handleChat(event) {
     const id = event.currentTarget.dataset.id;
-    console.log(id);
-    setActive(id);
+    setActiveChat(id);
   }
 
   return (
@@ -88,7 +26,7 @@ function ChatList({ contacts }) {
           <li
             key={person._id}
             className={`flex items-center md:space-x-2 px-1 md:px-3 py-2 cursor-pointer chatlist-element ${
-              active === person._id ? 'bg-blue-200' : ''
+              activeChat === person._id ? 'bg-blue-200' : ''
             }`}
             data-id={person._id}
             onClick={handleChat}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useLazyQuery, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
+import { ChatProvider } from '../../store/chatContext';
 import ChatList from '../../components/ChatList';
 import Messages from '../../components/Messages';
 import MessageInput from '../../components/MessageInput';
@@ -14,13 +15,6 @@ function Chat() {
 
   const { loading: chatLoading, data: chatRawData } = useQuery(GET_USER_CHATS);
   const chatData = chatRawData?.getUserChats || [];
-
-  if (chatRawData && userData) {
-    console.log(userData);
-    console.log(chatData);
-  } else {
-    console.log('no data found');
-  }
 
   const [contacts, setContacts] = useState([]);
 
@@ -38,18 +32,20 @@ function Chat() {
   }, [chatData, userData]);
 
   return (
-    <div className="flex max-h-screen">
-      <aside className="w-fit md:w-1/5 border-gray-200 max-h-screen">
-        <ChatList contacts={contacts} />
-      </aside>
-      <section className="w-fit md:w-3/5 border-gray-200 border-x max-h-screen">
-        <Messages />
-        <MessageInput />
-      </section>
-      <aside className="w-0 overflow-hidden md:w-1/5">
-        <ChatProfile />
-      </aside>
-    </div>
+    <ChatProvider>
+      <div className="flex max-h-screen">
+        <aside className="w-fit md:w-1/5 border-gray-200 max-h-screen">
+          <ChatList contacts={contacts} />
+        </aside>
+        <section className="w-fit md:w-3/5 border-gray-200 border-x max-h-screen">
+          <Messages />
+          <MessageInput />
+        </section>
+        <aside className="w-0 overflow-hidden md:w-1/5">
+          <ChatProfile />
+        </aside>
+      </div>
+    </ChatProvider>
   );
 }
 

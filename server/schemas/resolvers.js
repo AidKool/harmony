@@ -65,9 +65,7 @@ const resolvers = {
     getAllChats: async () => {
       return Chat.find().populate(['users', 'messages']);
     },
-    getUserChats: async (parent, __, context) => {
-      // console.log(context.user);
-      // return Chat.find({ users: _id })
+    getUserChats: async (parent, args, context) => {
       if (context.user) {
         return Chat.find({ users: context.user._id })
           .populate({ path: 'messages', populate: ['sender', 'receiver'] })
