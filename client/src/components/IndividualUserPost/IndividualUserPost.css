@@ -1,0 +1,257 @@
+.post-container {
+  width: 100%;
+  height: auto;
+  min-height: 230px;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  border-radius: 10px;
+}
+
+.post-container > * {
+  font-family: 'Khula', sans-serif;
+}
+
+.post-content-container {
+  height: auto;
+}
+
+.post-container-section-left {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.post-title {
+  font-size: 1.3rem;
+}
+
+.post-img {
+  aspect-ratio: 1.4/1;
+  height: auto;
+  width: 20%;
+  object-fit: cover;
+  border-radius: 0 10px 10px 0;
+}
+
+.card-bottom-section {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 35px;
+}
+
+.card-author-container {
+  display: flex;
+  height: 40px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: auto;
+  gap: 15px;
+  color: rgb(156, 156, 156);
+}
+
+.card-author-img {
+  height: 20px;
+  border-radius: 15px;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  margin-bottom: 8px;
+}
+
+.post-date {
+  color: rgb(156, 156, 156);
+  font-size: 1rem;
+}
+
+.card-author-name {
+  font-size: 1.2rem;
+}
+
+.post-delete {
+  height: 30px;
+  width: 90px;
+  padding-top: 4px;
+  background-color: #ef4f6c;
+  border: solid 2px #ef4f6c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.post-update {
+  height: 30px;
+  width: 90px;
+  padding-top: 4px;
+  background-color: var(--pine-green);
+  border: solid 2px var(--pine-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.post-profile-link > * {
+  font-size: 1rem;
+}
+
+.post-user-icon {
+  padding-bottom: 5px;
+  font-size: 0.8rem;
+}
+
+.post-profile-link:hover {
+  background-color: transparent;
+  border: solid 2px #ef4f6c;
+  color: #ef4f6c;
+}
+
+.band-badge {
+  height: 30px;
+  width: 90px;
+  padding-top: 3px;
+  background-color: #ef7c4f;
+  border: solid 2px #ef7c4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.music-badge {
+  height: 30px;
+  width: 90px;
+  padding-top: 3px;
+  background-color: var(--pine-green);
+  border: solid 2px var(--pine-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  transition: ease-in 150ms;
+  gap: 5px;
+}
+
+.post-badge-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.crown-container-post {
+  height: 25px;
+}
+
+@media screen and (max-width: 1500px) {
+  .post-container {
+    height: auto;
+    min-height: 150px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .post-title {
+    font-size: 1.2rem;
+  }
+
+  .post-content {
+    font-size: 1rem;
+  }
+
+  .post-date,
+  .card-author-name {
+    font-size: 0.8rem;
+  }
+
+  .post-content-container {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .post-container {
+    flex-direction: column-reverse;
+  }
+
+  .post-container-section-left {
+    gap: 15px;
+  }
+
+  .post-content-container {
+    height: auto;
+  }
+
+  .post-img {
+    aspect-ratio: 1.4/1;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0;
+  }
+
+  .card-bottom-section {
+    gap: 15px;
+    height: 65px;
+    border-top: 1px solid rgb(204, 204, 204);
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .post-date {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .card-author-container {
+    height: auto;
+  }
+
+  .card-author-container > .card-author-name {
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+  }
+
+  .card-author-img {
+    height: 30px;
+    margin: 0px;
+    margin-top: 14px;
+  }
+
+  .post-date,
+  .card-author-name {
+    line-height: 15px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .post-link-text {
+    display: none;
+    visibility: hidden;
+  }
+  .post-profile-link {
+    width: 40px;
+  }
+}

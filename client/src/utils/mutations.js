@@ -25,8 +25,8 @@ export const LOGIN = gql`
 `;
 
 export const ADD_POST = gql`
-  mutation addPost($title: String!, $content: String!) {
-    addPost(title: $title, content: $content) {
+  mutation addPost($title: String!, $content: String!, $picture: String, $accountId: ID!) {
+    addPost(title: $title, content: $content, picture: $picture, accountId: $accountId) {
       title
       content
       picture
@@ -72,24 +72,24 @@ export const UPDATE_ACCOUNT = gql`
 `;
 
 export const UPDATE_MUSICIAN = gql`
-  mutation updateMusician($firstName: String, $lastName: String, $instruments: [String], $available: Boolean) {
-    updateMusician(firstName: $firstName, lastName: $lastName, instruments: $instruments, available: $available) {
+  mutation updateMusician($firstName: String, $lastName: String, $instruments: [String], $available: Boolean, $musicianId: String) {
+    updateMusician(firstName: $firstName, lastName: $lastName, instruments: $instruments, available: $available, musicianId: $musicianId) {
       _id
     }
   }
 `;
 
 export const UPDATE_BAND = gql`
-  mutation updateBand($bandName: String) {
-    updateBand(bandName: $bandName) {
+  mutation updateBand($bandName: String, $bandId: String) {
+    updateBand(bandName: $bandName, bandId: $bandId) {
       _id
     }
   }
 `;
 
 export const UPDATE_POST = gql`
-  mutation updatePost($title: String, $content: String, $picture: String) {
-    updatePost(title: $title, content: $content, picture: $picture) {
+  mutation updatePost($title: String, $content: String, $picture: String, $postId: ID!) {
+    updatePost(title: $title, content: $content, picture: $picture, postId: $postId) {
       _id
     }
   }
@@ -102,3 +102,28 @@ export const DELETE_POST = gql`
     }
   }
 `;
+
+export const SET_DONATED_TRUE = gql`
+  mutation setDonatedTrue {
+    setDonatedTrue {
+      donated
+    }
+}
+`;
+
+export const SET_DONATED_SILVER = gql`
+  mutation setDonatedSilver {
+    setDonatedSilver {
+      silver
+    }
+  }
+`;
+
+export const SET_DONATED_BRONZE = gql`
+  mutation setDonatedBronze {
+    setDonatedBronze {
+      bronze
+    }
+  }
+`;
+

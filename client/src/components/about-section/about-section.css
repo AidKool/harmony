@@ -1,0 +1,64 @@
+.about-section-container {
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+  margin-top: 150px;
+}
+
+.about-section-image-banner {
+  margin-top: 140px;
+  width: 90%;
+  height: 800px;
+  background-image: url('./assets/alexandre-st-louis-IlfpKwRMln0-unsplash.jpg');
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.about-section-title {
+  color: rgb(59, 59, 59);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  line-height: 1;
+}
+
+.about-section-content {
+    color: rgb(59, 59, 59);
+    font-family: 'Khula', sans-serif;
+    font-size: 1.5rem;
+    width: 800px;
+    text-align: left;
+
+}
+
+/* media queries  */
+
+@media screen and (max-width: 820px) {
+  .about-section-content {
+      width: 90%;
+  }
+}
+
+
+@media screen and (max-width: 770px) {
+  .about-section-image-banner {
+    background-image: url('./assets/carlos-coronado-uyXWaw5lmpE-unsplash.jpg');
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .about-section-image-banner {
+    margin-top: 100px;
+  }
+}
+

@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { setContext } from '@apollo/client/link/context';
 import Home from './pages/home/Home.jsx';
 import Profile from './pages/profile/Profile.js';
 import ProfileEdit from './pages/profileEdit/profileEdit.jsx';
@@ -10,9 +10,16 @@ import Feed from './pages/Feed/feed.jsx';
 import SearchResults from './pages/SearchResults';
 import Chat from './pages/Chat';
 
-import { setContext } from '@apollo/client/link/context';
 import SearchProviderWrapper from './components/SearchProviderWrapper/';
+import MyPosts from './pages/myPosts/myPosts';
+import Success from './pages/success/success.jsx';
+import SuccessSilver from './pages/successSilver/successSilver.jsx';
+import SuccessBronze from './pages/successBronze/successBronze.jsx';
+import Hosting from './pages/Hosting/hosting.jsx';
+import About from './pages/About/About.jsx';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
+import AddPost from './pages/addPost/addPost';
+import UpdatePost from './pages/updatePost/updatePost';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -49,6 +56,14 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/chats" element={<Chat />} />
+          <Route path="my-posts" element={<MyPosts />} />
+          <Route path="/hosting" element={<Hosting />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/success/xA2b4A6xY3lTgBKUyxV5jnttpZU1ka" element={<Success />} />
+          <Route path="/success/dhsjakdhj34g3dgsah2376213dsasa" element={<SuccessSilver />} />
+          <Route path="/success/dsaiuody87ty8763218gdsahdgsadg" element={<SuccessBronze />} />
+          <Route path="/add-post" element={<AddPost />} />
+          <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Routes>
       </Router>
     </ApolloProvider>

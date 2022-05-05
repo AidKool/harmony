@@ -9,6 +9,9 @@
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96586",
     "location": "6262d041d6300e64987d8e73",
+    "donated": "true",
+    "silver": "true",
+    "bronze": "true",
     "genres": ["rock", "pop"]
   },
   {
@@ -21,6 +24,9 @@
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96587",
     "location": "6262d041d6300e64987d8e74",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["jazz"]
   },
   {
@@ -33,6 +39,9 @@
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96588",
     "location": "6262d041d6300e64987d8e75",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["classical"]
   },
   {
@@ -45,6 +54,9 @@
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96589",
     "location": "6262d041d6300e64987d8e76",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["heavy metal"]
   },
   {
@@ -57,6 +69,9 @@
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c32",
     "location": "6262d041d6300e64987d8e77",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["rock"]
   },
   {
@@ -69,6 +84,9 @@
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c33",
     "location": "6262d041d6300e64987d8e78",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["classical"]
   },
   {
@@ -81,6 +99,9 @@
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c34",
     "location": "6262d041d6300e64987d8e79",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["rock"]
   },
   {
@@ -93,6 +114,9 @@
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c35",
     "location": "6262d041d6300e64987d8e7a",
+    "donated": "false",
+    "silver": "false",
+    "bronze": "false",
     "genres": ["rock"]
   }
 ]

@@ -73,23 +73,25 @@ input[type='password'] {
 }
 
 .submit-btn {
-  background-color: rgb(78, 221, 78);
-  color: rgb(18, 78, 18);
+  background-color:var(--pine-green);
+  color: rgb(255, 255, 255);
   margin-top: 2em;
-  width: 100%;
   border: none;
-  cursor: pointer;
+  width: 100%;
   display: block;
   border-radius: 8px;
   padding: 0.5em;
   font-size: 1.2em;
   font-weight: bold;
+  cursor: pointer;
+  transition: 250ms ease-out;
 }
 
 .submit-btn:hover {
-  color: rgb(78, 221, 78);
-  background-color: rgb(18, 78, 18);
+  background-color:#44d18d;
+  cursor: pointer;
 }
+
 
 .err {
   color: rgb(195, 0, 0);

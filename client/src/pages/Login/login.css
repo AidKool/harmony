@@ -32,12 +32,23 @@
   font-weight: bold;
   cursor: pointer;
   z-index: 1;
+  color: white;
+  text-underline-offset: 3px;
+  
+
 }
 
-.logo-container {
+.signup-btn:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.logo-container-login  {
   fill: white;
   position: relative;
   display: block;
+  width: 250px;
+  padding-bottom: 15px;
 }
 
 .login-form {
@@ -47,6 +58,7 @@
   border-radius: 2em;
   min-width: 20%;
   padding: 1.2em;
+  margin-bottom: 25px;
 }
 
 /* input[type='text'],
@@ -61,8 +73,8 @@ input[type='password'] {
 } */
 
 .submit-btn {
-  background-color: rgb(78, 221, 78);
-  color: rgb(18, 78, 18);
+  background-color:var(--pine-green);
+  color: rgb(255, 255, 255);
   margin-top: 2em;
   border: none;
   width: 100%;
@@ -72,9 +84,10 @@ input[type='password'] {
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
+  transition: 250ms ease-out;
 }
 
 .submit-btn:hover {
-  color: rgb(78, 221, 78);
-  background-color: rgb(18, 78, 18);
+  background-color:#44d18d;
+  cursor: pointer;
 }

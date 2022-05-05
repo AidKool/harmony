@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Account, Musician, Band, Chat, Location, Message, Post } = require('../models');
+const { where } = require('../models/Post');
 const { signToken } = require('../utils/auth');
 const calculateDistance = require('../utils/calculateDistance');
 const getCityCoordinates = require('../utils/getCityCoordinates');
@@ -45,7 +46,18 @@ const resolvers = {
       return Post.findById(_id);
     },
     getAllPosts: async () => {
-      return Post.find().populate('accountId');
+      const posts = await Post.find().populate({
+        path: 'accountId',
+        populate: { path: 'musicianId', model: 'Musician' },
+      });
+      return posts;
+    },
+    getMyPosts: async (parent, args, context) => {
+      const myPosts = Post.find({ accountId: context.user._id }).populate({
+        path: 'accountId',
+        populate: { path: 'musicianId', model: 'Musician' },
+      });
+      return myPosts;
     },
     getChat: async (parent, { _id }) => {
       return Chat.findById(_id).populate(['users', 'messages']);
@@ -91,9 +103,9 @@ const resolvers = {
       const token = signToken(account);
       return { token, account };
     },
-    addPost: async (parent, { title, content }, context) => {
+    addPost: async (parent, { title, content, picture, accountId }, context) => {
       if (context.user) {
-        const post = await Post.create({ title, content });
+        const post = await Post.create({ title, content, picture, accountId });
         await Account.findByIdAndUpdate(context.user._id, { $addToSet: { posts: post._id } });
         return post;
       }
@@ -127,9 +139,11 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateMusician: async (parent, { firstName, lastName, instruments, available }, context) => {
+    updateMusician: async (parent, { firstName, lastName, instruments, available, musicianId }, context) => {
       if (context.user) {
-        const updatedMusician = await Musician.findByIdAndUpdate(context.user.musicianId, {
+        console.log(context.user);
+        console.log(musicianId);
+        const updatedMusician = await Musician.findByIdAndUpdate(musicianId, {
           firstName,
           lastName,
           instruments,
@@ -139,39 +153,72 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateBand: async (parent, { bandName }, context) => {
+    updateBand: async (parent, { bandName , bandId }, context) => {
       if (context.user) {
-        const updatedBand = await Band.findByIdAndUpdate(context.user.bandId, {
+        const updatedBand = await Band.findByIdAndUpdate(bandId, {
           bandName,
         });
         return updatedBand;
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updatePost: async (parent, { title, content, picture }, context) => {
-      if (!context.user) {
-        throw new AuthenticationError('You must be logged in');
-      }
-      if (context.post.accountId === context.user._id) {
-        const updatedPost = await Post.findByIdAndUpdate(context.post._id, {
+    updatePost: async (parent, { title, content, picture, postId }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findByIdAndUpdate(postId, {
           title,
           content,
           picture,
         });
         return updatedPost;
       }
-      throw new AuthenticationError('You can only update your own posts');
+      throw new AuthenticationError('You must be logged in');
     },
     deletePost: async (parent, { postId }, context) => {
-      if (!context.user) {
-        throw new AuthenticationError('You must be logged in');
-      }
-      if (context.post.accountId === context.user._id) {
+      if (context.user) {
         const deletePost = await Post.findByIdAndDelete(postId);
         await Account.findByIdAndUpdate(context.user._id, { $pull: { posts: postId } });
         return deletePost;
       }
-      throw new AuthenticationError('You can only delete your own posts');
+      throw new AuthenticationError('You must be logged in');
+    },
+    setDonatedTrue: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      const setDonatedTrue = await Account.findByIdAndUpdate(
+        context.user._id,
+        {
+          donated: true,
+        },
+        { new: true }
+      );
+      return setDonatedTrue;
+    },
+    setDonatedSilver: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      const setDonatedSilver = await Account.findByIdAndUpdate(
+        context.user._id,
+        {
+          silver: true,
+        },
+        { new: true }
+      );
+      return setDonatedSilver;
+    },
+    setDonatedBronze: async (parent, args, context) => {
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in');
+      }
+      const setDonatedBronze = await Account.findByIdAndUpdate(
+        context.user._id,
+        {
+          bronze: true,
+        },
+        { new: true }
+      );
+      return setDonatedBronze;
     },
   },
 };

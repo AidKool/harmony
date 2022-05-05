@@ -28,6 +28,10 @@ body {
   object-fit: cover;
 }
 
+.sliderButton {
+  width: 100%;
+}
+
 .poster-card-img {
   width: 100%;
   height: 550px;
