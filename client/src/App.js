@@ -55,7 +55,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="/chats" element={<Chat />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="my-posts" element={<MyPosts />} />
           <Route path="/hosting" element={<Hosting />} />
           <Route path="/about" element={<About />} />

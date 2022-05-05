@@ -5,3 +5,7 @@
 .chatlist-element {
   min-width: 68px;
 }
+
+.chatlist-picture {
+  max-width: 60px !important;
+}

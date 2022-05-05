@@ -59,17 +59,21 @@ const resolvers = {
       });
       return myPosts;
     },
-    getChat: async (parent, { _id }) => {
+    getChat: async (parent, { _id }, context) => {
       return Chat.findById(_id).populate(['users', 'messages']);
     },
     getAllChats: async () => {
       return Chat.find().populate(['users', 'messages']);
     },
-    getUserChats: async (parent, { _id }, context) => {
-      console.log(context.user);
-      return Chat.find({ users: _id })
-        .populate({ path: 'messages', populate: ['sender', 'receiver'] })
-        .populate(['users']);
+    getUserChats: async (parent, __, context) => {
+      // console.log(context.user);
+      // return Chat.find({ users: _id })
+      if (context.user) {
+        return Chat.find({ users: context.user._id })
+          .populate({ path: 'messages', populate: ['sender', 'receiver'] })
+          .populate(['users']);
+      }
+      throw new AuthenticationError('You must log in');
     },
   },
   Mutation: {
@@ -153,7 +157,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    updateBand: async (parent, { bandName , bandId }, context) => {
+    updateBand: async (parent, { bandName, bandId }, context) => {
       if (context.user) {
         const updatedBand = await Band.findByIdAndUpdate(bandId, {
           bandName,
