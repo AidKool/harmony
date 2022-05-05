@@ -7,5 +7,6 @@
 }
 
 .chatlist-picture {
-  max-width: 60px !important;
+  width: 60px;
+  height: 60px;
 }

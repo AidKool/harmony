@@ -33,7 +33,11 @@ function ChatList({ chats }) {
                 }`}
                 data-id={chat.chatId}
                 onClick={handleChat}>
-                <img src={chat.contact.picture} className="rounded-full chatlist-picture" alt={chat.contact.username} />
+                <img
+                  src={chat.contact.picture}
+                  className="rounded-full object-cover chatlist-picture"
+                  alt={chat.contact.username}
+                />
                 <p className="w-0 overflow-hidden md:w-fit">{chat.contact.username}</p>
               </li>
             ))}
