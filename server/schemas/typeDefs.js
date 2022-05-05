@@ -74,6 +74,7 @@ const typeDefs = gql`
     getAccountsByDistance(location: String!, miles: Int!): [Account]
     getPost(_id: ID!): Post
     getAllPosts: [Post]
+    getMyPosts: [Post]
     getChat(_id: ID!): Chat
     getAllChats: [Chat]
   }
@@ -85,7 +86,13 @@ const typeDefs = gql`
     addChat(user: [ID]!): Chat
     addMessage(sender: String!, receiver: String!, message: String!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
-    updateMusician(firstName: String, lastName: String, instruments: [String], available: Boolean, musicianId: String): Musician
+    updateMusician(
+      firstName: String
+      lastName: String
+      instruments: [String]
+      available: Boolean
+      musicianId: String
+    ): Musician
     updateBand(bandName: String, bandId: String): Band
     updatePost(title: String, content: String, picture: String, postId: ID!): Post
     deletePost(postId: ID!): Post
