@@ -45,7 +45,7 @@ function Account() {
               )}
               {jwtId === accountId && (
                 <a href={editUrl} class="editBtn">
-                  <div class="editBtn">
+                  <div className="editBtn">
                     <MdModeEditOutline />
                     <p>Edit profile</p>
                   </div>
@@ -65,9 +65,9 @@ function Account() {
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button class="msgBtn">Message</button>
-              <div class="locationContainer">
-                <span class="locationMarker text-white text-2xl">
+              <button className="msgBtn">Message</button>
+              <div className="locationContainer">
+                <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
                 {user.location === null ? (
@@ -76,10 +76,10 @@ function Account() {
                   <p class="userLocation text-white">{user.location.name}</p>
                 )}
               </div>
-              <p class="userRole text-white">{user.type}</p>
+              <p className="userRole text-white">{user.type}</p>
             </div>
           </div>
-          <div class="infoContainer">
+          <div className="infoContainer">
             {user.type === 'Musician' && (
               <>
                 <h2>Availability</h2>
@@ -121,15 +121,14 @@ function Account() {
                 </>
               )}
               <p></p>
-              {user.type === 'Musician' && 
-                <p class="userDisplayName text-white text-capitalize">
+              {user.type === 'Musician' && (
+                <p class="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
-               
-              }
-              <button class="msgBtn">Message</button>
-              <div class="locationContainer">
-                <span class="locationMarker text-white text-2xl">
+              )}
+              <button className="msgBtn">Message</button>
+              <div className="locationContainer">
+                <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
                 {user.location === null ? (
@@ -138,25 +137,25 @@ function Account() {
                   <p class="userLocation text-white">{user.location.name}</p>
                 )}
               </div>
-              <p class="userRole text-white">{user.type}</p>
+              <p className="userRole text-white">{user.type}</p>
             </div>
           </div>
-          <div class="infoContainer">
+          <div className="infoContainer">
             {user.type === 'Musician' && (
               <>
                 <h2>Availability</h2>
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            
-            {!genreList === null && (
+
+            {user.genres.length >= 1 && (
               <ul class="genreList">
                 <h2>Genre</h2>
                 <p key={genreList}> {genreList}</p>
               </ul>
             )}
-
-            {!user.bio === '' && (
+            {console.log(user.bio)}
+            {user.bio !== null && (
               <>
                 <h2>About</h2> <p>{user.bio}</p>
               </>

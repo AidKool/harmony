@@ -21,7 +21,7 @@
 }
 
 .about-section-title {
-  color: rgb(59, 59, 59);
+  color: rgb(34, 34, 34);
   font-family: 'Ubuntu', sans-serif;
   font-size: 2.5rem;
   font-weight: 600;
@@ -32,7 +32,7 @@
 }
 
 .about-section-content {
-    color: rgb(59, 59, 59);
+    color: rgb(34, 34, 34);
     font-family: 'Khula', sans-serif;
     font-size: 1.5rem;
     width: 800px;

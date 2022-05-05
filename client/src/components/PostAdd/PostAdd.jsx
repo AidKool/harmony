@@ -31,7 +31,7 @@ const AddPostForm = () => {
     } catch (e) {
       console.log(e);
     }
-    navigate('/profile');
+    navigate('/my-posts');
   };
 
   const handleInputChange = (event) => {

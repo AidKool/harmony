@@ -115,7 +115,12 @@ body {
     color: rgb(59, 59, 59);
     font-family: 'Ubuntu', sans-serif;
     text-align: start;
-    padding: 2% 30% 2% 30%;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
 }
 
 
