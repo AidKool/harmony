@@ -1,11 +1,12 @@
 import React from 'react';
-import { useLazyQuery, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import './IndividualUserPost.css';
 import { Link } from 'react-router-dom';
 import { DELETE_POST } from '../../utils/mutations';
 
 function IndividualUserPost(props) {
   const postId = props.id;
+  const onDeleteSucess = props.onDeleteSucess;
   const updateLink = `/update-post/${postId}`;
   const [deletePost, { error, data }] = useMutation(DELETE_POST);
 
@@ -23,8 +24,9 @@ function IndividualUserPost(props) {
             </Link>
             <button
               className="post-delete"
-              onClick={() => {
-                deletePost({ variables: { postId: postId } });
+              onClick={async () => {
+                await deletePost({ variables: { postId: postId } });
+                onDeleteSucess();
               }}>
               <span className="post-link-text">DELETE</span>
             </button>
