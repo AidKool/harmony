@@ -89,7 +89,7 @@ function Account() {
 
             {user.genres.length >= 1 && (
               <ul class="genreList">
-                <h2>Genre</h2>
+                <h2 className="account-genre-title">Genre</h2>
                 <p key={genreList}> {genreList}</p>
               </ul>
             )}
@@ -150,7 +150,7 @@ function Account() {
 
             {user.genres.length >= 1 && (
               <ul class="genreList">
-                <h2>Genre</h2>
+                <h2 className='account-genre-title'>Genre</h2>
                 <p key={genreList}> {genreList}</p>
               </ul>
             )}

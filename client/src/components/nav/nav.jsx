@@ -154,11 +154,6 @@ function Nav() {
             </button>
           </form>
           <div className="right-side-nav-container">
-            <Link className="add-post-nav-btn" to="/">
-              <span className="add-post-span">Add post</span>
-              <FontAwesomeIcon className="nav-search-icon" icon={faPlus} />
-            </Link>
-
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
             </div>
