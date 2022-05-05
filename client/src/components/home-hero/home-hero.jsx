@@ -72,15 +72,23 @@ function HomeHero() {
     await stripe.redirectToCheckout(checkoutOptionsCopper);
   };
 
+  const userToken = localStorage.getItem('id_token');
+
   // =============================================================================
 
   return (
     <section className="hero-section">
       <div className="home-cta-container">
         <p className="home-cta-title">Be rockstar and support us today!</p>
-        <button className="home-cta-button" onClick={setActiveSubModal}>
-          Donate
-        </button>
+        {!userToken ? (
+          <Link className="home-cta-button-login" to="/login">
+            Login to donate
+          </Link>
+        ) : (
+          <button className="home-cta-button" onClick={setActiveSubModal}>
+            Donate
+          </button>
+        )}
       </div>
       <div className="hero-container">
         <p className="home-cta-title hero-title">Join fellow musicians to create the next big thing</p>
