@@ -33,12 +33,16 @@ function Account() {
       const jwtId = jwtToken.data._id;
       const editUrl = accountId + '/edit';
 
+
       return (
         <>
           <div class="profileContainer">
             <div class="topContainer">
-              <img src={user.picture} alt="profile" class="userImg" />
-              <p class="userName text-white">{}</p>
+              {user.picture === null ? (
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="userImg" />
+              ) : (
+                <img src={user.picture} alt="profile" class="userImg" />
+              )}
               {jwtId === accountId && (
                 <a href={editUrl} class="editBtn">
                   <div class="editBtn">
@@ -48,11 +52,16 @@ function Account() {
                 </a>
               )}
               <p class="userName text-white">{user.username}</p>
-              {user.type === 'Band' && (
+              {user.type === 'Band' ? (
                 <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              ) : (
+                <>
+                  <p>.</p>
+                </>
               )}
+              <p></p>
               {user.type === 'Musician' && (
-                <p class="userDisplayName text-white text-capitalize">
+                <p class="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
@@ -61,7 +70,11 @@ function Account() {
                 <span class="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p class="userLocation text-white">{user.location.name}</p>
+                {user.location === null ? (
+                  <p class="userLocation text-white">UNKNOWN</p>
+                ) : (
+                  <p class="userLocation text-white">{user.location.name}</p>
+                )}
               </div>
               <p class="userRole text-white">{user.type}</p>
             </div>
@@ -73,15 +86,19 @@ function Account() {
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            <h2>Looking for</h2>
-            <p> lead guitar</p>
-            <h2>Genre</h2>
 
-            <ul class="genreList">
-              <p key={genreList}> {genreList}</p>
-            </ul>
-            <h2>About us</h2>
-            <p>{user.bio}</p>
+            {user.genres.length >= 1 && (
+              <ul class="genreList">
+                <h2>Genre</h2>
+                <p key={genreList}> {genreList}</p>
+              </ul>
+            )}
+            {console.log(user.bio)}
+            {user.bio !== null && (
+              <>
+                <h2>About</h2> <p>{user.bio}</p>
+              </>
+            )}
           </div>
         </>
       );
@@ -90,24 +107,36 @@ function Account() {
         <>
           <div class="profileContainer">
             <div class="topContainer">
-              <img src={user.picture} alt="profile" class="userImg" />
-              <p class="userName text-white">{}</p>
-
-              <p class="userName text-white">{user.username}</p>
-              {user.type === 'Band' && (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              {user.picture === null ? (
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="userImg" />
+              ) : (
+                <img src={user.picture} alt="profile" class="userImg" />
               )}
-              {user.type === 'Musician' && (
+              <p class="userName text-white">{user.username}</p>
+              {user.type === 'Band' ? (
+                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              ) : (
+                <>
+                  <p>.</p>
+                </>
+              )}
+              <p></p>
+              {user.type === 'Musician' && 
                 <p class="userDisplayName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
-              )}
+               
+              }
               <button class="msgBtn">Message</button>
               <div class="locationContainer">
                 <span class="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p class="userLocation text-white">{user.location.name}</p>
+                {user.location === null ? (
+                  <p class="userLocation text-white">UNKNOWN</p>
+                ) : (
+                  <p class="userLocation text-white">{user.location.name}</p>
+                )}
               </div>
               <p class="userRole text-white">{user.type}</p>
             </div>
@@ -119,15 +148,19 @@ function Account() {
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            <h2>Looking for</h2>
-            <p> lead guitar</p>
-            <h2>Genre</h2>
+            
+            {!genreList === null && (
+              <ul class="genreList">
+                <h2>Genre</h2>
+                <p key={genreList}> {genreList}</p>
+              </ul>
+            )}
 
-            <ul class="genreList">
-              <p key={genreList}> {genreList}</p>
-            </ul>
-            <h2>About us</h2>
-            <p>{user.bio}</p>
+            {!user.bio === '' && (
+              <>
+                <h2>About</h2> <p>{user.bio}</p>
+              </>
+            )}
           </div>
         </>
       );

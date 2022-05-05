@@ -109,7 +109,10 @@ function Nav() {
               <a href={profilePath}>
                 <li className="nav-menu-li">My Account</li>
               </a>
-              <li className="nav-menu-li">Contact</li>
+               <li className="nav-menu-li">Contact</li>
+              <Link to="/my-posts">
+                <li class="nav-menu-li">My posts</li>
+              </Link>
             </ul>
             <button className="bn54" onClick={Auth.logout}>
               <span className="bn54span">Log out</span>
@@ -158,8 +161,10 @@ function Nav() {
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
               <li className="nav-menu-li">Feed</li>
-
               <li className="nav-menu-li">Contact</li>
+              <Link to="/signup">
+                <li class="nav-menu-li">Sign up</li>
+              </Link>
             </ul>
             <button className="bn54">
               <Link className="bn54" to="/login">
