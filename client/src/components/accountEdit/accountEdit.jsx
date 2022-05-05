@@ -77,6 +77,7 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
               </div>
             </a>
               <p class="loggedIn"> Currently logged in as {jwtUsername}</p>
+              
               <img src={user.picture} alt="profile" class="editImg" />
                  <p class="userName text-white">{}</p>
               <input type="file" onChange={(e) => setImage(e.target.files[0])} />
