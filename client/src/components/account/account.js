@@ -33,12 +33,16 @@ function Account() {
       const jwtId = jwtToken.data._id;
       const editUrl = accountId + '/edit';
 
+
       return (
         <>
-          <div className="profileContainer">
-            <div className="topContainer">
-              <img src={user.picture} alt="profile" className="userImg" />
-              <p className="userName text-white">{}</p>
+          <div class="profileContainer">
+            <div class="topContainer">
+              {user.picture === null ? (
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="userImg" />
+              ) : (
+                <img src={user.picture} alt="profile" class="userImg" />
+              )}
               {jwtId === accountId && (
                 <a href={editUrl} class="editBtn">
                   <div className="editBtn">
@@ -47,12 +51,17 @@ function Account() {
                   </div>
                 </a>
               )}
-              <p className="userName text-white">{user.username}</p>
-              {user.type === 'Band' && (
-                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              <p class="userName text-white">{user.username}</p>
+              {user.type === 'Band' ? (
+                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              ) : (
+                <>
+                  <p>.</p>
+                </>
               )}
+              <p></p>
               {user.type === 'Musician' && (
-                <p className="userDisplayName text-white text-capitalize">
+                <p class="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
@@ -61,7 +70,11 @@ function Account() {
                 <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p className="userLocation text-white">{user.location.name}</p>
+                {user.location === null ? (
+                  <p class="userLocation text-white">UNKNOWN</p>
+                ) : (
+                  <p class="userLocation text-white">{user.location.name}</p>
+                )}
               </div>
               <p className="userRole text-white">{user.type}</p>
             </div>
@@ -73,32 +86,43 @@ function Account() {
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            <h2>Looking for</h2>
-            <p> lead guitar</p>
-            <h2>Genre</h2>
 
-            <ul className="genreList">
-              <p key={genreList}> {genreList}</p>
-            </ul>
-            <h2>About us</h2>
-            <p>{user.bio}</p>
+            {user.genres.length >= 1 && (
+              <ul class="genreList">
+                <h2>Genre</h2>
+                <p key={genreList}> {genreList}</p>
+              </ul>
+            )}
+            {console.log(user.bio)}
+            {user.bio !== null && (
+              <>
+                <h2>About</h2> <p>{user.bio}</p>
+              </>
+            )}
           </div>
         </>
       );
     } else {
       return (
         <>
-          <div className="profileContainer">
-            <div className="topContainer">
-              <img src={user.picture} alt="profile" className="userImg" />
-              <p className="userName text-white">{}</p>
-
-              <p className="userName text-white">{user.username}</p>
-              {user.type === 'Band' && (
-                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+          <div class="profileContainer">
+            <div class="topContainer">
+              {user.picture === null ? (
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="userImg" />
+              ) : (
+                <img src={user.picture} alt="profile" class="userImg" />
               )}
+              <p class="userName text-white">{user.username}</p>
+              {user.type === 'Band' ? (
+                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              ) : (
+                <>
+                  <p>.</p>
+                </>
+              )}
+              <p></p>
               {user.type === 'Musician' && (
-                <p className="userDisplayName text-white text-capitalize">
+                <p class="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
@@ -107,7 +131,11 @@ function Account() {
                 <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p className="userLocation text-white">{user.location.name}</p>
+                {user.location === null ? (
+                  <p class="userLocation text-white">UNKNOWN</p>
+                ) : (
+                  <p class="userLocation text-white">{user.location.name}</p>
+                )}
               </div>
               <p className="userRole text-white">{user.type}</p>
             </div>
@@ -119,15 +147,19 @@ function Account() {
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            <h2>Looking for</h2>
-            <p> lead guitar</p>
-            <h2>Genre</h2>
 
-            <ul className="genreList">
-              <p key={genreList}> {genreList}</p>
-            </ul>
-            <h2>About us</h2>
-            <p>{user.bio}</p>
+            {user.genres.length >= 1 && (
+              <ul class="genreList">
+                <h2>Genre</h2>
+                <p key={genreList}> {genreList}</p>
+              </ul>
+            )}
+            {console.log(user.bio)}
+            {user.bio !== null && (
+              <>
+                <h2>About</h2> <p>{user.bio}</p>
+              </>
+            )}
           </div>
         </>
       );
