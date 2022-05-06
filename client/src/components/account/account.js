@@ -1,14 +1,17 @@
 import './account.css';
-import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useMutation, useQuery } from '@apollo/client';
+import { Link, useParams } from 'react-router-dom';
 import { QUERY_SINGLE_ACCOUNT } from '../../utils/queries';
 import { MdLocationOn, MdModeEditOutline } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
 import { BsSignpostFill } from 'react-icons/bs';
 import Auth from '../../utils/auth';
+import { ADD_CHAT } from '../../utils/mutations';
 
 function Account() {
+  const [addChat] = useMutation(ADD_CHAT);
+
   //Assigns url params to get id from profiles/:profileId
   const params = useParams();
   const accountId = params.profileId;
@@ -24,6 +27,14 @@ function Account() {
     <p> loading.....</p>;
   }
 
+  async function createChat() {
+    try {
+      await addChat({ variables: { id: accountId } });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   if (data) {
     const userGenres = user.genres;
     const genreList = userGenres.map((genre) => <li>{genre}</li>);
@@ -33,7 +44,6 @@ function Account() {
       const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
       const jwtId = jwtToken.data._id;
       const editUrl = accountId + '/edit';
-
 
       return (
         <>
@@ -76,7 +86,9 @@ function Account() {
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button className="msgBtn">Message</button>
+              <Link to={`/messages`} onClick={createChat} className="msgBtn">
+                Message
+              </Link>
               <div className="locationContainer">
                 <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
@@ -137,7 +149,9 @@ function Account() {
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button className="msgBtn">Message</button>
+              <Link to={`/messages`} onClick={createChat} className="msgBtn">
+                Message
+              </Link>
               <div className="locationContainer">
                 <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />

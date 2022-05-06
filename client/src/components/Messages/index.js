@@ -1,167 +1,79 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useQuery, useLazyQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
+
+import { useMessageContext } from '../../store/messageContext';
+import { useChatContext } from '../../store/chatContext';
+import { GET_ME, GET_CHAT } from '../../utils/queries';
 
 import './messages.css';
 
-const messages = [
-  {
-    id: 1,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:24:00'),
-    message: 'hi there!',
-  },
-  {
-    id: 2,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-03-15T03:24:20'),
-    message: "yoyoyo what's up?",
-  },
-  {
-    id: 3,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:24:50'),
-    message: 'have you heard? JavaScript is being discontinued!',
-  },
-  {
-    id: 4,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-03-15T03:25:24'),
-    message: 'are you kidding me?',
-  },
-  {
-    id: 5,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-03-15T03:25:24'),
-    message: 'what are we going to do now??',
-  },
-  {
-    id: 6,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:25:54'),
-    message: 'first cry',
-  },
-  {
-    id: 7,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:26:14'),
-    message: 'then I think we should learn PHP',
-  },
-  {
-    id: 8,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:26:44'),
-    message: "also apparently they're going to rewrite JQuery to use PHP instead. we should learn that!",
-  },
-  {
-    id: 9,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-03-15T03:27:24'),
-    message: 'sounds like a plan!',
-  },
-  {
-    id: 10,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-03-15T03:27:44'),
-    message: 'we should make a course to teach the new and upgraded JQuery and sell it online',
-  },
-  {
-    id: 11,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:28:24'),
-    message: 'great idea!',
-  },
-  {
-    id: 12,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-04-23T13:28:24'),
-    message: 'look at the number of sales!',
-  },
-  {
-    id: 13,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-04-23T13:29:24'),
-    message: 'I told you everybody would love PHQuery!',
-  },
-  {
-    id: 14,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date(),
-    message: 'we are millionaires!',
-  },
-  {
-    id: 11,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-03-15T03:27:44'),
-    message: 'we should make a course to teach the new and upgraded JQuery and sell it online',
-  },
-  {
-    id: 12,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-03-15T03:28:24'),
-    message: 'great idea!',
-  },
-  {
-    id: 13,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date('2022-04-23T13:28:24'),
-    message: 'look at the number of sales!',
-  },
-  {
-    id: 14,
-    sender: 'B',
-    receiver: 'A',
-    date: new Date('2022-04-23T13:29:24'),
-    message: 'I told you everybody would love PHQuery!',
-  },
-  {
-    id: 15,
-    sender: 'A',
-    receiver: 'B',
-    date: new Date(),
-    message: 'we are millionaires!',
-  },
-];
-
-const user = 'A';
-
 function Messages() {
+  const { loading: userLoading, data: userRawData } = useQuery(GET_ME);
+  const userData = userRawData?.me || {};
+
+  const { activeChat, setActiveChat } = useChatContext();
+
+  const [getChat, { loading, data }] = useLazyQuery(GET_CHAT);
+  const chatData = data?.getChat || null;
+
+  const { contact, setContact } = useMessageContext();
+
+  useEffect(() => {
+    const getChatData = async () => {
+      await getChat({
+        variables: {
+          id: activeChat,
+        },
+      });
+    };
+
+    if (activeChat) {
+      getChatData();
+
+      if (chatData) {
+        if (chatData.users[0]._id === userData._id) {
+          setContact(chatData.users[1]);
+        } else {
+          setContact(chatData.users[0]);
+        }
+      }
+    }
+  }, [activeChat, chatData, contact, getChat, setContact, userData._id]);
+
   return (
-    <div className="px-5 flex flex-col chat-height">
-      <header className="py-3">
-        <h2>Person 1</h2>
+    <div className="flex flex-col chat-height">
+      <header className="px-5 py-3">
+        <Link to={`/profiles/${contact._id}`} className="font-bold border-b-2 border-white hover:border-blue-600">
+          {contact.username}
+        </Link>
       </header>
-      <div className="flex flex-col gap-y-3 overflow-y-auto">
-        {messages.map((message) => {
-          return (
-            <div
-              key={message.id}
-              className={`flex items-start gap-x-2 ${message.sender === user ? 'flex-row-reverse' : ''}`}>
-              <img src="https://via.placeholder.com/40x40" className="rounded-full object-contain" alt="profile" />
-              <span
-                className={`${
-                  message.sender === user ? 'float-right bg-blue-600 text-white' : 'float-left bg-gray-300'
-                } clear-both max-w-md px-5 py-2 rounded-3xl`}>
-                {message.message}
-              </span>
-            </div>
-          );
-        })}
+      <div className="flex flex-col gap-y-3 overflow-y-auto h-full justify-end px-5 ">
+        {chatData?.messages &&
+          chatData.messages.length > 0 &&
+          chatData.messages.map((message) => {
+            return (
+              <div
+                key={message._id}
+                className={`flex items-start gap-x-2 ${
+                  message.sender.username === userData.username ? 'flex-row-reverse' : ''
+                }`}>
+                <img
+                  src={message.sender.username === userData.username ? userData.picture : contact.picture}
+                  className="rounded-full object-cover message-picture"
+                  alt="profile"
+                />
+                <span
+                  className={`${
+                    message.sender.username === userData.username
+                      ? 'float-right bg-blue-600 text-white'
+                      : 'float-left bg-gray-300'
+                  } clear-both max-w-md px-5 py-2 rounded-3xl`}>
+                  {message.message}
+                </span>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

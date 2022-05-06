@@ -7,6 +7,10 @@ import ProfileEdit from './pages/profileEdit/profileEdit.jsx';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup.js';
 import Feed from './pages/Feed/feed.jsx';
+import SearchResults from './pages/SearchResults';
+import Chat from './pages/Chat';
+
+import SearchProviderWrapper from './components/SearchProviderWrapper/';
 import MyPosts from './pages/myPosts/myPosts';
 import Success from './pages/success/success.jsx';
 import SuccessSilver from './pages/successSilver/successSilver.jsx';
@@ -16,8 +20,6 @@ import About from './pages/About/About.jsx';
 import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
 import AddPost from './pages/addPost/addPost';
 import UpdatePost from './pages/updatePost/updatePost';
-import SearchResults from './pages/SearchResults';
-import SearchProviderWrapper from './components/SearchProviderWrapper/';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -49,11 +51,12 @@ function App() {
             <Route path="/search" element={<SearchResults />} />
             <Route path="/profiles/:profileId" element={<Profile />} />
             <Route path="/profiles/:profileId/edit" element={<ProfileEdit />} />
+            <Route path="/messages" element={<Chat />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="my-posts" element={<MyPosts />} />
+          <Route path="/my-posts" element={<MyPosts />} />
           <Route path="/hosting" element={<Hosting />} />
           <Route path="/about" element={<About />} />
           <Route path="/success/xA2b4A6xY3lTgBKUyxV5jnttpZU1ka" element={<Success />} />

@@ -1,190 +1,176 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
 .profileContainer {
-
-    margin-top: 80px
+  margin-top: 80px;
 }
 
 .userImg {
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 400px;
-    aspect-ratio: 1/1;
-    outline: solid 10px #2bb673;
-    object-fit: cover;
-}   
-
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 400px;
+  aspect-ratio: 1/1;
+  outline: solid 10px #2bb673;
+  object-fit: cover;
+}
 
 .topContainer {
-    min-width: 100vw;
-    min-height: 400px;
-    height: auto;
-    display: flex;
-    gap: 10px;
-    background-color: black;
-    flex-direction: column;   
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-bottom:  solid 16px #2bb673;
+  min-width: 100vw;
+  min-height: 400px;
+  height: auto;
+  display: flex;
+  gap: 10px;
+  background-color: black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-bottom: solid 16px #2bb673;
 }
 
 .profileContainer {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .msgBtn {
-    color: black;
-    padding: 10px;
-    width: 150px;
-    border-radius: 10px;
-    background-color: white;
-    border: white solid 2px;
-    font-weight: bold;
-     transition: 250ms ease-out
+  color: black;
+  padding: 10px;
+  width: 150px;
+  border-radius: 10px;
+  background-color: white;
+  border: white solid 2px;
+  font-weight: bold;
+  transition: 250ms ease-out;
 }
 
 .msgBtn:hover {
-    color: white;
-    background-color: black;
-    border: white solid 2px;
+  color: white;
+  background-color: black;
+  border: white solid 2px;
 }
 
-.userName{
-    margin: 0px;
-    margin-top: 20px;
-    margin-bottom: -25px;
-    padding: 0px;
-    font-size: 140%;
-    font-weight:500;
+.userName {
+  margin: 0px;
+  margin-top: 20px;
+  margin-bottom: -25px;
+  padding: 0px;
+  font-size: 140%;
+  font-weight: 500;
 }
-.userDisplayName{
-    margin-top: 10px;
-    padding: 0px;
-    font-weight: bolder;
-    font-size: 300%;
+
+.userDisplayName {
+  margin-top: 10px;
+  padding: 0px;
+  font-weight: bolder;
+  font-size: 300%;
 }
 
 .userFullName {
-    margin-top: -10px;
-    padding: 0px;
-    font-weight: bolder;
-    font-size: 300%;
+  margin-top: -10px;
+  padding: 0px;
+  font-weight: bolder;
+  font-size: 300%;
 }
 
-
-.locationContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.locationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .locationContainer > * {
-    display: flex;
+  display: flex;
 }
 
-.locationMarker{
-    padding-top: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.locationMarker {
+  padding-top: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .userLocation {
-    margin-top: 16px;
-    margin-bottom: 0px;
-    font-size: 30px;
+  margin-top: 16px;
+  margin-bottom: 0px;
+  font-size: 30px;
 }
 
 .userRole {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .account-genre-title {
-     font-family: 'Ubuntu', sans-serif;
-     font-weight: 800;
-     font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
 }
 
-.infoContainer{
-    color: rgb(59, 59, 59);
-    font-family: 'Ubuntu', sans-serif;
-    text-align: start;
-    max-width: 600px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px;
+.infoContainer {
+  color: rgb(59, 59, 59);
+  font-family: 'Ubuntu', sans-serif;
+  text-align: start;
+  max-width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
 }
-
-
 
 .infoContainer > h2 {
-    font-size: large;
-    font-weight: 800;
+  font-size: large;
+  font-weight: 800;
 }
-
 
 .genreList li {
-    margin-right: 8px;
-    display: inline;
+  margin-right: 8px;
+  display: inline;
 }
 
-.editBtn{
-    display: flex;
-    align-items: center;
-    color: white;
-    position: relative;
-    top: 9px;
-    transition: 0.3s;
+.editBtn {
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+  top: 9px;
+  transition: 0.3s;
 }
 
-.editBtn:hover{
-color: #2bb673;
-cursor: pointer;
+.editBtn:hover {
+  color: #2bb673;
+  cursor: pointer;
 }
-.nameContainer{
-}
-
-
-.editAndPostsContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.nameContainer {
 }
 
-.myPostBtn{
-    margin-left: 10px;
-      display: flex;
-    align-items: center;
-    color: white;
-    position: relative;
-    top: 9px
+.editAndPostsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.myPostBtn:hover{
-    color: #2bb673;
-transform: scale(1.01);
-transition: 0.3s;
-cursor: pointer;
+.myPostBtn {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+  top: 9px;
 }
 
+.myPostBtn:hover {
+  color: #2bb673;
+  transform: scale(1.01);
+  transition: 0.3s;
+  cursor: pointer;
+}
 
-.editBtnText , .myPostText {
-    margin-left: 3px;
+.editBtnText,
+.myPostText {
+  margin-left: 3px;
 }
 
 .textDivider {
-    color: white;
+  color: white;
 }
-

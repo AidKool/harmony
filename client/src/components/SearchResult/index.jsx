@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
-import './search-result.css'
+import { useMutation } from '@apollo/client';
 
 import capitalise from '../../utils/capitalise';
+import { ADD_CHAT } from '../../utils/mutations';
+
+import './search-result.css';
 
 function SearchResult(props) {
+  const [addChat, { error }] = useMutation(ADD_CHAT);
+
   const { _id, username, miles, picture, genres, type, location } = props;
   let instruments = [];
   let available = false;
@@ -13,6 +18,14 @@ function SearchResult(props) {
   if (type === 'Musician') {
     instruments = [...props.musicianId.instruments];
     available = props.musicianId.available;
+  }
+
+  async function createChat() {
+    try {
+      await addChat({ variables: { id: _id } });
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
   return (
@@ -58,7 +71,7 @@ function SearchResult(props) {
         ) : (
           ''
         )}
-        <section className='button-container'>
+        <section className="button-container">
           <div className="flex mt-4 space-x-3 lg:mt-6">
             <Link
               to={`/profiles/${_id}`}
@@ -66,7 +79,8 @@ function SearchResult(props) {
               View Profile
             </Link>
             <Link
-              to={``}
+              onClick={createChat}
+              to={`/messages`}
               className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-md border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">
               Message
             </Link>
