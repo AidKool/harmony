@@ -28,7 +28,7 @@ function  Post(props) {
         </div>
         <div className="card-bottom-section">
           <div className="card-author-container">
-            <img className="card-author-img" src={props.userImg} alt="" />
+            {props.userImg === null ? <img className="card-author-img" src="https://i.imgur.com/ZOgaykp.png" alt="" /> : <img className="card-author-img" src={props.userImg} alt="" />}
             <h3 className="card-author-name">{props.user}</h3>
           </div>
           <div className="post-badge-container">
