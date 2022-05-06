@@ -89,32 +89,46 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
                   <p className="userName text-white">{}</p>
                   <input className="accountEditInput" type="file" onChange={(e) => setImage(e.target.files[0])} />
 
-                  <input className="accountEditInput" type="text" placeholder="bio" {...register('bio', {})} />
-                  <select className="accountEditSelect" {...register('location')}>
-                    <option value="6262d041d6300e64987d8e73">Manchester</option>
-                    <option value="6262d041d6300e64987d8e74">Leicester</option>
-                    <option value="6262d041d6300e64987d8e75">Leeds</option>
-                  </select>
-                  <select className="accountEditSelect" {...register('genres')} multiple>
-                    <option value="Blues">Blues</option>
-                    <option value="Classic Rock">Classic Rock</option>
-                    <option value="Country">Country</option>
-                    <option value="Dance">Dance</option>
-                    <option value="Disco">Disco</option>
-                    <option value="Funk">Funk</option>
-                    <option value="Grunge">Grunge</option>
-                    <option value="Hip-hop">Hip-hop</option>
-                    <option value="Jazz">Jazz</option>
-                    <option value="Metal">Metal</option>
-                    <option value="Pop">Pop</option>
-                    <option value="R&B">R&B</option>
-                    <option value="Rap">Rap</option>
-                  </select>
-                  <input
-                    className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn"
-                    type="submit"
-                  />
-                </form>
+              <input className='accountEditInput'type="text" placeholder="bio" {...register('bio', {})} />
+              <select className='accountEditSelect' {...register('location')}>
+                <option value="6262d041d6300e64987d8e73">Manchester</option>
+                <option value="6262d041d6300e64987d8e74">Leicester</option>
+                <option value="6262d041d6300e64987d8e75">Leeds</option>
+                <option value="6262d041d6300e64987d8e76">Cardiff</option>
+                <option value="6262d041d6300e64987d8e77">Sheffield</option>
+                <option value="6262d041d6300e64987d8e78">Ipswich</option>
+                <option value="6262d041d6300e64987d8e79">York</option>
+                <option value="6262d041d6300e64987d8e7a">Aberdeen</option>
+                <option value="6262d041d6300e64987d8e7b">Birmingham</option>
+                <option value="6262d041d6300e64987d8e7c">Newcastle</option>
+                <option value="6262d041d6300e64987d8e7d">Glasgow</option>
+                <option value="6262d041d6300e64987d8e7e">Liverpool</option>
+                <option value="6262d041d6300e64987d8e7f">Portsmouth</option>
+                <option value="6262d041d6300e64987d8e7g">Swansea</option>
+                <option value="6262d041d6300e64987d8e7h">Southampton</option>
+                <option value="6262d041d6300e64987d8e7i">Nottingham</option>
+                <option value="6262d041d6300e64987d8e7j">London</option>
+              </select>
+              <select className='accountEditSelect' {...register('genres')} multiple>
+                <option value="Blues">Blues</option>
+                <option value="Classic Rock">Classic Rock</option>
+                <option value="Country">Country</option>
+                <option value="Dance">Dance</option>
+                <option value="Disco">Disco</option>
+                <option value="Funk">Funk</option>
+                <option value="Grunge">Grunge</option>
+                <option value="Hip-hop">Hip-hop</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Metal">Metal</option>
+                <option value="Pop">Pop</option>
+                <option value="R&B">R&B</option>
+                <option value="Rap">Rap</option>
+              </select>
+              <input
+                class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn"
+                type="submit"
+              />
+            </form>
 
                 <div>
                   {user.type === 'Musician' ? (
