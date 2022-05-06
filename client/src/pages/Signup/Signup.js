@@ -88,7 +88,14 @@ function Signup() {
               onChange={handleChange}
             />
             <p className="err">{formErrors.username}</p>
-            <input type="text" placeholder="Email" name="email" value={formValues.email} onChange={handleChange} />
+            <input
+              type="text"
+              className="signup-input"
+              placeholder="Email"
+              name="email"
+              value={formValues.email}
+              onChange={handleChange}
+            />
             <p className="err">{formErrors.email}</p>
             <input
               type="password"

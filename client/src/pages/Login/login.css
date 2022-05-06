@@ -58,8 +58,7 @@
   margin-bottom: 25px;
 }
 
-input[type='text'],
-input[type='password'] {
+.login-input {
   width: 100%;
   display: block;
   border: none;
