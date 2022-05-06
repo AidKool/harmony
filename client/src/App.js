@@ -51,11 +51,11 @@ function App() {
             <Route path="/search" element={<SearchResults />} />
             <Route path="/profiles/:profileId" element={<Profile />} />
             <Route path="/profiles/:profileId/edit" element={<ProfileEdit />} />
+            <Route path="/messages" element={<Chat />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/feed" element={<Feed />} />
-          <Route path="/messages" element={<Chat />} />
           <Route path="/my-posts" element={<MyPosts />} />
           <Route path="/hosting" element={<Hosting />} />
           <Route path="/about" element={<About />} />

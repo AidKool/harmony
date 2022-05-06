@@ -36,8 +36,9 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_CHAT = gql`
-  mutation addChat($user: [ID]!) {
-    addChat(user: $user) {
+  mutation addChat($id: ID!) {
+    addChat(_id: $id) {
+      _id
       users {
         _id
         username

@@ -1,12 +1,32 @@
-import React, { useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
 
 import { useChatContext } from '../../store/chatContext';
+import { GET_ME, GET_USER_CHATS } from '../../utils/queries';
 
 import './chatlist.css';
 
-function ChatList({ chats }) {
-  console.log('chats:', chats);
+function ChatList() {
+  const { loading: userLoading, data: userRawData } = useQuery(GET_ME);
+  const userData = userRawData?.me || {};
+
+  const { loading: chatLoading, data: chatRawData } = useQuery(GET_USER_CHATS);
+  const chatData = chatRawData?.getUserChats || [];
+
+  const [chats, setChats] = useState([]);
   const { activeChat, setActiveChat } = useChatContext();
+
+  useEffect(() => {
+    if (chatData.length > 0) {
+      const tempChats = chatData.map((chat) => {
+        if (chat.users[0].username !== userData.username) {
+          return { chatId: chat._id, contact: chat.users[0] };
+        }
+        return { chatId: chat._id, contact: chat.users[1] };
+      });
+      return setChats(tempChats);
+    }
+  }, [chatData, userData]);
 
   useEffect(() => {
     if (chats.length > 0) {

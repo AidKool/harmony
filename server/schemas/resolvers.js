@@ -69,11 +69,11 @@ const resolvers = {
         .populate(['users']);
     },
     getAllChats: async () => {
-      return Chat.find().populate(['users', 'messages']);
+      return await Chat.find().populate(['users', 'messages']);
     },
     getUserChats: async (parent, args, context) => {
       if (context.user) {
-        return Chat.find({ users: context.user._id }).populate(['users']);
+        return await Chat.find({ users: context.user._id }).populate(['users']);
       }
       throw new AuthenticationError('You must log in');
     },
@@ -122,10 +122,13 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    addChat: async (parent, { user }, context) => {
+    addChat: async (parent, { _id }, context) => {
       if (context.user) {
-        const ids = [context.user._id, user._id];
-        const chat = await Chat.create(ids);
+        const ids = [context.user._id, _id];
+        let chat = (await Chat.findOne({ users: { $all: [ids[0], ids[1]] } }).populate(['users'])) || null;
+        if (!chat) {
+          chat = await Chat.create({ users: ids });
+        }
         return chat;
       }
       throw new AuthenticationError('You must be logged in');
