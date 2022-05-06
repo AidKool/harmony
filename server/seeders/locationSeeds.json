@@ -46,5 +46,59 @@
     "latitude": 57.16247,
     "longitude": -2.173549,
     "name": "aberdeen"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7b",
+    "latitude": 52.48,
+    "longitude": -1.9025,
+    "name": "birmingham"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7c",
+    "latitude": 55.0077,
+    "longitude": -1.6578,
+    "name": "newcastle"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7d",
+    "latitude": 55.8609,
+    "longitude": -4.2514,
+    "name": "glasgow"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7e",
+    "latitude": 53.4,
+    "longitude": -2.9833,
+    "name": "liverpool"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7f",
+    "latitude": 50.8058,
+    "longitude": -1.0872,
+    "name": "portsmouth"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7g",
+    "latitude": 51.6167,
+    "longitude": -3.95,
+    "name": "swansea"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7h",
+    "latitude": 50.9,
+    "longitude": -1.4,
+    "name": "southampton"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7i",
+    "latitude": 52.95,
+    "longitude": -1.15,
+    "name": "nottingham"
+  },
+  {
+    "_id": "6262d041d6300e64987d8e7i",
+    "latitude": 51.5072,
+    "longitude": -0.1275,
+    "name": "london"
   }
 ]
