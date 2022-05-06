@@ -1,5 +1,5 @@
 import React from 'react'
-import gsap from 'gsap';
+import gsap, { Power1 } from 'gsap';
 import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './scroll-animation.css'
@@ -28,6 +28,7 @@ useEffect(() => {
     {
       rotation: 720,
       duration: 1,
+      ease: Power1.easeOut,
       // xPercent: 330,
       scrollTrigger: {
         start: 'top center',
