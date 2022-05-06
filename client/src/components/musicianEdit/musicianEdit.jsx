@@ -36,26 +36,28 @@ const musicianId = props.user.musicianId._id
 
   
     return (
-      <> 
-      {Auth.loggedIn() &&     
-      <form class="" onSubmit={handleSubmit(onSubmit)}>
-       <input type="text" placeholder="firstName" {...register("firstName", {})} />
-       <input type="text" placeholder="lastName" {...register("lastName", {})} />
-      
-      <select {...register("instruments")} multiple>
-        <option value="Guitar">Guitar</option>
-        <option value="Drums">Drums</option>
-        <option value="Vocals">Vocals</option>
-        <option value="Bass">Bass</option>
-      </select>
-       <select {...register("available",{setValueAs: (x)=>Boolean(x)})}>
-        <option value={""}>No!</option>
-        <option value={true}>Yes!</option>
-      </select>
-        <input class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn" type="submit" />
-      </form>
-      }
-   
+      <>
+        {Auth.loggedIn() && (
+          <form className="" onSubmit={handleSubmit(onSubmit)}>
+            <input className="accountEditInput" type="text" placeholder="firstName" {...register('firstName', {})} />
+            <input className="accountEditInput" type="text" placeholder="lastName" {...register('lastName', {})} />
+
+            <select className="accountEditSelect" {...register('instruments')} multiple>
+              <option value="Guitar">Guitar</option>
+              <option value="Drums">Drums</option>
+              <option value="Vocals">Vocals</option>
+              <option value="Bass">Bass</option>
+            </select>
+            <select className="accountEditSelect" {...register('available', { setValueAs: (x) => Boolean(x) })}>
+              <option value={''}>No!</option>
+              <option value={true}>Yes!</option>
+            </select>
+            <input
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn"
+              type="submit"
+            />
+          </form>
+        )}
       </>
     );
 }

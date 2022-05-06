@@ -7,6 +7,7 @@ import SilverCrownLogo from './assets/Silver-Crown';
 import CopperCrownLogo from './assets/Copper-crown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import Auth from '../../utils/auth';
 
 let stripePromise;
 const getStripe = () => {
@@ -72,15 +73,22 @@ function HomeHero() {
     await stripe.redirectToCheckout(checkoutOptionsCopper);
   };
 
-  // =============================================================================
+// =============================================================================
 
   return (
     <section className="hero-section">
       <div className="home-cta-container">
+      
         <p className="home-cta-title">Be rockstar and support us today!</p>
-        <button className="home-cta-button" onClick={setActiveSubModal}>
-          Donate
-        </button>
+        {!Auth.loggedIn() ? (
+          <Link className="home-cta-button-login" to="/login">
+            Login to donate
+          </Link>
+        ) : (
+          <button className="home-cta-button" onClick={setActiveSubModal}>
+            Donate
+          </button>
+        )}
       </div>
       <div className="hero-container">
         <p className="home-cta-title hero-title">Join fellow musicians to create the next big thing</p>

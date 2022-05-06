@@ -5,19 +5,8 @@ import { useQuery } from '@apollo/client';
 import { GET_MY_POSTS } from '../../utils/queries';
 
 function MyPostsFeed() {
-  const { data } = useQuery(GET_MY_POSTS);
-  // const myPosts = data?.getMyPosts;
-  const [myPosts, setMyPosts] = useState([]);
-
-  useEffect(() => {
-    console.log(data);
-    async function getData() {
-      if (data) {
-        setMyPosts(data.getMyPosts);
-      }
-    }
-    getData();
-  }, [data, setMyPosts]);
+  const { data, refetch } = useQuery(GET_MY_POSTS);
+  const myPosts = data?.getMyPosts;
 
   console.log('my posts data', myPosts);
 
@@ -28,6 +17,7 @@ function MyPostsFeed() {
         {myPosts?.map((post) => {
           return (
             <IndividualUserPost
+              onDeleteSucess={refetch}
               title={post.title}
               key={post.title}
               id={post._id}

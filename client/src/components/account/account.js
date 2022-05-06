@@ -5,6 +5,7 @@ import { QUERY_SINGLE_ACCOUNT } from '../../utils/queries';
 import { MdLocationOn, MdModeEditOutline } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
+import { BsSignpostFill } from 'react-icons/bs';
 import Auth from '../../utils/auth';
 
 function Account() {
@@ -33,101 +34,143 @@ function Account() {
       const jwtId = jwtToken.data._id;
       const editUrl = accountId + '/edit';
 
+
       return (
         <>
-          <div class="profileContainer">
-            <div class="topContainer">
-              <img src={user.picture} alt="profile" class="userImg" />
-              <p class="userName text-white">{}</p>
+          <div className="profileContainer">
+            <div className="topContainer">
+              {user.picture === null ? (
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" className="userImg" />
+              ) : (
+                <img src={user.picture} alt="profile" className="userImg" />
+              )}
               {jwtId === accountId && (
-                <a href={editUrl} class="editBtn">
-                  <div class="editBtn">
-                    <MdModeEditOutline />
-                    <p>Edit profile</p>
+                <>
+                  <div className="editAndPostsContainer">
+                    <a href={editUrl} className="editBtn">
+                      <div className="editBtn">
+                        <MdModeEditOutline />
+                        <p className="editBtnText">Edit profile</p>
+                      </div>
+                    </a>
+                    <a href="/my-posts" className="editBtn">
+                      <div className="myPostBtn">
+                        <BsSignpostFill />
+                        <p className="myPostText">My posts</p>
+                      </div>
+                    </a>
                   </div>
-                </a>
+                </>
               )}
-              <p class="userName text-white">{user.username}</p>
-              {user.type === 'Band' && (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              <p className="userName text-white">{user.username}</p>
+              {user.type === 'Band' ? (
+                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              ) : (
+                <>
+                  <p>.</p>
+                </>
               )}
+              <p></p>
               {user.type === 'Musician' && (
-                <p class="userDisplayName text-white text-capitalize">
+                <p className="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button class="msgBtn">Message</button>
-              <div class="locationContainer">
-                <span class="locationMarker text-white text-2xl">
+              <button className="msgBtn">Message</button>
+              <div className="locationContainer">
+                <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p class="userLocation text-white">{user.location.name}</p>
+                {user.location === null ? (
+                  <p className="userLocation text-white">UNKNOWN</p>
+                ) : (
+                  <p className="userLocation text-white">{user.location.name}</p>
+                )}
               </div>
-              <p class="userRole text-white">{user.type}</p>
+              <p className="userRole text-white">{user.type}</p>
             </div>
           </div>
-          <div class="infoContainer">
+          <div className="infoContainer">
             {user.type === 'Musician' && (
               <>
                 <h2>Availability</h2>
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            <h2>Looking for</h2>
-            <p> lead guitar</p>
-            <h2>Genre</h2>
 
-            <ul class="genreList">
-              <p key={genreList}> {genreList}</p>
-            </ul>
-            <h2>About us</h2>
-            <p>{user.bio}</p>
+            {user.genres.length >= 1 && (
+              <ul className="genreList">
+                <h2 className="account-genre-title">Genre</h2>
+                <p key={genreList}> {genreList}</p>
+              </ul>
+            )}
+            {console.log(user.bio)}
+            {user.bio !== null && (
+              <>
+                <h2>About</h2> <p>{user.bio}</p>
+              </>
+            )}
           </div>
         </>
       );
     } else {
       return (
         <>
-          <div class="profileContainer">
-            <div class="topContainer">
-              <img src={user.picture} alt="profile" class="userImg" />
-              <p class="userName text-white">{}</p>
-
-              <p class="userName text-white">{user.username}</p>
-              {user.type === 'Band' && (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+          <div className="profileContainer">
+            <div className="topContainer">
+              {user.picture === null ? (
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" className="userImg" />
+              ) : (
+                <img src={user.picture} alt="profile" className="userImg" />
               )}
+              <p className="userName text-white">{user.username}</p>
+              {user.type === 'Band' ? (
+                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+              ) : (
+                <>
+                  <p>.</p>
+                </>
+              )}
+              <p></p>
               {user.type === 'Musician' && (
-                <p class="userDisplayName text-white text-capitalize">
+                <p className="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button class="msgBtn">Message</button>
-              <div class="locationContainer">
-                <span class="locationMarker text-white text-2xl">
+              <button className="msgBtn">Message</button>
+              <div className="locationContainer">
+                <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
-                <p class="userLocation text-white">{user.location.name}</p>
+                {user.location === null ? (
+                  <p className="userLocation text-white">UNKNOWN</p>
+                ) : (
+                  <p className="userLocation text-white">{user.location.name}</p>
+                )}
               </div>
-              <p class="userRole text-white">{user.type}</p>
+              <p className="userRole text-white">{user.type}</p>
             </div>
           </div>
-          <div class="infoContainer">
+          <div className="infoContainer">
             {user.type === 'Musician' && (
               <>
                 <h2>Availability</h2>
                 <p>{user.musicianId.available ? <TiTick /> : <ImCross />}</p>
               </>
             )}
-            <h2>Looking for</h2>
-            <p> lead guitar</p>
-            <h2>Genre</h2>
 
-            <ul class="genreList">
-              <p key={genreList}> {genreList}</p>
-            </ul>
-            <h2>About us</h2>
-            <p>{user.bio}</p>
+            {user.genres.length >= 1 && (
+              <ul className="genreList">
+                <h2 className="account-genre-title">Genre</h2>
+                <p key={genreList}> {genreList}</p>
+              </ul>
+            )}
+            {console.log(user.bio)}
+            {user.bio !== null && (
+              <>
+                <h2>About</h2> <p>{user.bio}</p>
+              </>
+            )}
           </div>
         </>
       );

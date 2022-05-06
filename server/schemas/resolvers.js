@@ -32,15 +32,19 @@ const resolvers = {
         longitude: origin.longitude,
         latitude: origin.latitude,
       };
-      return (await Account.find().populate(['location', 'posts', 'musicianId', 'bandId'])).filter((account) => {
-        const destCoords = {
-          longitude: account.location.longitude,
-          latitude: account.location.latitude,
-        };
-        const usersDistance = calculateDistance(originCoords, destCoords);
-        account.miles = Math.round(usersDistance);
-        return usersDistance <= miles;
-      });
+      return (await Account.find().populate(['location', 'posts', 'musicianId', 'bandId']))
+        .filter((account) => {
+          return !!account.location;
+        })
+        .filter((account) => {
+          const destCoords = {
+            longitude: account.location.longitude,
+            latitude: account.location.latitude,
+          };
+          const usersDistance = calculateDistance(originCoords, destCoords);
+          account.miles = Math.round(usersDistance);
+          return usersDistance <= miles;
+        });
     },
     getPost: async (parent, { _id }) => {
       return Post.findById(_id);
@@ -95,14 +99,19 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const account = await Account.findOne({ email });
+
       if (!account) {
         throw new AuthenticationError('Invalid credentials');
       }
+
       const correctPw = await account.isCorrectPassword(password);
+
       if (!correctPw) {
         throw new AuthenticationError('Credentials invalid');
       }
+
       const token = signToken(account);
+
       return { token, account };
     },
     addPost: async (parent, { title, content, picture, accountId }, context) => {

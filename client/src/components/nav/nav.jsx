@@ -94,24 +94,32 @@ function Nav() {
               <span className="add-post-span">Add post</span>
               <FontAwesomeIcon className="nav-search-icon" icon={faPlus} />
             </Link>
-
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
             </div>
           </div>
         </div>
-
         <section className={toggle ? 'mobileNavMenu-open' : 'mobileNavMenu-closed'}>
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
-              <li className="nav-menu-li">My Feed</li>
-              <a href={profilePath}>
+              <Link to="/feed">
+                <li className="nav-menu-li">Feed</li>
+              </Link>
+              <Link to="/feed">
+                <li className="nav-menu-li">Messages</li>
+              </Link>
+              <Link to={profilePath}>
                 <li className="nav-menu-li">My Account</li>
+              </Link>
+              <Link to="/my-posts">
+                <li className="nav-menu-li">My posts</li>
+              </Link>
+              <a target="_blank" href="https://github.com/AidKool/harmony">
+                <li className="nav-menu-li">Contact</li>
               </a>
-              <li className="nav-menu-li">Contact</li>
             </ul>
-            <button className="bn54" onClick={Auth.logout}>
+            <button className="bn54 bnred" onClick={Auth.logout}>
               <span className="bn54span">Log out</span>
             </button>
             <div className="nav-border"></div>
@@ -120,8 +128,6 @@ function Nav() {
       </nav>
     );
   } else {
-    console.log('user is NOT logged in');
-
     return (
       <nav className="nav-bar">
         <div className={header}>
@@ -142,24 +148,21 @@ function Nav() {
             </button>
           </form>
           <div className="right-side-nav-container">
-            <Link className="add-post-nav-btn" to="/">
-              <span className="add-post-span">Add post</span>
-              <FontAwesomeIcon className="nav-search-icon" icon={faPlus} />
-            </Link>
-
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
             </div>
           </div>
         </div>
-
         <section className={toggle ? 'mobileNavMenu-open' : 'mobileNavMenu-closed'}>
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
-              <li className="nav-menu-li">Feed</li>
-
-              <li className="nav-menu-li">Contact</li>
+              <Link to="/signup">
+                <li className="nav-menu-li">Sign up</li>
+              </Link>
+              <a target="_blank" href="https://github.com/AidKool/harmony">
+                <li className="nav-menu-li">Contact</li>
+              </a>
             </ul>
             <button className="bn54">
               <Link className="bn54" to="/login">

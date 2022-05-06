@@ -9,11 +9,18 @@ import Auth from '../../utils/auth';
 
 function Login() {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [formError, setFormError] = useState('');
   const [login, { error, data }] = useMutation(LOGIN);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(userFormData);
+    console.log('error', error);
     try {
       const { data } = await login({
         variables: { ...userFormData },
@@ -21,21 +28,14 @@ function Login() {
 
       Auth.login(data.login.token);
     } catch (e) {
-      console.error(e);
+      setFormError('Invalid Credentials');
     }
-
-    console.log(error);
 
     // clear form values
     setUserFormData({
       email: '',
       password: '',
     });
-  };
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
   };
 
   return (
@@ -52,6 +52,7 @@ function Login() {
           <form onSubmit={handleFormSubmit}>
             <input
               type="text"
+              className="login-input"
               placeholder="Email"
               name="email"
               onChange={handleInputChange}
@@ -59,21 +60,23 @@ function Login() {
             />
             <input
               type="password"
+              className="login-input"
               placeholder="Password"
               name="password"
               onChange={handleInputChange}
               value={userFormData.password}
             />
-            {error ? (
-              <div>
-                <p className="error-text">Invalid Credentials</p>
-              </div>
-            ) : null}
+
             <button type="submit" className="submit-btn">
               Login
             </button>
           </form>
         </section>
+        {formError ? (
+          <div>
+            <p className="error-text">Invalid Credentials</p>
+          </div>
+        ) : null}
       </div>
     </>
   );
