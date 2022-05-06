@@ -1,4 +1,3 @@
-
 .editContainer {
   margin-top: 100px;
   margin-bottom: 40px;
@@ -9,8 +8,8 @@
   padding: 30px 40px 10px 40px;
 }
 
-.accountEditTitle{
-font-weight: bold;
+.accountEditTitle {
+  font-weight: bold;
 }
 
 .editForm {
@@ -18,8 +17,7 @@ font-weight: bold;
   padding: 20px 50px 50px 50px;
   border-radius: 20px;
 }
-
-.subBtn {
+*/ .subBtn {
   margin-top: 20px;
 }
 
@@ -58,26 +56,25 @@ font-weight: bold;
   display: flex;
   align-items: center;
   position: relative;
-  font-size:large;
+  font-size: large;
   bottom: 10px;
   right: 35px;
 }
 
-.backArrow:hover{
- color: #2bb673;
- transition: 0.5s;
+.backArrow:hover {
+  color: #2bb673;
+  transition: 0.5s;
 }
 
 .editImg {
   width: 200px;
   height: 200px;
- border-radius: 100%;
- outline: solid 8px #2bb673;
- margin-bottom: 4px;
+  border-radius: 100%;
+  outline: solid 8px #2bb673;
+  margin-bottom: 4px;
 }
-.imageContainer{
+.imageContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }

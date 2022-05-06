@@ -7,6 +7,13 @@ const getCityCoordinates = require('../utils/getCityCoordinates');
 
 const resolvers = {
   Query: {
+    me: async (_, __, context) => {
+      if (context.user) {
+        const userData = await Account.findById(context.user._id);
+        return userData;
+      }
+      throw new AuthenticationError('You must log in');
+    },
     getAccount: async (parent, { _id }) => {
       return Account.findById(_id).populate(['location', 'posts', 'musicianId', 'bandId']);
     },
@@ -25,15 +32,19 @@ const resolvers = {
         longitude: origin.longitude,
         latitude: origin.latitude,
       };
-      return (await Account.find().populate(['location', 'posts', 'musicianId', 'bandId'])).filter((account) => {
-        const destCoords = {
-          longitude: account.location.longitude,
-          latitude: account.location.latitude,
-        };
-        const usersDistance = calculateDistance(originCoords, destCoords);
-        account.miles = Math.round(usersDistance);
-        return usersDistance <= miles;
-      });
+      return (await Account.find().populate(['location', 'posts', 'musicianId', 'bandId']))
+        .filter((account) => {
+          return !!account.location;
+        })
+        .filter((account) => {
+          const destCoords = {
+            longitude: account.location.longitude,
+            latitude: account.location.latitude,
+          };
+          const usersDistance = calculateDistance(originCoords, destCoords);
+          account.miles = Math.round(usersDistance);
+          return usersDistance <= miles;
+        });
     },
     getPost: async (parent, { _id }) => {
       return Post.findById(_id);
@@ -52,11 +63,19 @@ const resolvers = {
       });
       return myPosts;
     },
-    getChat: async (parent, { _id }) => {
-      return Chat.findById(_id).populate(['users', 'messages']);
+    getChat: async (parent, { _id }, context) => {
+      return Chat.findById(_id)
+        .populate({ path: 'messages', populate: ['sender', 'receiver'] })
+        .populate(['users']);
     },
     getAllChats: async () => {
-      return Chat.find().populate(['users', 'messages']);
+      return await Chat.find().populate(['users', 'messages']);
+    },
+    getUserChats: async (parent, args, context) => {
+      if (context.user) {
+        return await Chat.find({ users: context.user._id }).populate(['users']);
+      }
+      throw new AuthenticationError('You must log in');
     },
   },
   Mutation: {
@@ -103,18 +122,21 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in');
     },
-    addChat: async (parent, { user }, context) => {
+    addChat: async (parent, { _id }, context) => {
       if (context.user) {
-        const ids = [context.user._id, user._id];
-        const chat = await Chat.create(ids);
+        const ids = [context.user._id, _id];
+        let chat = (await Chat.findOne({ users: { $all: [ids[0], ids[1]] } }).populate(['users'])) || null;
+        if (!chat) {
+          chat = await Chat.create({ users: ids });
+        }
         return chat;
       }
       throw new AuthenticationError('You must be logged in');
     },
-    addMessage: async (parent, { sender, receiver, message }, context) => {
+    addMessage: async (parent, { sender, receiver, message, chatId }, context) => {
       if (context.user) {
-        const newMessage = await Message.create({ sender, receiver, message });
-        await Chat.findByIdAndUpdate(context.chat._id, { $addToSet: { messages: newMessage._id } });
+        const newMessage = await Message.create({ sender, receiver, message, createdAt: new Date().toUTCString() });
+        await Chat.findByIdAndUpdate(chatId, { $addToSet: { messages: newMessage._id } });
         return newMessage;
       }
       throw new AuthenticationError('You must be logged in');

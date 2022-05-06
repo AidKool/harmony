@@ -1,14 +1,17 @@
 import './account.css';
-import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useMutation, useQuery } from '@apollo/client';
+import { Link, useParams } from 'react-router-dom';
 import { QUERY_SINGLE_ACCOUNT } from '../../utils/queries';
 import { MdLocationOn, MdModeEditOutline } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
 import { BsSignpostFill } from 'react-icons/bs';
 import Auth from '../../utils/auth';
+import { ADD_CHAT } from '../../utils/mutations';
 
 function Account() {
+  const [addChat] = useMutation(ADD_CHAT);
+
   //Assigns url params to get id from profiles/:profileId
   const params = useParams();
   const accountId = params.profileId;
@@ -24,6 +27,14 @@ function Account() {
     <p> loading.....</p>;
   }
 
+  async function createChat() {
+    try {
+      await addChat({ variables: { id: accountId } });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   if (data) {
     const userGenres = user.genres;
     const genreList = userGenres.map((genre) => <li>{genre}</li>);
@@ -34,38 +45,36 @@ function Account() {
       const jwtId = jwtToken.data._id;
       const editUrl = accountId + '/edit';
 
-
       return (
         <>
-          <div class="profileContainer">
-            <div class="topContainer">
+          <div className="profileContainer">
+            <div className="topContainer">
               {user.picture === null ? (
-                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="userImg" />
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" className="userImg" />
               ) : (
-                <img src={user.picture} alt="profile" class="userImg" />
+                <img src={user.picture} alt="profile" className="userImg" />
               )}
               {jwtId === accountId && (
                 <>
-                <div className='editAndPostsContainer'> 
-                
-                  <a href={editUrl} class="editBtn">
-                    <div className="editBtn">
-                      <MdModeEditOutline />
-                      <p class="editBtnText">Edit profile</p>
-                    </div>
-                  </a>
-                  <a href="/my-posts" class="editBtn">
-                    <div className="myPostBtn">
-                      <BsSignpostFill />
-                      <p className='myPostText'>My posts</p>
-                    </div>
-                  </a>
+                  <div className="editAndPostsContainer">
+                    <a href={editUrl} className="editBtn">
+                      <div className="editBtn">
+                        <MdModeEditOutline />
+                        <p className="editBtnText">Edit profile</p>
+                      </div>
+                    </a>
+                    <a href="/my-posts" className="editBtn">
+                      <div className="myPostBtn">
+                        <BsSignpostFill />
+                        <p className="myPostText">My posts</p>
+                      </div>
+                    </a>
                   </div>
                 </>
               )}
-              <p class="userName text-white">{user.username}</p>
+              <p className="userName text-white">{user.username}</p>
               {user.type === 'Band' ? (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
               ) : (
                 <>
                   <p>.</p>
@@ -73,19 +82,21 @@ function Account() {
               )}
               <p></p>
               {user.type === 'Musician' && (
-                <p class="userFullName text-white text-capitalize">
+                <p className="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button className="msgBtn">Message</button>
+              <Link to={`/messages`} onClick={createChat} className="msgBtn">
+                Message
+              </Link>
               <div className="locationContainer">
                 <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
                 {user.location === null ? (
-                  <p class="userLocation text-white">UNKNOWN</p>
+                  <p className="userLocation text-white">UNKNOWN</p>
                 ) : (
-                  <p class="userLocation text-white">{user.location.name}</p>
+                  <p className="userLocation text-white">{user.location.name}</p>
                 )}
               </div>
               <p className="userRole text-white">{user.type}</p>
@@ -100,7 +111,7 @@ function Account() {
             )}
 
             {user.genres.length >= 1 && (
-              <ul class="genreList">
+              <ul className="genreList">
                 <h2 className="account-genre-title">Genre</h2>
                 <p key={genreList}> {genreList}</p>
               </ul>
@@ -117,16 +128,16 @@ function Account() {
     } else {
       return (
         <>
-          <div class="profileContainer">
-            <div class="topContainer">
+          <div className="profileContainer">
+            <div className="topContainer">
               {user.picture === null ? (
-                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="userImg" />
+                <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" className="userImg" />
               ) : (
-                <img src={user.picture} alt="profile" class="userImg" />
+                <img src={user.picture} alt="profile" className="userImg" />
               )}
-              <p class="userName text-white">{user.username}</p>
+              <p className="userName text-white">{user.username}</p>
               {user.type === 'Band' ? (
-                <p class="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
+                <p className="userDisplayName text-white text-capitalize"> {user.bandId.bandName}</p>
               ) : (
                 <>
                   <p>.</p>
@@ -134,19 +145,21 @@ function Account() {
               )}
               <p></p>
               {user.type === 'Musician' && (
-                <p class="userFullName text-white text-capitalize">
+                <p className="userFullName text-white text-capitalize">
                   {user.musicianId.firstName} {user.musicianId.lastName}
                 </p>
               )}
-              <button className="msgBtn">Message</button>
+              <Link to={`/messages`} onClick={createChat} className="msgBtn">
+                Message
+              </Link>
               <div className="locationContainer">
                 <span className="locationMarker text-white text-2xl">
                   <MdLocationOn />
                 </span>
                 {user.location === null ? (
-                  <p class="userLocation text-white">UNKNOWN</p>
+                  <p className="userLocation text-white">UNKNOWN</p>
                 ) : (
-                  <p class="userLocation text-white">{user.location.name}</p>
+                  <p className="userLocation text-white">{user.location.name}</p>
                 )}
               </div>
               <p className="userRole text-white">{user.type}</p>
@@ -161,8 +174,8 @@ function Account() {
             )}
 
             {user.genres.length >= 1 && (
-              <ul class="genreList">
-                <h2 className='account-genre-title'>Genre</h2>
+              <ul className="genreList">
+                <h2 className="account-genre-title">Genre</h2>
                 <p key={genreList}> {genreList}</p>
               </ul>
             )}

@@ -69,6 +69,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: Account
     getAccount(_id: ID!): Account
     getAllAccounts: [Account]
     getAccountsByDistance(location: String!, miles: Int!): [Account]
@@ -77,14 +78,15 @@ const typeDefs = gql`
     getMyPosts: [Post]
     getChat(_id: ID!): Chat
     getAllChats: [Chat]
+    getUserChats: [Chat]
   }
 
   type Mutation {
     addAccount(username: String!, email: String!, password: String!, type: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(title: String!, content: String!, picture: String, accountId: ID!): Post
-    addChat(user: [ID]!): Chat
-    addMessage(sender: String!, receiver: String!, message: String!): Message
+    addChat(_id: ID!): Chat
+    addMessage(sender: String!, receiver: String!, message: String!, chatId: ID!): Message
     updateAccount(picture: String, bio: String, location: ID, genres: [String]): Account
     updateMusician(
       firstName: String

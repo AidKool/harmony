@@ -113,7 +113,7 @@ function Nav() {
                 <li className="nav-menu-li">My Account</li>
               </Link>
               <Link to="/my-posts">
-                <li class="nav-menu-li">My posts</li>
+                <li className="nav-menu-li">My posts</li>
               </Link>
               <a target="_blank" href="https://github.com/AidKool/harmony">
                 <li className="nav-menu-li">Contact</li>
@@ -141,12 +141,6 @@ function Nav() {
               <HLogo />
             </div>
           </Link>
-          <form action="/" method="GET" className="nav-form">
-            <input type="search" placeholder="Search" className="nav-search-field" />
-            <button type="submit" className="nav-search-button">
-              <FontAwesomeIcon className="nav-search-icon" icon={faSearch} />
-            </button>
-          </form>
           <div className="right-side-nav-container">
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
@@ -157,12 +151,8 @@ function Nav() {
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
-              <li className="nav-menu-li">Feed</li>
               <Link to="/signup">
-                <li class="nav-menu-li">Sign up</li>
-              </Link>
-              <Link to="/feed">
-                <li className="nav-menu-li">Feed</li>
+                <li className="nav-menu-li">Sign up</li>
               </Link>
               <a target="_blank" href="https://github.com/AidKool/harmony">
                 <li className="nav-menu-li">Contact</li>

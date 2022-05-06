@@ -36,8 +36,9 @@ export const ADD_POST = gql`
 `;
 
 export const ADD_CHAT = gql`
-  mutation addChat($user: [ID]!) {
-    addChat(user: $user) {
+  mutation addChat($id: ID!) {
+    addChat(_id: $id) {
+      _id
       users {
         _id
         username
@@ -47,8 +48,8 @@ export const ADD_CHAT = gql`
 `;
 
 export const ADD_MESSAGE = gql`
-  mutation addMessage($sender: String!, $receiver: String!, $message: String!) {
-    addMessage(sender: $sender, receiver: $receiver, message: $message) {
+  mutation addMessage($sender: String!, $receiver: String!, $message: String!, $chatId: ID!) {
+    addMessage(sender: $sender, receiver: $receiver, message: $message, chatId: $chatId) {
       sender {
         _id
         username
@@ -72,8 +73,20 @@ export const UPDATE_ACCOUNT = gql`
 `;
 
 export const UPDATE_MUSICIAN = gql`
-  mutation updateMusician($firstName: String, $lastName: String, $instruments: [String], $available: Boolean, $musicianId: String) {
-    updateMusician(firstName: $firstName, lastName: $lastName, instruments: $instruments, available: $available, musicianId: $musicianId) {
+  mutation updateMusician(
+    $firstName: String
+    $lastName: String
+    $instruments: [String]
+    $available: Boolean
+    $musicianId: String
+  ) {
+    updateMusician(
+      firstName: $firstName
+      lastName: $lastName
+      instruments: $instruments
+      available: $available
+      musicianId: $musicianId
+    ) {
       _id
     }
   }
@@ -108,7 +121,7 @@ export const SET_DONATED_TRUE = gql`
     setDonatedTrue {
       donated
     }
-}
+  }
 `;
 
 export const SET_DONATED_SILVER = gql`
@@ -126,4 +139,3 @@ export const SET_DONATED_BRONZE = gql`
     }
   }
 `;
-
