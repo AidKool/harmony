@@ -37,6 +37,7 @@ function MessageInput() {
     } catch (error) {
       throw new Error(error.message);
     }
+    messageRef.current.value = '';
   }
 
   return (
