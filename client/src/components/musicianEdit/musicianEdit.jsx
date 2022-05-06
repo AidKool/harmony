@@ -43,10 +43,26 @@ const musicianId = props.user.musicianId._id
        <input className='accountEditInput' type="text" placeholder="lastName" {...register("lastName", {})} />
       
       <select  className='accountEditSelect' {...register("instruments")} multiple>
-        <option value="Guitar">Guitar</option>
-        <option value="Drums">Drums</option>
-        <option value="Vocals">Vocals</option>
-        <option value="Bass">Bass</option>
+        <option value="guitar">Guitar</option>
+        <option value="lead guitar">Lead guitar</option>
+        <option value="rhythm guitar">rhythm guitar</option>
+        <option value="drums">Drums</option>
+        <option value="backing vocals">backing vocals</option>
+        <option value="vocals">Vocals</option>
+        <option value="bass">Bass</option>
+        <option value="keys">Keys</option>
+        <option value="piano">Piano</option>
+        <option value="flute">Flute</option>
+        <option value="oboe">Oboe</option>
+        <option value="clarinet">Clarinet</option>
+        <option value="saxophone">Saxophone</option>
+        <option value="bassoon">Bassoon</option>
+        <option value="trumpet">Trumpet</option>
+        <option value="french horn">French horn</option>
+        <option value="trombone">Trombone</option>
+        <option value="tube">Tube</option>
+        <option value="triangle">Triangle</option>
+        <option value="cowbell">Cowbell</option>
       </select>
        <select className='accountEditSelect' {...register("available",{setValueAs: (x)=>Boolean(x)})}>
         <option value={""}>No!</option>

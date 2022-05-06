@@ -107,19 +107,19 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
                 <option value="6262d041d6300e64987d8e7j">London</option>
               </select>
               <select className='accountEditSelect' {...register('genres')} multiple>
-                <option value="Blues">Blues</option>
-                <option value="Classic Rock">Classic Rock</option>
-                <option value="Country">Country</option>
-                <option value="Dance">Dance</option>
-                <option value="Disco">Disco</option>
-                <option value="Funk">Funk</option>
-                <option value="Grunge">Grunge</option>
-                <option value="Hip-hop">Hip-hop</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Metal">Metal</option>
-                <option value="Pop">Pop</option>
-                <option value="R&B">R&B</option>
-                <option value="Rap">Rap</option>
+                <option value="blues">Blues</option>
+                <option value="classic Rock">Classic Rock</option>
+                <option value="country">Country</option>
+                <option value="dance">Dance</option>
+                <option value="disco">Disco</option>
+                <option value="funk">Funk</option>
+                <option value="grunge">Grunge</option>
+                <option value="hip-hop">Hip-hop</option>
+                <option value="jazz">Jazz</option>
+                <option value="metal">Metal</option>
+                <option value="pop">Pop</option>
+                <option value="r&b">R&B</option>
+                <option value="rap">Rap</option>
               </select>
               <input
                 class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn"
