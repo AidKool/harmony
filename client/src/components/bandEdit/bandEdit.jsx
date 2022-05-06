@@ -34,15 +34,17 @@ console.log(bandId)
   if(props.user){ 
     
     return (
-      <> 
-      {Auth.loggedIn() &&     
-          <form class="" onSubmit={handleSubmit(onSubmit)}>
-              <p>Edit your band details:</p>
-         <input className='accountEditSelect' type="text" placeholder="bandName" {...register("bandName", {})} />
-            <input class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn" type="submit" />
-      </form>
-     }
-   
+      <>
+        {Auth.loggedIn() && (
+          <form className="" onSubmit={handleSubmit(onSubmit)}>
+            <p>Edit your band details:</p>
+            <input className="accountEditSelect" type="text" placeholder="bandName" {...register('bandName', {})} />
+            <input
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn"
+              type="submit"
+            />
+          </form>
+        )}
       </>
     );
 }
