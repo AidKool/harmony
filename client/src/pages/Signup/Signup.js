@@ -82,6 +82,7 @@ function Signup() {
           <form>
             <input
               type="text"
+              className="signup-input"
               placeholder="Username"
               name="username"
               value={formValues.username}
@@ -99,6 +100,7 @@ function Signup() {
             <p className="err">{formErrors.email}</p>
             <input
               type="password"
+              className="signup-input"
               placeholder="Password"
               name="password"
               value={formValues.password}
@@ -107,6 +109,7 @@ function Signup() {
             <p className="err">{formErrors.password}</p>
             <input
               type="password"
+              className="signup-input"
               placeholder="Confirm Password"
               name="confirmPass"
               value={confirmPassword.value}
