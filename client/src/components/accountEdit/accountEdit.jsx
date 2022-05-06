@@ -62,7 +62,9 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
 
   if(data){
   if (jwtId === accountId) {
-    console.log(user)
+
+
+    
     return (
       <>
         <div class="editContainer">
@@ -77,17 +79,20 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
               </div>
             </a>
               <p class="loggedIn"> Currently logged in as {jwtUsername}</p>
+              <div className="imageContainer"> 
+              {user.picture !== null ? <img src={user.picture} alt="profile" class="editImg" /> : <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" class="editImg" /> }
               
-              <img src={user.picture} alt="profile" class="editImg" />
+              </div>
                  <p class="userName text-white">{}</p>
-              <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-              <input type="text" placeholder="bio" {...register('bio', {})} />
-              <select {...register('location')}>
+              <input className='accountEditInput' type="file" onChange={(e) => setImage(e.target.files[0])} />
+
+              <input className='accountEditInput'type="text" placeholder="bio" {...register('bio', {})} />
+              <select className='accountEditSelect' {...register('location')}>
                 <option value="6262d041d6300e64987d8e73">Manchester</option>
                 <option value="6262d041d6300e64987d8e74">Leicester</option>
                 <option value="6262d041d6300e64987d8e75">Leeds</option>
               </select>
-              <select {...register('genres')} multiple>
+              <select className='accountEditSelect' {...register('genres')} multiple>
                 <option value="Blues">Blues</option>
                 <option value="Classic Rock">Classic Rock</option>
                 <option value="Country">Country</option>
@@ -111,7 +116,7 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
             <div>
               
               {user.type === "Musician" ?<> <MusicianEdit user={user}/>
-            <p>musician edit should show</p></> : <> <BandEdit user={user} /> <p>band edit should show</p></> }
+            </> : <> <BandEdit user={user} />  </> }
             
             </div>
             </div>

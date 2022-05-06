@@ -1,19 +1,21 @@
-/* * {
-  font-family: 'Ubuntu', sans-serif;
-} */
+
 .editContainer {
-  margin-top: 150px;
-  margin-bottom: 70px;
+  margin-top: 100px;
+  margin-bottom: 40px;
   padding: 20px;
 }
 
-input {
-  padding: 40px;
+.accountEditInput {
+  padding: 30px 40px 10px 40px;
+}
+
+.accountEditTitle{
+font-weight: bold;
 }
 
 .editForm {
   background-color: rgb(238, 232, 232);
-  padding: 50px;
+  padding: 20px 50px 50px 50px;
   border-radius: 20px;
 }
 
@@ -39,7 +41,7 @@ input {
   flex-direction: column;
 }
 
-select {
+.accountEditSelect {
   min-width: 100%;
   padding: 12px 10px;
   margin-top: 14px;
@@ -49,16 +51,33 @@ select {
 
 .loggedIn {
   padding-bottom: 20px;
+  text-align: center;
 }
 
 .backArrow {
   display: flex;
   align-items: center;
+  position: relative;
+  font-size:large;
+  bottom: 10px;
+  right: 35px;
+}
+
+.backArrow:hover{
+ color: #2bb673;
+ transition: 0.5s;
 }
 
 .editImg {
-  width: 100px;
-  height: 100px;
-  background-position: center center;
-  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+ border-radius: 100%;
+ outline: solid 8px #2bb673;
+ margin-bottom: 4px;
+}
+.imageContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }

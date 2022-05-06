@@ -152,3 +152,36 @@ cursor: pointer;
 }
 .nameContainer{
 }
+
+
+.editAndPostsContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPostBtn{
+    margin-left: 10px;
+      display: flex;
+    align-items: center;
+    color: white;
+    position: relative;
+    top: 9px
+}
+
+.myPostBtn:hover{
+    color: #2bb673;
+transform: scale(1.01);
+transition: 0.3s;
+cursor: pointer;
+}
+
+
+.editBtnText , .myPostText {
+    margin-left: 3px;
+}
+
+.textDivider {
+    color: white;
+}
+

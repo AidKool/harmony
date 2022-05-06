@@ -5,6 +5,7 @@ import { QUERY_SINGLE_ACCOUNT } from '../../utils/queries';
 import { MdLocationOn, MdModeEditOutline } from 'react-icons/md';
 import { ImCross } from 'react-icons/im';
 import { TiTick } from 'react-icons/ti';
+import { BsSignpostFill } from 'react-icons/bs';
 import Auth from '../../utils/auth';
 
 function Account() {
@@ -44,12 +45,23 @@ function Account() {
                 <img src={user.picture} alt="profile" class="userImg" />
               )}
               {jwtId === accountId && (
-                <a href={editUrl} class="editBtn">
-                  <div className="editBtn">
-                    <MdModeEditOutline />
-                    <p>Edit profile</p>
+                <>
+                <div className='editAndPostsContainer'> 
+                
+                  <a href={editUrl} class="editBtn">
+                    <div className="editBtn">
+                      <MdModeEditOutline />
+                      <p class="editBtnText">Edit profile</p>
+                    </div>
+                  </a>
+                  <a href="/my-posts" class="editBtn">
+                    <div className="myPostBtn">
+                      <BsSignpostFill />
+                      <p className='myPostText'>My posts</p>
+                    </div>
+                  </a>
                   </div>
-                </a>
+                </>
               )}
               <p class="userName text-white">{user.username}</p>
               {user.type === 'Band' ? (
