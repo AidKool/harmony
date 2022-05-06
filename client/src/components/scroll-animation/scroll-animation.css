@@ -13,8 +13,8 @@
 }
 
 .section-circle {
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   border-radius: 25px;
   z-index: 700;
   position: absolute;
@@ -22,25 +22,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  left: 6%;
 }
 
 .scroll-img {
- height: 100%;
- width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .animation-scroll-container-text {
   font-family: 'Quantico', sans-serif;
   font-weight: 700;
-  color: rgba(209, 209, 209, 0.39);
-  font-size: 7rem;
+  color: rgba(51, 51, 51, 0.164);
+  font-size: 5rem;
   overflow: hidden;
 }
 
 .scroll-arrow-container-right {
   position: absolute;
-  transform: translateX(300px) rotate(20deg);
+  transform: translateX(106px) rotate(128deg);
   height: 100px;
+  visibility: hidden;
 }
 
 .scroll-arrow-container-left {
@@ -50,5 +52,84 @@
 }
 
 .scroll-arrow {
-  fill: rgba(209, 209, 209, 0.39); 
+  fill: rgba(51, 51, 51, 0.164);
+}
+
+.record-container {
+  height: 150px;
+  position: absolute;
+  transform: rotate(0deg);
+  left: 5%;
+  bottom: 60px;
+  z-index: 800;
+}
+
+.music-note-container {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  fill: rgba(51, 51, 51, 0.164);
+}
+
+.mnone {
+  transform: translate(204px, -57px);
+}
+
+.mntwo {
+  transform: translate(-229px, 20px);
+}
+
+.mnthree {
+  transform: translate(-292px, -50px);
+  height: 70px;
+  width: 70px;
+}
+
+.mnfour {
+  transform: translate(283px, 37px);
+  height: 70px;
+  width: 70px;
+}
+
+/* media queries -------------------------------- */
+
+@media screen and (max-width: 1200px) {
+  .mntwo,
+  .mnthree {
+    display: none;
+    visibility: none;
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .mnone {
+    top: 61px;
+    right: 74px;
+    transform: translate(0, -0);
+  }
+
+  .mnfour {
+    top: 167px;
+    right: 128px;
+    transform: translate(0, -0);
+  }
+}
+
+@media screen and (max-width: 819px) {
+   .animation-scroll-container-text {
+  visibility: hidden;
+}
+  
+}
+
+@media screen and (max-width: 480px) {
+  .scroll-arrow-container-right {
+    visibility: visible;
+    transform: translateX(106px) rotate(128deg);
+    height: 100px;
+  }
+
+  .animation-scroll-container-text {
+    visibility: hidden;
+  }
 }

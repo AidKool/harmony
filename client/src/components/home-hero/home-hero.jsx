@@ -73,12 +73,7 @@ function HomeHero() {
     await stripe.redirectToCheckout(checkoutOptionsCopper);
   };
 
-    const userToken = localStorage.getItem('id_token');
-   
-
-
-
-  // =============================================================================
+// =============================================================================
 
   return (
     <section className="hero-section">
