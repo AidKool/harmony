@@ -52,6 +52,7 @@ function Login() {
           <form onSubmit={handleFormSubmit}>
             <input
               type="text"
+              className="login-input"
               placeholder="Email"
               name="email"
               onChange={handleInputChange}
@@ -59,6 +60,7 @@ function Login() {
             />
             <input
               type="password"
+              className="login-input"
               placeholder="Password"
               name="password"
               onChange={handleInputChange}

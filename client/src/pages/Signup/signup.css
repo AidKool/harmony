@@ -49,8 +49,7 @@
   padding: 1.2em;
 }
 
-input[type='text'],
-input[type='password'] {
+.signup-input {
   width: 100%;
   display: block;
   height: 3em;
@@ -73,7 +72,7 @@ input[type='password'] {
 }
 
 .submit-btn {
-  background-color:var(--pine-green);
+  background-color: var(--pine-green);
   color: rgb(255, 255, 255);
   margin-top: 2em;
   border: none;
@@ -88,10 +87,9 @@ input[type='password'] {
 }
 
 .submit-btn:hover {
-  background-color:#44d18d;
+  background-color: #44d18d;
   cursor: pointer;
 }
-
 
 .err {
   color: rgb(195, 0, 0);
