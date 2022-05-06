@@ -141,12 +141,6 @@ function Nav() {
               <HLogo />
             </div>
           </Link>
-          <form action="/" method="GET" className="nav-form">
-            <input type="search" placeholder="Search" className="nav-search-field" />
-            <button type="submit" className="nav-search-button">
-              <FontAwesomeIcon className="nav-search-icon" icon={faSearch} />
-            </button>
-          </form>
           <div className="right-side-nav-container">
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
