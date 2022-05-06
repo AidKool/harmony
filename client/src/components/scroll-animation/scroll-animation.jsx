@@ -4,6 +4,12 @@ import { useRef, useEffect } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './scroll-animation.css'
 import ScrollArrow from './components/Scroll-arrow'
+import RecordPlayer from './components/RecordPlayer'
+import MusicNote from './components/MusicNote';
+import MusicNoteTwo from './components/MusicNoteTwo';
+
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 function ScrollAnimation() {
@@ -17,20 +23,20 @@ useEffect(() => {
   gsap.fromTo(
     el,
 
-    { rotation: 0, xPercent: -330 },
+    { rotation: 0, },
 
     {
       rotation: 720,
       duration: 1,
-      xPercent: 330,
+      // xPercent: 330,
       scrollTrigger: {
         start: 'top center',
         // markers: true,
         trigger: trigger,
-        endTrigger: trigger,
         scrub: 0.9,
         toggleActions: 'play pause pause reverse',
-        end: 'bottom 30%',
+        end: 'bottom 10%',
+        // pin: true
       },
     }
   );
@@ -39,15 +45,29 @@ useEffect(() => {
 
   return (
     <section className="animation-section-container" ref={conRef}>
+      <div className="record-container">
+        <RecordPlayer />
+      </div>
       <div className="section-circle" ref={imgRef}>
         <img className="scroll-img" src={require('./assets/record.png')} />
       </div>
       <p className="animation-scroll-container-text">SCROLL</p>
-      <div className="scroll-arrow-container-right">
-        <ScrollArrow />
+
+      {/* <div className="scroll-arrow-container-right ">
+        <MusicNote />
+      </div> */}
+
+      <div className="music-note-container mnone">
+        <MusicNote />
       </div>
-      <div className="scroll-arrow-container-left">
-        <ScrollArrow />
+      <div className="music-note-container mntwo">
+        <MusicNote />
+      </div>
+      <div className="music-note-container mnthree">
+        <MusicNoteTwo />
+      </div>
+      <div className="music-note-container mnfour">
+        <MusicNoteTwo />
       </div>
     </section>
   );

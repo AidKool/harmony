@@ -94,13 +94,11 @@ function Nav() {
               <span className="add-post-span">Add post</span>
               <FontAwesomeIcon className="nav-search-icon" icon={faPlus} />
             </Link>
-
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
             </div>
           </div>
         </div>
-
         <section className={toggle ? 'mobileNavMenu-open' : 'mobileNavMenu-closed'}>
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
@@ -108,14 +106,12 @@ function Nav() {
               <Link to="/feed">
                 <li className="nav-menu-li">Feed</li>
               </Link>
-
               <Link to="/feed">
                 <li className="nav-menu-li">Messages</li>
               </Link>
-
-              <a href={profilePath}>
+              <Link to={profilePath}>
                 <li className="nav-menu-li">My Account</li>
-              </a>
+              </Link>
               <Link to="/my-posts">
                 <li class="nav-menu-li">My posts</li>
               </Link>
@@ -132,8 +128,6 @@ function Nav() {
       </nav>
     );
   } else {
-    console.log('user is NOT logged in');
-
     return (
       <nav className="nav-bar">
         <div className={header}>
@@ -154,17 +148,11 @@ function Nav() {
             </button>
           </form>
           <div className="right-side-nav-container">
-            <Link className="add-post-nav-btn" to="/">
-              <span className="add-post-span">Add post</span>
-              <FontAwesomeIcon className="nav-search-icon" icon={faPlus} />
-            </Link>
-
             <div onClick={menuHandler} className="hamburger-container">
               {toggle ? <Cross /> : <Burger />}
             </div>
           </div>
         </div>
-
         <section className={toggle ? 'mobileNavMenu-open' : 'mobileNavMenu-closed'}>
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
