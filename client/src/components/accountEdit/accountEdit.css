@@ -18,7 +18,7 @@
 
 
 .editForm {
-  min-width: 800px;
+  width: 100%;
   background-color: rgb(238, 232, 232);
   padding: 20px 50px 50px 50px;
   border-radius: 20px;
