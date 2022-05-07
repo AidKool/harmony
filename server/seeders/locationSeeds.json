@@ -78,25 +78,19 @@
     "name": "portsmouth"
   },
   {
-    "_id": "6262d041d6300e64987d8e7g",
-    "latitude": 51.6167,
-    "longitude": -3.95,
-    "name": "swansea"
-  },
-  {
-    "_id": "6262d041d6300e64987d8e7h",
+    "_id": "6262d041d6300e64987d8e61",
     "latitude": 50.9,
     "longitude": -1.4,
     "name": "southampton"
   },
   {
-    "_id": "6262d041d6300e64987d8e7i",
+    "_id": "6262d041d6300e64987d8e62",
     "latitude": 52.95,
     "longitude": -1.15,
     "name": "nottingham"
   },
   {
-    "_id": "6262d041d6300e64987d8e7i",
+    "_id": "6262d041d6300e64987d8e63",
     "latitude": 51.5072,
     "longitude": -0.1275,
     "name": "london"

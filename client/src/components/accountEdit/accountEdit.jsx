@@ -104,10 +104,9 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
                 <option value="6262d041d6300e64987d8e7d">Glasgow</option>
                 <option value="6262d041d6300e64987d8e7e">Liverpool</option>
                 <option value="6262d041d6300e64987d8e7f">Portsmouth</option>
-                <option value="6262d041d6300e64987d8e7g">Swansea</option>
-                <option value="6262d041d6300e64987d8e7h">Southampton</option>
-                <option value="6262d041d6300e64987d8e7i">Nottingham</option>
-                <option value="6262d041d6300e64987d8e7j">London</option>
+                <option value="6262d041d6300e64987d8e61">Southampton</option>
+                <option value="6262d041d6300e64987d8e62">Nottingham</option>
+                <option value="6262d041d6300e64987d8e63">London</option>
               </select>
               <select className='accountEditSelect' {...register('genres')} multiple>
                 <option value="blues">Blues</option>
