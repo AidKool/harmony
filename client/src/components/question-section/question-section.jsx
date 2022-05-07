@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './question-section.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmarkCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
 function QuestionSection() {
@@ -76,30 +77,38 @@ function QuestionSection() {
             </p>
 
             <a className="help-link" target="_blank" href="https://github.com/AidKool/harmony">
-              <span className='question-hello-span'>Say hello</span>
+              <span className="question-hello-span">Say hello</span>
               <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <div className="question-modal-link-container">
               <div className="link-container-position">
                 <div className="question-modal-button-link-circle qmblc1">
-                  <a href="https://github.com/Alistairhoughton" target="_blank">
-                    <img className="question-modal-circle-image" src={require('./assets/aliAvatar.png')} />
-                  </a>
+                  <Link href="https://github.com/Alistairhoughton" target="_blank">
+                    <img
+                      className="question-modal-circle-image"
+                      src={require('./assets/aliAvatar.png')}
+                      alt="alistair"
+                    />
+                  </Link>
                 </div>
                 <div className="question-modal-button-link-circle qmblc2">
-                  <a href="https://github.com/mattglwilliams" target="_blank">
-                    <img className="question-modal-circle-image" src={require('./assets/mattAvatar.jpg')} />
-                  </a>
+                  <Link href="https://github.com/mattglwilliams" target="_blank">
+                    <img className="question-modal-circle-image" src={require('./assets/mattAvatar.jpg')} alt="matt" />
+                  </Link>
                 </div>
                 <div className="question-modal-button-link-circle qmblc3">
-                  <a href="https://github.com/HarkyDev" target="_blank">
-                    <img className="question-modal-circle-image" src={require('./assets/eoinAvatar.png')} />
-                  </a>
+                  <Link href="https://github.com/HarkyDev" target="_blank">
+                    <img className="question-modal-circle-image" src={require('./assets/eoinAvatar.png')} alt="eoin" />
+                  </Link>
                 </div>
                 <div className="question-modal-button-link-circle qmblc4">
-                  <a href="https://github.com/AidKool" target="_blank">
-                    <img className="question-modal-circle-image" src={require('./assets/jordiAvatar.jpg')} />
-                  </a>
+                  <Link href="https://github.com/AidKool" target="_blank">
+                    <img
+                      className="question-modal-circle-image"
+                      src={require('./assets/jordiAvatar.jpg')}
+                      alt="jordi"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

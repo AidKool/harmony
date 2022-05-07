@@ -57,18 +57,18 @@ function Account() {
               {jwtId === accountId && (
                 <>
                   <div className="editAndPostsContainer">
-                    <a href={editUrl} className="editBtn">
+                    <Link to={editUrl} className="editBtn">
                       <div className="editBtn">
                         <MdModeEditOutline />
                         <p className="editBtnText">Edit profile</p>
                       </div>
-                    </a>
-                    <a href="/my-posts" className="editBtn">
+                    </Link>
+                    <Link to="/my-posts" className="editBtn">
                       <div className="myPostBtn">
                         <BsSignpostFill />
                         <p className="myPostText">My posts</p>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                 </>
               )}

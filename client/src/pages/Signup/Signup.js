@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_ACCOUNT } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import Logo from '../../components/logo/logo';
+import { Link } from 'react-router-dom';
 
 function Signup() {
   const initialValues = { username: '', email: '', password: '', type: 'Band' };
@@ -70,10 +71,10 @@ function Signup() {
 
   return (
     <>
-      <img src={backgroundImage} className="background-image"></img>
-      <a href="/login" className="signup-link signup-btn">
+      <img src={backgroundImage} className="background-image" alt="background"></img>
+      <Link href="/login" className="signup-link signup-btn">
         LOGIN
-      </a>
+      </Link>
       <div className="container">
         <div className="logo-container-login ">
           <Logo />
