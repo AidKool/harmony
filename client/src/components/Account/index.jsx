@@ -14,17 +14,13 @@ import './account.css';
 function Account() {
   const [addChat] = useMutation(ADD_CHAT);
 
-  //Assigns url params to get id from profiles/:profileId
   const params = useParams();
   const accountId = params.profileId;
-  console.log(accountId);
-  //Get a single account and create and object set as "user"
   const { data, error, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
     variables: { id: accountId },
   });
   const user = data?.getAccount;
 
-  //if conditions depending on the query's return results
   if (loading) {
     <p> loading.....</p>;
   }
@@ -118,7 +114,6 @@ function Account() {
                 <p key={genreList}> {genreList}</p>
               </ul>
             )}
-            {console.log(user.bio)}
             {user.bio !== null && (
               <>
                 <h2>About</h2> <p>{user.bio}</p>
@@ -181,7 +176,6 @@ function Account() {
                 <p key={genreList}> {genreList}</p>
               </ul>
             )}
-            {console.log(user.bio)}
             {user.bio !== null && (
               <>
                 <h2>About</h2> <p>{user.bio}</p>
@@ -192,7 +186,6 @@ function Account() {
       );
     }
   }
-  //decoding and unpacking the JWT token in local storage and assigning values for conditional rendering
 }
 
 export default Account;

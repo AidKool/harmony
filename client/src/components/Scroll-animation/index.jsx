@@ -28,15 +28,12 @@ function ScrollAnimation() {
         rotation: 720,
         duration: 1,
         ease: Power1.easeOut,
-        // xPercent: 330,
         scrollTrigger: {
           start: 'top center',
-          // markers: true,
           trigger: trigger,
           scrub: 0.9,
           toggleActions: 'play pause pause reverse',
           end: 'bottom 10%',
-          // pin: true
         },
       }
     );

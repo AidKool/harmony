@@ -15,25 +15,16 @@ export default function App(props) {
     formState: { errors },
   } = useForm();
   const onSubmit = async (formData) => {
-    console.log('formData', formData, musicianId);
     try {
       const { data } = await updateMusician({
         variables: { ...formData, musicianId: musicianId },
       });
-      console.log('data', data);
     } catch (e) {
-      console.error(e);
+      throw new Error(e.message);
     }
   };
 
-  //get profiles from params
-
-  // const musicianId = user.musicianId._id
-  // console.log(musicianId)
   if (props.user) {
-    console.log('MUSICIAN EDIT: Musician ID', props.user.musicianId._id);
-    console.log('MUSICIAN EDIT: user', props.user._id);
-
     return (
       <>
         {Auth.loggedIn() && (

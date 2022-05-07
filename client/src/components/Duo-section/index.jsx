@@ -28,7 +28,6 @@ function DuoSection() {
 
           end: 'top 90%',
           translateY: 0,
-          // markers: true,
           trigger: trigger,
           endTrigger: trigger,
           scrub: 0.8,

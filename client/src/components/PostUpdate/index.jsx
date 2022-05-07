@@ -36,15 +36,14 @@ const UpdatePostForm = () => {
     try {
       const fetchData = await fetch('https://api.cloudinary.com/v1_1/mattglwilliams/image/upload', settings);
       const resData = await fetchData.json();
-      console.log(resData.url);
+
       const newImageUrl = await resData.url;
-      console.log(postContent);
       const { data } = await updatePost({
         variables: { ...postContent, picture: newImageUrl, postId: postId },
       });
       navigate('/my-posts');
     } catch (e) {
-      console.log(e);
+      throw new Error(e.message);
     }
   };
 

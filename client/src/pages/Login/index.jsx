@@ -21,8 +21,6 @@ function Login() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(userFormData);
-    console.log('error', error);
     try {
       const { data } = await login({
         variables: { ...userFormData },
@@ -33,7 +31,6 @@ function Login() {
       setFormError('Invalid Credentials');
     }
 
-    // clear form values
     setUserFormData({
       email: '',
       password: '',

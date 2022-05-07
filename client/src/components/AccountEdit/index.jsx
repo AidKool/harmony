@@ -22,7 +22,6 @@ export default function App() {
     formState: { errors },
   } = useForm();
   const onSubmit = async (formData) => {
-    console.log('formData', formData);
     const imageFormData = new FormData();
     imageFormData.append('file', image);
     imageFormData.append('upload_preset', 'harmony');
@@ -31,28 +30,24 @@ export default function App() {
     try {
       const fetchData = await fetch('https://api.cloudinary.com/v1_1/mattglwilliams/image/upload', settings);
       const resData = await fetchData.json();
-      console.log('resData', resData.url);
       const newImageUrl = await resData.url;
       const { dataAcc } = await updateAccount({
         variables: { ...formData, picture: newImageUrl },
       });
     } catch (e) {
-      console.log(e);
+      throw new Error(e.message);
     }
   };
 
-  //get profiles from params
   const params = useParams();
   const accountId = params.profileId;
-  // console.log(accountId);
-  // decode JWT
+
   const userToken = localStorage.getItem('id_token');
   const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
   const jwtId = jwtToken.data._id;
   const jwtUsername = jwtToken.data.username;
 
   const profilePath = `/profiles/${jwtId}`;
-  //get user query
 
   const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
     variables: { id: accountId },

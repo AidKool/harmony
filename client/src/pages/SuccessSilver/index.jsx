@@ -10,7 +10,6 @@ function SuccessSilver() {
   const [donateSilverFunction, { data, loading, error }] = useMutation(SET_DONATED_SILVER);
 
   useEffect(() => {
-    console.log('success!');
     donateSilverFunction();
   }, []);
 

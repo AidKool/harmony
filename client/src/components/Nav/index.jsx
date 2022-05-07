@@ -64,8 +64,6 @@ function Nav() {
   }
 
   if (Auth.loggedIn()) {
-    console.log('user is logged in');
-
     const userToken = localStorage.getItem('id_token');
     const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
     const jwtId = jwtToken.data._id;

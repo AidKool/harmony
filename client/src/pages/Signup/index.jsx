@@ -30,7 +30,6 @@ function Signup() {
   };
 
   const validate = (values, confirmPassword) => {
-    console.log(values, confirmPassword);
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!values.username) {
@@ -52,9 +51,7 @@ function Signup() {
   };
 
   useEffect(() => {
-    console.log('form errors', formErrors, formValues, confirmPassword);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log('all good', formValues);
       signUserUp();
     }
   }, [formErrors]);
@@ -64,10 +61,9 @@ function Signup() {
       const { data } = await addAccount({
         variables: { ...formValues },
       });
-      console.log(data);
       Auth.login(data.addAccount.token);
     } catch (e) {
-      console.error(e);
+      throw new Error(e.message);
     }
   };
 

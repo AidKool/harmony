@@ -23,7 +23,7 @@ const AddPostForm = () => {
     try {
       const fetchData = await fetch('https://api.cloudinary.com/v1_1/mattglwilliams/image/upload', settings);
       const resData = await fetchData.json();
-      console.log(resData.url);
+
       const newImageUrl = await resData.url;
       const userId = Auth.getProfile().data._id;
       const { data } = await addPost({

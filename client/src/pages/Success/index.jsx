@@ -11,7 +11,6 @@ function Success() {
   const [donateFunction, { data, loading, error }] = useMutation(SET_DONATED_TRUE);
 
   useEffect(() => {
-    console.log('success!');
     donateFunction();
   }, []);
 

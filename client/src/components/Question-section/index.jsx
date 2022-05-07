@@ -31,10 +31,8 @@ function QuestionSection() {
         ease: 'power1.in',
         scrollTrigger: {
           start: 'top 80%',
-
           end: 'top 90%',
           translateY: 0,
-          // markers: true,
           trigger: trigger,
           endTrigger: trigger,
           scrub: 0.8,
