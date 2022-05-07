@@ -14,5 +14,33 @@
   {
     "_id": "6262d839ccabf53f3dde7c35",
     "bandName": "The Stompers"
+  },
+  {
+    "_id": "6262d839ccabf53f3dde7c41",
+    "bandName": "Immortals"
+  },
+  {
+    "_id": "6262d839ccabf53f3dde7c42",
+    "bandName": "Toto Tribute"
+  },
+  {
+    "_id": "6262d839ccabf53f3dde7c43",
+    "bandName": "Redeemers"
+  },
+  {
+    "_id": "6262d839ccabf53f3dde7c44",
+    "bandName": "el Ubermensch"
+  },
+  {
+    "_id": "6262c99c82d609a6c29906b3",
+    "bandName": "The Incoherents"
+  },
+  {
+    "_id": "6262c99c82d609a6c29906b4",
+    "bandName": "The Vague Name"
+  },
+  {
+    "_id": "6262c99c82d609a6c29906b5",
+    "bandName": "The HelloWorlds"
   }
 ]
