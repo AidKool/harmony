@@ -100,10 +100,20 @@ function ResultsFilter({ data, searchLocation }) {
                 className="bg-white border border-gray-500 py-2 px-3"
                 onChange={handleFormChange}>
                 <option value="all">all</option>
-                <option value="rock">rock</option>
-                <option value="pop">pop</option>
-                <option value="jazz">jazz</option>
+                <option value="blues">blues</option>
+                <option value="classic rock">classic rock</option>
                 <option value="classical">classical</option>
+                <option value="country">country</option>
+                <option value="dance">dance</option>
+                <option value="disco">disco</option>
+                <option value="funk">funk</option>
+                <option value="grunge">grunge</option>
+                <option value="hip-hop">hip-hop</option>
+                <option value="jazz">jazz</option>
+                <option value="metal">metal</option>
+                <option value="pop">pop</option>
+                <option value="rnb">R&B</option>
+                <option value="rap">rap</option>
               </select>
             </div>
             {formState.type === 'Musician' && (
@@ -117,7 +127,25 @@ function ResultsFilter({ data, searchLocation }) {
                     onChange={handleFormChange}>
                     <option value="all">all</option>
                     <option value="guitar">guitar</option>
+                    <option value="lead guitar">lead guitar</option>
+                    <option value="rhythm guitar">rhythm guitar</option>
                     <option value="drums">drums</option>
+                    <option value="backing vocals">backing vocals</option>
+                    <option value="vocals">vocals</option>
+                    <option value="bass">bass</option>
+                    <option value="keys">keys</option>
+                    <option value="piano">piano</option>
+                    <option value="flute">flute</option>
+                    <option value="oboe">oboe</option>
+                    <option value="clarinet">clarinet</option>
+                    <option value="saxophone">saxophone</option>
+                    <option value="bassoon">bassoon</option>
+                    <option value="trumpet">trumpet</option>
+                    <option value="french horn">french horn</option>
+                    <option value="trombone">trombone</option>
+                    <option value="tube">tube</option>
+                    <option value="triangle">triangle</option>
+                    <option value="cowbell">cowbell</option>
                   </select>
                 </div>
                 <div>
