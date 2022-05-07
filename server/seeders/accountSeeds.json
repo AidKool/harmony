@@ -24,9 +24,9 @@
     "type": "Musician",
     "musicianId": "6262d33742c1c49c1fe96587",
     "location": "6262d041d6300e64987d8e74",
-    "donated": "true",
+    "donated": "false",
     "silver": "false",
-    "bronze": "true",
+    "bronze": "false",
     "genres": ["jazz"]
   },
   {
@@ -41,7 +41,7 @@
     "location": "6262d041d6300e64987d8e75",
     "donated": "false",
     "silver": "false",
-    "bronze": "false",
+    "bronze": "true",
     "genres": ["classical"]
   },
   {
@@ -99,8 +99,8 @@
     "type": "Band",
     "bandId": "6262d839ccabf53f3dde7c34",
     "location": "6262d041d6300e64987d8e79",
-    "donated": "false",
-    "silver": "false",
+    "donated": "true",
+    "silver": "true",
     "bronze": "false",
     "genres": ["rock"]
   },

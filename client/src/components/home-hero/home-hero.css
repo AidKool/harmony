@@ -116,8 +116,8 @@
   width: 200px;
   z-index: 1200;
   background-color: #ef4f6c;
-  bottom: 20px;
-  right: 20px;
+  bottom: 15px;
+  right: 15px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -139,7 +139,7 @@
 
 .search-cta-icon {
   font-size: 1;
-  transition: 350ms;
+  transition: 250ms;
   opacity: 0;
   transform: translateX(-20px);
   width: 0;
@@ -147,7 +147,7 @@
 
 .user-login-modal-cta:hover {
   cursor: pointer;
-  width: 230px;
+  width: 220px;
   background-color: var(--pine-green);
 }
 
@@ -156,6 +156,14 @@
   opacity: 1;
   width: 1rem;
   transform: translateX(5px);
+}
+
+@media screen and (max-width: 450px) {
+  .user-login-modal-cta {
+    bottom: 10px;
+    right: 10px;
+    
+  }
 }
 
 
