@@ -43,7 +43,7 @@ function Login() {
       <Link to="/signup" className="signup-link signup-btn">
         SIGN-UP
       </Link>
-      <div className="container">
+      <div className="login-container">
         <div className="logo-container-login ">
           <Logo />
         </div>

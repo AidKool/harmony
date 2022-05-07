@@ -73,7 +73,7 @@ function Signup() {
       <Link to="/login" className="signup-link signup-btn">
         LOGIN
       </Link>
-      <div className="container">
+      <div className="signup-container">
         <div className="logo-container-login ">
           <Logo />
         </div>

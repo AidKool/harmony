@@ -7,6 +7,8 @@ import ResultsFilter from '../../components/ResultsFilter';
 
 import { QUERY_ACOUNTS_BY_DISTANCE } from '../../utils/queries';
 
+import './search-results.css'
+
 function SearchResults() {
   const locationStateFromURL = useLocation();
   const location = locationStateFromURL?.state?.location;
@@ -20,10 +22,12 @@ function SearchResults() {
     }
   }, [location]);
   return (
-    <div className="container">
-      <Nav />
-      {data ? <ResultsFilter data={data} searchLocation={location} /> : <p className="text-3xl">Make a new search</p>}
-    </div>
+    <>
+        <Nav />
+      <div className="container search-results-container">
+        {data ? <ResultsFilter data={data} searchLocation={location} /> : <p className="text-3xl">Make a new search</p>}
+      </div>
+    </>
   );
 }
 
