@@ -1,25 +1,25 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
-import Home from './pages/home/Home.jsx';
-import Profile from './pages/profile/Profile.js';
-import ProfileEdit from './pages/profileEdit/profileEdit.jsx';
-import Login from './pages/Login/Login';
-import Signup from './pages/Signup/Signup.js';
-import Feed from './pages/Feed/feed.jsx';
-import SearchResults from './pages/SearchResults';
-import Chat from './pages/Chat';
 
-import SearchProviderWrapper from './components/SearchProviderWrapper/';
-import MyPosts from './pages/myPosts/myPosts';
-import Success from './pages/success/success.jsx';
-import SuccessSilver from './pages/successSilver/successSilver.jsx';
-import SuccessBronze from './pages/successBronze/successBronze.jsx';
-import Hosting from './pages/Hosting/hosting.jsx';
-import About from './pages/About/About.jsx';
-import ScrollToTop from './components/scroll-to-top/scroll-to-top.js';
-import AddPost from './pages/addPost/addPost';
-import UpdatePost from './pages/updatePost/updatePost';
+import About from './pages/About';
+import AddPost from './pages/AddPost';
+import Chat from './pages/Chat';
+import Feed from './pages/Feed';
+import Home from './pages/Home';
+import Hosting from './pages/Hosting';
+import Login from './pages/Login';
+import MyPosts from './pages/MyPosts';
+import Profile from './pages/Profile';
+import ProfileEdit from './pages/ProfileEdit';
+import SearchResults from './pages/SearchResults';
+import Signup from './pages/Signup';
+import Success from './pages/Success';
+import SuccessBronze from './pages/SuccessBronze';
+import SuccessSilver from './pages/SuccessSilver';
+import UpdatePost from './pages/UpdatePost';
+import ScrollToTop from './components/Scroll-to-top';
+import SearchProviderWrapper from './components/SearchProviderWrapper';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

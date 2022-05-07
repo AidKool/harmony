@@ -55,3 +55,23 @@
     padding: 1em;
   }
 }
+
+.submit-btn {
+  background-color: var(--pine-green) !important;
+  color: rgb(255, 255, 255);
+  margin-top: 2em;
+  border: none;
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  padding: 0.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 250ms ease-out;
+}
+
+.submit-btn:hover {
+  background-color: #44d18d !important;
+  cursor: pointer;
+}
