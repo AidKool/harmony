@@ -10,6 +10,7 @@ import HLogo from '../h-logo/h-logo';
 import Auth from '../../utils/auth';
 
 import './nav.css';
+
 function Nav() {
   const [toggle, setToggle] = useState(false);
   const locationRef = useRef(null);
@@ -115,7 +116,7 @@ function Nav() {
               <Link to="/my-posts">
                 <li className="nav-menu-li">My posts</li>
               </Link>
-              <a target="_blank" href="https://github.com/AidKool/harmony">
+              <a target="_blank" href="https://github.com/AidKool/harmony" rel="noreferrer">
                 <li className="nav-menu-li">Contact</li>
               </a>
             </ul>
@@ -151,12 +152,14 @@ function Nav() {
           <div className={backer}>
             <h2 className="nav-menu-title">Menu</h2>
             <ul className="nav-menu-content-links">
-              <Link to="/signup">
-                <li className="nav-menu-li">Sign up</li>
-              </Link>
-              <a target="_blank" href="https://github.com/AidKool/harmony">
-                <li className="nav-menu-li">Contact</li>
-              </a>
+              <li className="nav-menu-li">
+                <Link to="/signup">Sign up</Link>
+              </li>
+              <li className="nav-menu-li">
+                <a target="_blank" href="https://github.com/AidKool/harmony">
+                  Contact
+                </a>
+              </li>
             </ul>
             <button className="bn54">
               <Link className="bn54" to="/login">

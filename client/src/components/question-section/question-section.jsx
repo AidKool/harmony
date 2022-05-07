@@ -83,7 +83,7 @@ function QuestionSection() {
             <div className="question-modal-link-container">
               <div className="link-container-position">
                 <div className="question-modal-button-link-circle qmblc1">
-                  <Link href="https://github.com/Alistairhoughton" target="_blank">
+                  <Link to="https://github.com/Alistairhoughton" target="_blank">
                     <img
                       className="question-modal-circle-image"
                       src={require('./assets/aliAvatar.png')}
@@ -92,17 +92,17 @@ function QuestionSection() {
                   </Link>
                 </div>
                 <div className="question-modal-button-link-circle qmblc2">
-                  <Link href="https://github.com/mattglwilliams" target="_blank">
+                  <Link to="https://github.com/mattglwilliams" target="_blank">
                     <img className="question-modal-circle-image" src={require('./assets/mattAvatar.jpg')} alt="matt" />
                   </Link>
                 </div>
                 <div className="question-modal-button-link-circle qmblc3">
-                  <Link href="https://github.com/HarkyDev" target="_blank">
+                  <Link to="https://github.com/HarkyDev" target="_blank">
                     <img className="question-modal-circle-image" src={require('./assets/eoinAvatar.png')} alt="eoin" />
                   </Link>
                 </div>
                 <div className="question-modal-button-link-circle qmblc4">
-                  <Link href="https://github.com/AidKool" target="_blank">
+                  <Link to="https://github.com/AidKool" target="_blank">
                     <img
                       className="question-modal-circle-image"
                       src={require('./assets/jordiAvatar.jpg')}

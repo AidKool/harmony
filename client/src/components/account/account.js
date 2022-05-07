@@ -43,7 +43,7 @@ function Account() {
       const userToken = localStorage.getItem('id_token');
       const jwtToken = JSON.parse(atob(userToken.split('.')[1]));
       const jwtId = jwtToken.data._id;
-      const editUrl = accountId + '/edit';
+      const editUrl = `/profiles/${accountId}/edit`;
 
       return (
         <>
