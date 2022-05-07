@@ -77,7 +77,8 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
                       <IoMdArrowRoundBack />
                       <p> your profile</p>
                     </div>
-                  </a>
+                  </a> 
+                  <div>
                   <p className="loggedIn"> Currently logged in as {jwtUsername}</p>
                   <div className="imageContainer">
                     {user.picture !== null ? (
@@ -85,10 +86,9 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
                     ) : (
                       <img src="https://i.imgur.com/ZOgaykp.png" alt="profile" className="editImg" />
                     )}
+              <input className="" type="file" onChange={(e) => setImage(e.target.files[0])} />
                   </div>
-                  <p className="userName text-white">{}</p>
-                  <input className="accountEditInput" type="file" onChange={(e) => setImage(e.target.files[0])} />
-
+             </div>
               <input className='accountEditInput'type="text" placeholder="bio" {...register('bio', {})} />
               <select className='accountEditSelect' {...register('location')}>
                 <option value="6262d041d6300e64987d8e73">Manchester</option>

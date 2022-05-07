@@ -1,3 +1,7 @@
+/* * {
+  border: red solid 2px;
+} */
+
 .editContainer {
   margin-top: 100px;
   margin-bottom: 40px;
@@ -5,20 +9,23 @@
 }
 
 .accountEditInput {
-  padding: 30px 40px 10px 40px;
+  display: flex;
+  min-width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.accountEditTitle {
-  font-weight: bold;
-}
 
 .editForm {
+  min-width: 800px;
   background-color: rgb(238, 232, 232);
   padding: 20px 50px 50px 50px;
   border-radius: 20px;
 }
-*/ .subBtn {
+ .subBtn {
   margin-top: 20px;
+  margin-top: 10px;
 }
 
 .subBtn:hover {
@@ -75,6 +82,8 @@
 }
 .imageContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }

@@ -106,7 +106,7 @@ function Nav() {
               <Link to="/feed">
                 <li className="nav-menu-li">Feed</li>
               </Link>
-              <Link to="/feed">
+              <Link to="/messages">
                 <li className="nav-menu-li">Messages</li>
               </Link>
               <Link to={profilePath}>
