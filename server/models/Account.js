@@ -62,13 +62,12 @@ const accountSchema = new Schema({
     type: Boolean,
     default: false,
   },
-   bronze: {
+  bronze: {
     type: Boolean,
     default: false,
-  }
+  },
 });
 
-// Set up pre-save middleware to create password
 accountSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
@@ -78,7 +77,6 @@ accountSchema.pre('save', async function (next) {
   next();
 });
 
-// Compare the incoming password with the hashed password
 accountSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };

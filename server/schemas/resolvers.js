@@ -155,8 +155,6 @@ const resolvers = {
     },
     updateMusician: async (parent, { firstName, lastName, instruments, available, musicianId }, context) => {
       if (context.user) {
-        console.log(context.user);
-        console.log(musicianId);
         const updatedMusician = await Musician.findByIdAndUpdate(musicianId, {
           firstName,
           lastName,
