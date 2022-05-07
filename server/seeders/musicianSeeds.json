@@ -30,5 +30,61 @@
     "instruments": ["drums"],
     "preferredRole": ["drummer"],
     "available": true
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96511",
+    "firstName": "Chris",
+    "lastName": "Baker",
+    "instruments": ["guitar", "drums"],
+    "preferredRole": ["guitarist"],
+    "available": true
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96512",
+    "firstName": "Kyle",
+    "lastName": "Cozza",
+    "instruments": ["vocals"],
+    "preferredRole": ["vocalist"],
+    "available": true
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96513",
+    "firstName": "Aiden",
+    "lastName": "Murphy",
+    "instruments": ["drums"],
+    "preferredRole": ["drummer"],
+    "available": false
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96514",
+    "firstName": "Simon",
+    "lastName": "Smith",
+    "instruments": ["drums"],
+    "preferredRole": ["drummer"],
+    "available": true
+  },
+  {
+    "_id": "6262d33742c1c49c1fe96515",
+    "firstName": "Connor",
+    "lastName": "Duffield",
+    "instruments": ["guitar", "drums"],
+    "preferredRole": ["guitarist"],
+    "available": true
+  },
+  {
+    "_id": "6262c99c82d609a6c2990616",
+    "firstName": "Alan",
+    "lastName": "Paul",
+    "instruments": ["vocals"],
+    "preferredRole": ["vocalist"],
+    "available": true
+  },
+  {
+    "_id": "6262c99c82d609a6c2990617",
+    "firstName": "Arsene",
+    "lastName": "Wenger",
+    "instruments": ["drums"],
+    "preferredRole": ["drummer"],
+    "available": false
   }
 ]
