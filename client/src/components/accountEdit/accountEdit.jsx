@@ -1,7 +1,7 @@
 import './accountEdit.css';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { BsEmojiAngry } from 'react-icons/bs';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { useMutation , useQuery } from '@apollo/client';
@@ -72,12 +72,12 @@ const { data, errorAcc, loading } = useQuery(QUERY_SINGLE_ACCOUNT, {
             <>
               <div className="editForm">
                 <form className="" onSubmit={handleSubmit(onSubmit)}>
-                  <a href={profilePath}>
+                  <Link to={profilePath}>
                     <div className="backArrow">
                       <IoMdArrowRoundBack />
                       <p> your profile</p>
                     </div>
-                  </a> 
+                  </Link> 
                   <div>
                   <p className="loggedIn"> Currently logged in as {jwtUsername}</p>
                   <div className="imageContainer">

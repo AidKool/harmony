@@ -6,6 +6,7 @@ import { LOGIN } from '../../utils/mutations';
 import Logo from '../../components/logo/logo';
 
 import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
@@ -40,10 +41,10 @@ function Login() {
 
   return (
     <>
-      <img src={backgroundImage} className="background-image"></img>
-      <a href="/signup" className="signup-link signup-btn">
+      <img src={backgroundImage} className="background-image" alt="background"></img>
+      <Link href="/signup" className="signup-link signup-btn">
         SIGN-UP
-      </a>
+      </Link>
       <div className="container">
         <div className="logo-container-login ">
           <Logo />
