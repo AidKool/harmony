@@ -71,7 +71,7 @@ const musicianId = props.user.musicianId._id
         <input class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full subBtn" type="submit" />
       </form>
       }
-   
+
       </>
     );
 }
