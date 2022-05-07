@@ -35,7 +35,7 @@ function Account() {
 
   if (data) {
     const userGenres = user.genres;
-    const genreList = userGenres.map((genre) => <li>{genre}</li>);
+    const genreList = userGenres.map((genre) => <li key={genre}>{genre}</li>);
 
     if (Auth.loggedIn()) {
       const userToken = localStorage.getItem('id_token');
