@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
 const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
@@ -36,9 +40,6 @@ const startApolloServer = async () => {
     });
   });
 };
-
-
-
 
 // Call the async function to start the server
 startApolloServer();
