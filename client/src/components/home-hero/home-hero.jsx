@@ -6,7 +6,7 @@ import GoldCrownLogo from './assets/Gold-crown';
 import SilverCrownLogo from './assets/Silver-Crown';
 import CopperCrownLogo from './assets/Copper-crown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import { faXmarkCircle, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Auth from '../../utils/auth';
 
 let stripePromise;
@@ -21,6 +21,7 @@ const getStripe = () => {
 
 function HomeHero() {
   const [activeSubModal, setActiveSubModal] = useState(null);
+  const [searchModal, setSearchModal] = useState(true);
 
   const goldCrown = {
     price: 'price_1KukMyIqutbJIdP9zAMBizD0',
@@ -78,7 +79,19 @@ function HomeHero() {
   return (
     <section className="hero-section">
       <div className="home-cta-container">
-      
+        {!Auth.loggedIn() ? (
+          searchModal && (
+            <div onClick={() => setSearchModal(false)} className="user-login-modal-cta">
+              <div className="user-login-modal-holder">
+                <p>Login to search</p>
+                <FontAwesomeIcon className="search-cta-icon" icon={faXmarkCircle} />
+              </div>
+            </div>
+          )
+        ) : (
+          <div></div>
+        )}
+
         <p className="home-cta-title">Be rockstar and support us today!</p>
         {!Auth.loggedIn() ? (
           <Link className="home-cta-button-login" to="/login">
