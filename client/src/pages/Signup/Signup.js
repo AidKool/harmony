@@ -72,7 +72,7 @@ function Signup() {
   return (
     <>
       <img src={backgroundImage} className="background-image" alt="background"></img>
-      <Link href="/login" className="signup-link signup-btn">
+      <Link to="/login" className="signup-link signup-btn">
         LOGIN
       </Link>
       <div className="container">

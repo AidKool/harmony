@@ -42,7 +42,7 @@ function Login() {
   return (
     <>
       <img src={backgroundImage} className="background-image" alt="background"></img>
-      <Link href="/signup" className="signup-link signup-btn">
+      <Link to="/signup" className="signup-link signup-btn">
         SIGN-UP
       </Link>
       <div className="container">
