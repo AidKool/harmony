@@ -37,7 +37,7 @@ function SearchResult(props) {
         <p>Location: {capitalise(location.name)}</p>
         <p>Distance: {miles} miles</p>
         Genres:
-        <ul>
+        <ul className="list-width-limiter">
           {genres.map((genre, index, array) => {
             return (
               <li key={genre} className="text-sm inline">

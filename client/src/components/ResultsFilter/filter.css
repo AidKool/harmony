@@ -6,9 +6,11 @@
   text-transform: capitalize;
 }
 
-
-@media screen and (max-width: 1400px) {
-  .results-container-margin {
-    margin-top: 110px;
-  }
+.results-container-margin {
+  margin-top: 100px;
 }
+
+.search-results-width-limiter {
+  max-width: 1200px;
+}
+

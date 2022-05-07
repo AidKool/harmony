@@ -58,7 +58,7 @@ function ResultsFilter({ data, searchLocation }) {
   }, [formState, results, setFilteredResults]);
 
   return (
-    <div className="container text-center flex flex-col gap-y-5 results-container-margin ">
+    <div className="text-center flex flex-col pb-5 items-center gap-y-5 mx-auto results-container-margin">
       {filteredResults.length > 0 ? (
         <>
           <p>Users found near {capitalise(searchLocation)}</p>
@@ -163,7 +163,7 @@ function ResultsFilter({ data, searchLocation }) {
               </>
             )}
           </form>
-          <ul className="flex flex-wrap justify-center gap-5">
+          <ul className="flex flex-wrap justify-center gap-5 search-results-width-limiter">
             {filteredResults.map((user) => {
               return (
                 <li key={user.username}>
