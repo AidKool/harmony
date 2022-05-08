@@ -29,10 +29,10 @@ function ChatList() {
   }, [chatData, userData]);
 
   useEffect(() => {
-    if (chats.length > 0) {
+    if (chats.length > 0 && !activeChat) {
       setActiveChat(chats[0].chatId);
     }
-  }, [chats, setActiveChat]);
+  }, [activeChat, chats, setActiveChat]);
 
   function handleChat(event) {
     const id = event.currentTarget.dataset.id;
@@ -42,7 +42,7 @@ function ChatList() {
   if (chats) {
     return (
       <div className="px-2 py-3">
-        <h2 className="w-0 overflow-hidden md:w-fit font-bold text-2xl pb-5">All Chats</h2>
+        <h2 className="w-0 h-0 m-0 overflow-hidden md:w-fit md:h-fit font-bold text-2xl pb-5">All Chats</h2>
         <ul className="flex flex-col gap-y-1 overflow-y-auto chatlist">
           {chats.length > 0 &&
             chats.map((chat) => (
