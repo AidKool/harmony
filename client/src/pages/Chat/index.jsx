@@ -18,7 +18,7 @@ function Chat() {
           <aside className="w-fit md:w-1/5 border-gray-200 border-l max-height">
             <ChatList />
           </aside>
-          <section className="w-fit md:w-4/5 border-gray-200 border-x max-height">
+          <section className="w-full md:w-4/5 border-gray-200 border-x max-height">
             <MessageProvider>
               <Messages />
               <MessageInput />
