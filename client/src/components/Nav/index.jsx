@@ -155,6 +155,9 @@ function Nav() {
                 <Link to="/signup">Sign up</Link>
               </li>
               <li className="nav-menu-li">
+                <Link to="/feed">Feed</Link>
+              </li>
+              <li className="nav-menu-li">
                 <a target="_blank" href="https://github.com/AidKool/harmony">
                   Contact
                 </a>
