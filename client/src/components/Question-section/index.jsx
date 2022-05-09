@@ -82,32 +82,32 @@ function QuestionSection() {
             <div className="question-modal-link-container">
               <div className="link-container-position">
                 <div className="question-modal-button-link-circle qmblc1">
-                  <Link to="https://github.com/Alistairhoughton" target="_blank">
+                  <a href="https://github.com/Alistairhoughton" target="_blank">
                     <img
                       className="question-modal-circle-image"
                       src={require('./assets/aliAvatar.png')}
                       alt="alistair"
                     />
-                  </Link>
+                  </a>
                 </div>
                 <div className="question-modal-button-link-circle qmblc2">
-                  <Link to="https://github.com/mattglwilliams" target="_blank">
+                  <a href="https://github.com/mattglwilliams" target="_blank">
                     <img className="question-modal-circle-image" src={require('./assets/mattAvatar.jpg')} alt="matt" />
-                  </Link>
+                  </a>
                 </div>
                 <div className="question-modal-button-link-circle qmblc3">
-                  <Link to="https://github.com/HarkyDev" target="_blank">
+                  <a href="https://github.com/HarkyDev" target="_blank">
                     <img className="question-modal-circle-image" src={require('./assets/eoinAvatar.png')} alt="eoin" />
-                  </Link>
+                  </a>
                 </div>
                 <div className="question-modal-button-link-circle qmblc4">
-                  <Link to="https://github.com/AidKool" target="_blank">
+                  <a href="https://github.com/AidKool" target="_blank">
                     <img
                       className="question-modal-circle-image"
                       src={require('./assets/jordiAvatar.jpg')}
                       alt="jordi"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
